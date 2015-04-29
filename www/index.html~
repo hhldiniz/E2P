@@ -74,7 +74,7 @@
         <input type="password" id='senha' placeholder='Senha'>
         <input type="submit" value='Login'>
 =======
-        <input type="text" id='usuario'/>
+        <input type="text" id='matricula'/>
         <input type="password" id='senha'>
         <input type="submit" value='Login' onclick="ajax_post()">
         
