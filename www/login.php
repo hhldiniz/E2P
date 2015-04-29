@@ -19,11 +19,9 @@
 			mysql_close($conexao);
 		   }	
 			
-			echo "1";
-			//var_dump(http_response_code());
 			else
 			echo "0";
-			mysql_clone($conexao);
+			mysql_close($conexao);
 		   
         ?>
         </body>

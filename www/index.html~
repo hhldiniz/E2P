@@ -69,17 +69,14 @@
     <div id="site">
     <h1>Enem to Play</h1>
     <p>
-<<<<<<< HEAD
         <input type="text" id='matricula' placeholder='Matricula'>
         <input type="password" id='senha' placeholder='Senha'>
         <input type="submit" value='Login'>
-=======
         <input type="text" id='matricula'/>
         <input type="password" id='senha'>
         <input type="submit" value='Login' onclick="ajax_post()">
         
         <div id="status"></div>
->>>>>>> 69865ac0e0e3f0988cee5fb5539696aea52c76fd
     </p>
     <a href='http://localhost/E2P/www/cadastro.html'>Cadastrar</a>
 </div>
