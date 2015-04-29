@@ -16,12 +16,10 @@
 		   {
 			echo "1";
 			var_dump(http_response_code());
-			mysql_close($conexao);
 		   }	
 			
 			else
 			echo "0";
-			mysql_clone($conexao);
 		   
         ?>
         </body>

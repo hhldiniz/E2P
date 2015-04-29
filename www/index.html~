@@ -43,7 +43,7 @@
         <input type="password" id='senha' placeholder='Senha'>
         <input type="submit" value='Login'>
     </p>
-    <a href='http://localhost/E2P/www/cadastro.html'>Cadastrar</a>
+    <a href='http://localhost/cadastro.html'>Cadastrar</a>
 </div>
 </body>
 </html>
