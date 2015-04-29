@@ -15,7 +15,7 @@
 		   if(mysql_num_rows($resultado) > 0)
 		   {
 			echo "1";
-			var_dump(http_response_code());
+			//var_dump(http_response_code());
 			mysql_close($conexao);
 		   }	
 			
