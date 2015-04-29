@@ -13,9 +13,8 @@
            $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha='$senha'") or die(mysql_error());
            // mysql_close($conexao);
 		   if(mysql_num_rows($resultado) > 0)
-		   
 			echo "1";
-			var_dump(http_response_code());
+			//var_dump(http_response_code());
 			else
 			echo "0";
 		   
