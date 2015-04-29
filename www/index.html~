@@ -40,7 +40,7 @@
     var url = "login.php";
     var fn = document.getElementById("matricula").value;
     var ln = document.getElementById("senha").value;
-    var vars = "usuario="+fn+"&senha="+ln;
+    var vars = "matricula="+fn+"&senha="+ln;
     hr.open("POST", url, true);
     // Set content type header information for sending url encoded variables in the request
     hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

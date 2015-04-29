@@ -30,7 +30,7 @@
     </div>
     </div>
     <div id="site">
-    <h1>CADASTRO</h1>
+    <h1>Cadastro</h1>
     <p>
         <input type="text" id='matricula' placeholder='Matricula'>
         <input type="password" id='senha' placeholder='Senha'>
