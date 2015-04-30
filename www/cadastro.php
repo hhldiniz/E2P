@@ -11,7 +11,13 @@
            	mysql_select_db("e2p");
 		$sql_string="INSERT INTO usuarios VALUES("."'".$matricula."','".$senha."','".$nome."','".$sobrenome."','".$email."')";
 		$resultado =  mysql_query($sql_string) or die(mysql_error());
-		mysql_close($conexao);
+        if($resultado)
+        {
+            header("location: http://localhost/E2P/www/index.html");
+		    mysql_close($conexao);
+        }
+            else
+                mysql_close($conexao);
 	?>
 </body>
 </html>

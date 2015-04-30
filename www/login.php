@@ -14,15 +14,16 @@
            // mysql_close($conexao);
 		   if(mysql_num_rows($resultado) > 0)
 		   {
-			echo "1";
+			//echo "1";
 			//var_dump(http_response_code());
 			mysql_close($conexao);
+               header("location: http://localhost/E2P/www/home.php");
 		   }	
-			
 			else
-			echo "0";
-			mysql_close($conexao);
-		   
+            {
+			 echo "Usuario/Senha nao foi encontrado";
+			 mysql_close($conexao);
+            }
         ?>
         </body>
 </html>

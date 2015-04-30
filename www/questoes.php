@@ -9,7 +9,7 @@
           //  echo("<script>alert("+$nome+")</script>");
           //  echo($nome);
             $conexao = mysql_connect("localhost","root","");
-            mysql_select_db("enem");
+            mysql_select_db("e2p");
            $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha='$senha'") or die(mysql_error());
            // mysql_close($conexao);
 		   if(mysql_num_rows($resultado) > 0)
