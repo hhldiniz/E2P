@@ -35,7 +35,6 @@
     </script>
 </head>
 <body>
-    <div id='global'>
     <div id='fundo-externo'>
     <div id='fundo'>
         <img src="http://localhost/E2P/www/imagens/1.png">
@@ -51,7 +50,6 @@
         <div id="status"></div>
     </p>
     <a href='http://localhost/E2P/www/cadastro.html'>Cadastrar</a>
-</div>
 </div>
 </body>
 </html>
