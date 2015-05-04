@@ -14,10 +14,10 @@
            // mysql_close($conexao);
 		   if(mysql_num_rows($resultado) > 0)
 		   {
-			//echo "1";
+			echo "1";
 			//var_dump(http_response_code());
 			mysql_close($conexao);
-               header("location: http://localhost/E2P/www/home.php");
+              		header("location: http://localhost/E2P/www/home.html");
 		   }	
 			else
             {

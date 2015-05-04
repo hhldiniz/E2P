@@ -13,7 +13,7 @@
 		$resultado =  mysql_query($sql_string) or die(mysql_error());
         if($resultado)
         {
-            header("location: http://localhost/E2P/www/index.html");
+            	    header("location: http://localhost/E2P/www/index.html");
 		    mysql_close($conexao);
         }
             else

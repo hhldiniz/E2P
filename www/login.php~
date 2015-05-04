@@ -17,12 +17,13 @@
 			echo "1";
 			//var_dump(http_response_code());
 			mysql_close($conexao);
+              		//header("location: http://localhost/E2P/www/home.html");
 		   }	
-			
 			else
-			echo "0";
-			mysql_clone($conexao);
-		   
+            {
+			 echo "Usuario/Senha nao foi encontrado";
+			 mysql_close($conexao);
+            }
         ?>
         </body>
 </html>

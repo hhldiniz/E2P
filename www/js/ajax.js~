@@ -13,12 +13,12 @@
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data;
+			document.getElementById("corpo").innerHTML = return_data;
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    //document.getElementById("status").innerHTML = "processing...";
+    document.getElementById("site").innerHTML = "processing...";
 }
 
 function ajax_cadastro()
@@ -40,10 +40,10 @@ function ajax_cadastro()
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data;
+			document.getElementsByTagName("body")[0].innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("status").innerHTML = "processing...";	
+    document.getElementById("site").innerHTML = "processing...";	
 }
