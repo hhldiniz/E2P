@@ -25,19 +25,16 @@ body, html {
 }
 #site {
     position: absolute;
-    top: 40px;
+    top: 50%;
     left: 50%;
-    width: 560px;
+    width: 400px;
     padding: 20px;
     margin-left: -300px; /* por causa do posicionamento absoluto temos que usar margem negativa para centralizar o site */
     background: #FFF; /* fundo branco para navegadores que não suportam rgba */
     background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transparência */
+    padding-left: 200px;
 }
  
 p {
     margin-bottom: 1.5em;
-}
-.button_login
-{
-	background: url('http://localhost/E2P/www/imagens/botao_confirm_teste.png') no-repeat;
 }
