@@ -49,3 +49,7 @@ function ajax_cadastro()
     hr.send(vars); // Actually execute the request
     document.getElementById("site").innerHTML = "processing...";	
 }
+function ajaxInserirQuestao()
+{
+    var questoes=document.getElementsByClassName('questao_texto');
+}
