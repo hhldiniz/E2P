@@ -3,9 +3,9 @@
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
     var url = "login.php";
-    var fn = document.getElementById("matricula").value;
+    var fn = document.getElementById("usuario").value;
     var ln = document.getElementById("senha").value;
-    var vars = "matricula="+fn+"&senha="+ln;
+    var vars = "usuario="+fn+"&senha="+ln;
     hr.open("POST", url, true);
     // Set content type header information for sending url encoded variables in the request
     hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -32,7 +32,8 @@ function ajax_cadastro()
     var email=document.getElementById("email").value;
     var nome=document.getElementById("nome").value;
     var sobrenome=document.getElementById("sobrenome").value;
-    var vars = "matricula="+fn+"&senha="+ln+"&nome="+nome+"&sobrenome="+sobrenome+"&email="+email;
+    var usuario=document.getElementById("usuario").value;
+    var vars = "matricula="+fn+"&senha="+ln+"&email="+email+"&nome="+nome+"&sobrenome="+sobrenome+"&usuario="+usuario;
     hr.open("POST", url, true);
     // Set content type header information for sending url encoded variables in the request
     hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

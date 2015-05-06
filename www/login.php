@@ -1,7 +1,7 @@
 <html>
         <body>
     <?php
-          $matricula=$_POST['matricula'];
+          $usuario=$_POST['usuario'];
             $senha=$_POST['senha'];
           //  $email=$_POST['email'];
            // $nome=$_POST['nome'];
@@ -10,7 +10,7 @@
           //  echo($nome);
             $conexao = mysql_connect("localhost","root","");
             mysql_select_db("e2p");
-           $resultado =  mysql_query("select * from usuarios where matricula='$matricula' and senha='$senha'") or die(mysql_error());
+           $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha='$senha'") or die(mysql_error());
            // mysql_close($conexao);
 		   if(mysql_num_rows($resultado) > 0)
 		   {
