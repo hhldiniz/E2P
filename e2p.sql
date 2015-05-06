@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 29-Abr-2015 às 16:13
+-- Generation Time: 06-Maio-2015 às 13:55
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -80,12 +80,21 @@ INSERT INTO `questoes` (`id`, `titulo`, `idNivel`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `senha` varchar(20) NOT NULL,
-  `matricula` varchar(50) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `sobrenome` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `usuario` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `matricula` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`) VALUES
+('abc', 'abc', 'abc', 'abc@abc.com', '123', '123'),
+('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com');
 
 --
 -- Indexes for dumped tables
@@ -113,7 +122,7 @@ ALTER TABLE `questoes`
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`senha`,`matricula`);
+ ADD PRIMARY KEY (`usuario`,`senha`);
 
 --
 -- AUTO_INCREMENT for dumped tables
