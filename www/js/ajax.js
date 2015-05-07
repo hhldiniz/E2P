@@ -23,6 +23,12 @@
 
 function ajax_cadastro()
 {
+    
+    if($("#senha2").val() != $("#senha").val()){
+            $("#senha2").css({"border" : "1px solid #F00", "padding": "2px"});
+            cont++;
+        }else{
+    
 	 // Create our XMLHttpRequest object
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
@@ -42,13 +48,14 @@ function ajax_cadastro()
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
 			document.getElementsByTagName("body")[0].innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
-		    alert("Cadastro Concluido");
+		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
     document.getElementById("site").innerHTML = "processing...";	
-}
+        }
+        }
 function ajaxInserirQuestao()
 {
     var questoes=document.getElementsByClassName('questao_texto');

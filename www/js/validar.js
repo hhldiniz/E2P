@@ -8,10 +8,7 @@ $(document).ready(function(){
     $("#botao").click(function(){
      var cont = 0;
         
-        if($("#senha2").val() != $("#senha").val()){
-            $("#senha2").css({"border" : "1px solid #F00", "padding": "2px"});
-            cont++;
-        }
+        
         
      $("#form input").each(function(){
 
