@@ -1,4 +1,7 @@
   function ajax_post(){
+
+    if($("#usuario").val() != "" && $("#senha").val() != ""){
+
     // Create our XMLHttpRequest object
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
@@ -19,6 +22,12 @@
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
     document.getElementById("site").innerHTML = "processing...";
+    
+    }else{
+        $("#status").text("Todos usuario e/ou senha Não foram digitadas!");
+    }
+
+
 }
 
 function ajax_cadastro()
