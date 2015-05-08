@@ -27,7 +27,7 @@ function ajax_cadastro()
     if($("#senha2").val() != $("#senha").val()){
             $("#senha2").css({"border" : "1px solid #F00", "padding": "2px"});
              $("#senha").css({"border" : "1px solid #F00", "padding": "2px"});
-            document.getElementById("site").innerHTML = "Senhas não coincidem!";
+            document.getElementById("status").innerHTML = "Senhas não coincidem!";
             
         }else{
     
