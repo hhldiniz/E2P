@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $("input").blur(function(){
+$(document).ready(function(){ 
+     $("input").blur(function(){
      if($(this).val() == "")
          {
              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
@@ -7,9 +7,7 @@ $(document).ready(function(){
     });
     $("#botao").click(function(){
      var cont = 0;
-        
-        
-        
+     $.Storage.saveItem("$('#permanecer').val");
      $("#form input").each(function(){
 
          if($(this).val() == "")
@@ -23,13 +21,5 @@ $(document).ready(function(){
              $("#form").submit();
          }
     });
-    $("#permanecer").click(function(){
-	if($(this).val=="on")
-	{
-		$.Storage.saveItem('permanecer_conectado',"on");
-	}
-	else
-		$.Storage.saveItem('permanecer_conectado','off');
-});
     
 });
