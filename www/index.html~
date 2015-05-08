@@ -33,6 +33,10 @@
             }
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
+	function teste()
+	{
+		alert(document.getElementById("permanecer").value);
+	}
     </script>
 </head>
 <body>
@@ -46,7 +50,7 @@
     <p>
         <input type="text" id='usuario' placeholder='Usuario'><BR>
         <input type="password" id='senha' placeholder='Senha'><BR>
-	<input type='checkbox' id='permanecer' onclick='manter_conectado()'> Quero permanecer conectado<BR>
+	<input type='checkbox' id='permanecer' onclick='teste()'> Quero permanecer conectado<BR>
         <input type="image" onclick="ajax_post()" src="http://localhost/E2P/www/imagens/botao_confirm_teste.png">
 	 <a href='http://localhost/E2P/www/cadastro.html'><input type='image' src="http://localhost/E2P/www/imagens/botao_chose_teste.png"></a>
         <div id="status"></div>

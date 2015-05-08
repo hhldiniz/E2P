@@ -30,6 +30,6 @@ $(document).ready(function(){
 	}
 	else
 		$.Storage.saveItem('permanecer_conectado','off');
-});
+}
     
 });
