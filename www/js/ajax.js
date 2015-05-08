@@ -24,7 +24,7 @@
     document.getElementById("site").innerHTML = "processing...";
     
     }else{
-        $("#status").text("Todos usuario e/ou senha Não foram digitadas!");
+        $("#status").text("Usuario e/ou senha não foram digitadas!");
     }
 
 
