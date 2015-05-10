@@ -1,0 +1,73 @@
+<html>
+	<head>
+			<title>Enem to Play - Cadastro de Questoes</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="css/estilo.css" rel="stylesheet">
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+    <script src="cordova.js" id="xdkJScordova_"></script>
+    <script src="intelxdk.js"></script>
+    <script src="xhr.js"></script>
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/adaptarBackground.js"></script>
+    <script src="js/validar.js"></script>
+    <script src="js/ajax.js"></script>
+    <script id="xdkJSonDeviceReady_">
+        function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
+            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
+                navigator.splashscreen.hide() ;
+            }
+        }
+        document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
+    </script>
+	</head>
+	<body>
+		<script>
+			function addQuestao()
+			{
+				$("span").append("<BR><BR><input type='text' id='questao_texto' placeholder='Texto da questão'><BR><input type='radio' name='alternativas' value='a'> <input type='text' id='alternativa1' placeholder='Alternativa 1'><BR><input type='radio' name='alternativas' value='b'> <input type='text' id='alternativa1' placeholder='Alternativa 2'><BR> <input type='radio' name='alternativas' value='c'> <input type='text' id='alternativa1' placeholder='Alternativa 3'><BR> <input type='radio' name='alternativas' value='d'> <input type='text' id='alternativa1' placeholder='Alternativa 4'><BR> <input type='radio' name='alternativas' value='e'> <input type='text' id='alternativa1' placeholder='Alternativa 5'><BR>");
+			}
+		</script>
+		<div id='fundo-externo'>
+    <div id='fundo'>
+        <img src="http://localhost/E2P/www/imagens/1.png">
+    </div>
+    </div>
+    <div id="site">
+    <h1>Matérias</h1>
+    <p>
+       <div class='materias'>
+       <input type='checkbox' name='subjects' value='a'> Matematica 
+       <input type='checkbox' name='subjects' value='b'> Geografia
+       <input type='checkbox' name='subjects' value='c'> História
+       <input type='checkbox' name='subjects' value='d'> Português
+       <input type='checkbox' name='subjects' value='e'> Quimico <br><br>
+    
+           
+    <h1>Dificuldade</h1>  <br>
+       
+       <input type='radio' name='dificulty' value='a'> Fácil 
+       <input type='radio' name='dificulty' value='b'> Médio
+       <input type='radio' name='dificulty' value='c'> Dificil <br> 
+           
+       
+           <div id="status"></div>
+           
+       <span></span>
+        <BR>
+       <input type='button' onclick='ajaxSelectQuest()' value='Adicionar mais campos'>
+   </div>
+
+    </p>
+</div>
+	</body>
+</html>

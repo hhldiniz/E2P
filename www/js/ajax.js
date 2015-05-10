@@ -71,3 +71,25 @@ function ajaxInserirQuestao()
 {
     var questoes=document.getElementsByClassName('questao_texto');
 }
+
+function ajaxSelectQuest(){
+     var hr = new XMLHttpRequest();
+    // Create some variables we need to send to our PHP file
+    var url = "partida.php";
+    
+  
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var return_data = hr.responseText;
+			document.getElementById("status").innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
+		   // alert("Cadastro Concluido");
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(); // Actually execute the request
+    document.getElementById("status").innerHTML = "processing...";	       
+}
