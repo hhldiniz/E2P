@@ -8,8 +8,8 @@ $(document).ready(function(){
     $("#permanecer").click(function(){
 	if($(this).is(':checked'))
 	{
-		$.localStorage('usuario',$('#usuario'));
-		$.localStorage('senha',$('#senha'));
+		$.localStorage('usuario',$('#usuario').val());
+		$.localStorage('senha',$('#senha').val());
 		alert($.localStorage('usuario'));
 		alert($.localStorage('senha'));
 	}
