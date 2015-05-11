@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Maio-2015 às 16:59
+-- Generation Time: 11-Maio-2015 às 16:20
 -- Versão do servidor: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `opcoes` (
   `content` varchar(255) NOT NULL,
   `right_answer` tinyint(1) NOT NULL,
   `question_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `opcoes`
@@ -70,7 +70,15 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (1, '5', 0, 1),
 (2, '4', 1, 1),
 (3, '3', 0, 1),
-(4, '2', 0, 1);
+(4, '2', 0, 1),
+(5, '1', 0, 2),
+(6, '2', 1, 2),
+(7, '3', 0, 2),
+(8, '4', 0, 2),
+(9, '8', 0, 3),
+(10, '9', 0, 3),
+(11, '10', 1, 3),
+(12, '11', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -83,14 +91,16 @@ CREATE TABLE IF NOT EXISTS `questoes` (
   `titulo` varchar(255) NOT NULL,
   `idNivel` int(10) NOT NULL,
   `id_mate` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `questoes`
 --
 
 INSERT INTO `questoes` (`id`, `titulo`, `idNivel`, `id_mate`) VALUES
-(1, 'Quanto é dois mais dois?', 0, 1);
+(1, 'Quanto é dois mais dois?', 0, 1),
+(2, 'X + 2 = 4. Qual o valor de X? ', 0, 1),
+(3, '5+5 = ?', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -167,12 +177,12 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT for table `opcoes`
 --
 ALTER TABLE `opcoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `questoes`
 --
 ALTER TABLE `questoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
