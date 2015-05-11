@@ -5,9 +5,22 @@ $(document).ready(function(){
              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
          }
     });
+    $("#permanecer").click(function(){
+	if($(this).is(':checked'))
+	{
+		$.localStorage('usuario',$('#usuario').val);
+		$.localStorage('senha',$('#senha').val);
+		alert($.localStorage('usuario'));
+		alert($.localStorage('senha'));
+	}
+	else
+	{
+		$.localStorage('usuario',null);
+		$.localStorage('senha',null);
+	}
+});
     $("#botao").click(function(){
      var cont = 0;
-     $.Storage.saveItem("$('#permanecer').val");
      $("#form input").each(function(){
 
          if($(this).val() == "")
