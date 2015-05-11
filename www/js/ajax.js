@@ -1,9 +1,10 @@
+   var hr = new XMLHttpRequest();
+  
   function ajax_post(){
 
     if($("#usuario").val() != "" && $("#senha").val() != ""){
 
     // Create our XMLHttpRequest object
-    var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
     var url = "login.php";
     var fn = document.getElementById("usuario").value;
@@ -31,7 +32,7 @@
 }
  function ajax_sessao(usuario,senha) //função para ser chamada apenas quando o usuário e senha são obtidos da sessão do navegador
 {
-	var hr = new XMLHttpRequest();
+
 	var url="login.php"
 	var vars = "usuario="+usuario+"&senha="+senha;
 	hr.open("POST",url,true);
@@ -67,7 +68,6 @@ function ajax_cadastro()
         {
     
 	 // Create our XMLHttpRequest object
-    var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
     var url = "cadastro.php";
     var fn = document.getElementById("matricula").value;
@@ -94,14 +94,11 @@ function ajax_cadastro()
         }
         }
 
-<<<<<<< HEAD
+
 function ajaxSelectQuest()
 {
-     var hr = new XMLHttpRequest();
-=======
-function ajaxSelectQuest(){
     
->>>>>>> 4a53700473dd0cd404ceb96c2beac58b2cf67ca5
+
     // Create some variables we need to send to our PHP file
     var url = "partida.php";
     
@@ -117,12 +114,10 @@ function ajaxSelectQuest(){
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
 			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
-<<<<<<< HEAD
-=======
+
 		   //return return_data;
            //  ajaxSelectOpt(return_data);
             // alert("Cadastro Concluido");
->>>>>>> 4a53700473dd0cd404ceb96c2beac58b2cf67ca5
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
@@ -130,13 +125,13 @@ function ajaxSelectQuest(){
      document.getElementById("status").innerHTML = "processing...";	       
 }
 
-<<<<<<< HEAD
+
 // function ajaxInsereQuestao()
 // {
 //     var aux=document.getElementsByClass("questoes")[1];
 //     alert(aux);
 // }
-=======
+
 function ajaxSelectOpt(json){
 console.log(json[0]);
     
@@ -160,5 +155,3 @@ console.log(json[0]);
     document.getElementById("site").innerHTML = "processing...";	
         }
     
-
->>>>>>> 4a53700473dd0cd404ceb96c2beac58b2cf67ca5
