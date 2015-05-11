@@ -72,6 +72,7 @@ function ajaxInserirQuestao()
     var questoes=document.getElementsByClassName('questao_texto');
 }
 
+
 function ajaxSelectQuest(){
      var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
@@ -85,7 +86,9 @@ function ajaxSelectQuest(){
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
+          //  return_data = return_data.getElementsByTagName("body");
+            return_data = $.parseJSON(return_data);
+			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }

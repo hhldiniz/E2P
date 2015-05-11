@@ -1,31 +1,25 @@
-<html>
-        <body>
-    <?php
+<?php
           header('Content-Type: text/html; charset=utf-8');
             $conexao = mysql_connect("localhost","root","");
             mysql_set_charset('utf8', $conexao);
             mysql_select_db("e2p");
            $resultado =  mysql_query("select id,titulo from questoes") or die(mysql_error());
-           // mysql_close($conexao);
+         
 		   if(mysql_num_rows($resultado) > 0)
 		   {
-			//echo "1";
-			//var_dump(http_response_code());
+               $retorno = array();
 			 while($row = mysql_fetch_assoc($resultado)) {
-                 $retorno = array('id' => $row["id"], 'titulo' => $row["titulo"]);
+                 $retorno[] = $row;
                  
-        echo json_encode($retorno);
-            //"id: " . $row["id"]. " - Name: " . $row["titulo"].  "<br>";
-    }
-               
-               mysql_close($conexao);
+           
+            }
+               echo json_encode($retorno);
+            mysql_close($conexao);
               		
             }	
-		//	else
-          //  {
-		//	 echo "Usuario/Senha nao foi encontrado";
-		//	 mysql_close($conexao);
-         //   }
+			else
+            {
+			 echo "Erro com o banco de questoes!";
+			 mysql_close($conexao);
+            }
         ?>
-        </body>
-</html>
