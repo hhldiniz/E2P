@@ -12,7 +12,10 @@
 			//echo "1";
 			//var_dump(http_response_code());
 			 while($row = mysql_fetch_assoc($resultado)) {
-        echo "id: " . $row["id"]. " - Name: " . $row["titulo"].  "<br>";
+                 $retorno = array('id' => $row["id"], 'titulo' => $row["titulo"]);
+                 
+        echo json_encode($retorno);
+            //"id: " . $row["id"]. " - Name: " . $row["titulo"].  "<br>";
     }
                
                mysql_close($conexao);
