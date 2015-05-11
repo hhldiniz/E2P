@@ -5,10 +5,10 @@ $(document).ready(function(){
              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
          }
     });
-    if($.localStorage('usuario')!=null)
-	{
-		
-	}
+    if(localStorage.getItem('usuario')!=null)
+    {
+        
+    }
     $("#permanecer").click(function(){
 	if($(this).is(':checked'))
 	{
