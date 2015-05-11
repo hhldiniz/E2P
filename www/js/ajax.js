@@ -1,4 +1,4 @@
-   var hr = new XMLHttpRequest();
+var hr = new XMLHttpRequest();
   
   function ajax_post(){
 
@@ -116,7 +116,7 @@ function ajaxSelectQuest()
 			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
 
 		   //return return_data;
-           //  ajaxSelectOpt(return_data);
+             ajaxSelectOpt(return_data);
             // alert("Cadastro Concluido");
 	    }
     }
@@ -135,7 +135,7 @@ function ajaxSelectQuest()
 function ajaxSelectOpt(json){
 console.log(json[0]);
     
-   var url = "partida.php";
+   var url = "opcoes.php";
     var id = json[0].id;
     var vars = "id="+id;
     hr.open("POST", url, true);
@@ -145,13 +145,13 @@ console.log(json[0]);
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-            return_data = $.parseJSON(return_data);
-			$("body").append(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+            //return_data = $.parseJSON(return_data);
+			$("body").append(return_data); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";	
+    document.getElementById("status").innerHTML = "processing...";	
         }
     
