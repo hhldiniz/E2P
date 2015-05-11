@@ -94,7 +94,7 @@ function ajaxInserirQuestao()
 
 
 function ajaxSelectQuest(){
-     var hr = new XMLHttpRequest();
+    
     // Create some variables we need to send to our PHP file
     var url = "partida.php";
     
@@ -109,10 +109,37 @@ function ajaxSelectQuest(){
           //  return_data = return_data.getElementsByTagName("body");
             return_data = $.parseJSON(return_data);
 			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
-		   // alert("Cadastro Concluido");
+		   //return return_data;
+           //  ajaxSelectOpt(return_data);
+            // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(); // Actually execute the request
     document.getElementById("status").innerHTML = "processing...";	       
 }
+
+function ajaxSelectOpt(json){
+console.log(json[0]);
+    
+   var url = "partida.php";
+    var id = json[0].id;
+    var vars = "id="+id;
+    hr.open("POST", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var return_data = hr.responseText;
+            return_data = $.parseJSON(return_data);
+			$("body").append(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+		   // alert("Cadastro Concluido");
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+    document.getElementById("site").innerHTML = "processing...";	
+        }
+    
+
