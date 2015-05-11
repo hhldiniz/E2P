@@ -10,8 +10,6 @@ $(document).ready(function(){
 	{
 		$.localStorage('usuario',$('#usuario').val());
 		$.localStorage('senha',$('#senha').val());
-		alert($.localStorage('usuario'));
-		alert($.localStorage('senha'));
 	}
 	else
 	{

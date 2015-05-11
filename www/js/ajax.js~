@@ -29,7 +29,7 @@
 
 
 }
- function ajax_sessao(usuario,senha) //função para ser chamada apenas quando o usuário e senha são obtidos da sessão do navegador
+ function ajax_sessao(usuario,senha)
 {
 	var hr = new XMLHttpRequest();
 	var url="login.php"
