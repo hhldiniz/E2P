@@ -32,7 +32,6 @@
 	</head>
 	<body>
 		<script>
-		function retornaContador(){return count;}
     var count=0;
 			function addQuestao()
 			{
