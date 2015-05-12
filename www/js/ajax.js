@@ -104,6 +104,29 @@ function ajaxSelectQuest()
 
     // Create some variables we need to send to our PHP file
 
+    var materias = [];
+    materias = $('input:checkbox:checked.subjects').map(function () {
+      switch (this.value){
+        case "mat":
+            return 1;
+            break;
+        case "geo":
+            return 2;
+            break;
+        case "hist":
+            return 3;
+            break;
+        case "port":
+            return 4;
+            break;
+        case "quim":
+            return 5;
+            break;
+
+      }
+}).get();
+console.log(materias);
+
     var url = "partida.php";
     
   
