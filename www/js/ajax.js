@@ -66,6 +66,9 @@ function ajax_cadastro()
         }
     else
         {
+
+
+
     
 	 // Create our XMLHttpRequest object
     // Create some variables we need to send to our PHP file
@@ -100,6 +103,7 @@ function ajaxSelectQuest()
     
 
     // Create some variables we need to send to our PHP file
+
     var url = "partida.php";
     
   
