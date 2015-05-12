@@ -8,8 +8,8 @@
             mysql_select_db("e2p");
 
 
-        	$id = _POST["id"];
-                $resultado =  mysql_query("select content,right_answer from opcoes where question_id=".$id.) or die(mysql_error());
+        	$id = $_POST['id'];
+                $resultado =  mysql_query("select content,right_answer from opcoes where question_id=".$id."") or die(mysql_error());
 
                if(mysql_num_rows($resultado) > 0)
                {

@@ -116,7 +116,7 @@ function ajaxSelectQuest()
 			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
 
 		   //return return_data;
-             ajaxSelectOpt(return_data);
+             ajaxSelectOpt(return_data[0].id);
             // alert("Cadastro Concluido");
 	    }
     }
@@ -132,11 +132,9 @@ function ajaxSelectQuest()
 //     alert(aux);
 // }
 
-function ajaxSelectOpt(json){
-console.log(json[0]);
+function ajaxSelectOpt(id){
     
    var url = "opcoes.php";
-    var id = json[0].id;
     var vars = "id="+id;
     hr.open("POST", url, true);
     // Set content type header information for sending url encoded variables in the request
@@ -146,12 +144,12 @@ console.log(json[0]);
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
             //return_data = $.parseJSON(return_data);
-			$("body").append(return_data); //gambiarra para contornar problema indescritivel com javascript
+			$("#site").append(return_data); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("status").innerHTML = "processing...";	
+    //document.getElementById("status").innerHTML = "processing...";	
         }
     
