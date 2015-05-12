@@ -126,6 +126,10 @@ function ajaxSelectQuest()
       }
 }).get();
 console.log(materias);
+    var dific;
+    dific = $("input:radio[name=dificulty]:checked").val();
+
+    console.log(dific);
 
     var url = "partida.php";
     
