@@ -158,3 +158,17 @@ function ajaxSelectOpt(id){
     //document.getElementById("status").innerHTML = "processing...";	
         }
     
+function ajaxCadastroQuestao(texto, alt1,alt2,alt3,alt4,alt5)
+{
+	var url="cadastroQuestoes.php";
+	var vars="questao_texto="+texto+"&alternativa1="+alt1+"&alternativa2="+alt2+"&alternativa3="+alt3+"&alternativa4="+alt4+"&alternativa5="+alt5;
+	hr.open("GET",url,true);
+	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	hr.onreadystatechange=function(){
+		if(hr.readyState == 4 && hr.status == 200) {
+		    var return_data = hr.responseText;
+			document.getElementsByTagName("body")[0].innerHTML = return_data;
+}
+hr.send(vars);
+}
+}
