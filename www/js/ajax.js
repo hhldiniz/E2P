@@ -143,8 +143,13 @@ function ajaxSelectOpt(id){
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-            //return_data = $.parseJSON(return_data);
-			$("#site").append(return_data); //gambiarra para contornar problema indescritivel com javascript
+            return_data = $.parseJSON(return_data);
+            var html = "<br>";
+            
+            for(var i=0;i<return_data.length;i++){
+              html +=  '<input type="radio" name="answer" value="'+return_data[i].right_answer+'"> '+return_data[i].content+"<br>";
+            }
+			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
