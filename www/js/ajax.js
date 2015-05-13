@@ -1,18 +1,19 @@
 var hr = new XMLHttpRequest();
+
+function httpRequestCreate(method,url){
+    hr.open(method,url,true);    
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
+}
   
   function ajax_post(){
 
     if($("#usuario").val() != "" && $("#senha").val() != ""){
 
-    // Create our XMLHttpRequest object
-    // Create some variables we need to send to our PHP file
-    var url = "login.php";
     var fn = document.getElementById("usuario").value;
     var ln = document.getElementById("senha").value;
     var vars = "usuario="+fn+"&senha="+ln;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+    httpRequestCreate("POST","login.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
@@ -33,10 +34,9 @@ var hr = new XMLHttpRequest();
  function ajax_sessao(usuario,senha) //função para ser chamada apenas quando o usuário e senha são obtidos da sessão do navegador
 {
 
-	var url="login.php"
 	var vars = "usuario="+usuario+"&senha="+senha;
-	hr.open("POST",url,true);
-	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    httpRequestCreate("POST","login.php");
 	hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
@@ -69,10 +69,6 @@ function ajax_cadastro()
 
 
 
-    
-	 // Create our XMLHttpRequest object
-    // Create some variables we need to send to our PHP file
-    var url = "cadastro.php";
     var fn = document.getElementById("matricula").value;
     var ln = document.getElementById("senha").value;
     var email=document.getElementById("email").value;
@@ -80,9 +76,8 @@ function ajax_cadastro()
     var sobrenome=document.getElementById("sobrenome").value;
     var usuario=document.getElementById("usuario").value;
     var vars = "matricula="+fn+"&senha="+ln+"&email="+email+"&nome="+nome+"&sobrenome="+sobrenome+"&usuario="+usuario;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    httpRequestCreate("POST","cadastro.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
@@ -128,15 +123,23 @@ function ajaxSelectQuest()
 console.log(materias);
     var dific;
     dific = $("input:radio[name=dificulty]:checked").val();
-
+    
+    switch(dific){
+        case "facil":
+            dific=1;
+            break;
+        case "medio":
+            dific=2;
+            break;
+        case "dificil":
+            dific=3;
+            break;
+    }
+    
     console.log(dific);
 
-    var url = "partida.php";
     
-  
-    hr.open("GET", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpRequestCreate("GET","partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
     {
@@ -165,14 +168,15 @@ console.log(materias);
 
 function ajaxSelectOpt(id){
     
-   var url = "opcoes.php";
+    
+    httpRequestCreate("POST","opcoes.php");
+    
     var vars = "id="+id;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
+            
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             var html = "<br>";
@@ -190,11 +194,10 @@ function ajaxSelectOpt(id){
         }
     
 function ajaxCadastroQuestao(texto, alt1,alt2,alt3,alt4,alt5)
-{
-	var url="cadastroQuestoes.php";
+{   
+    
+    httpRequestCreate("GET","cadastroQuestoes.php");
 	var vars="questao_texto="+texto+"&alternativa1="+alt1+"&alternativa2="+alt2+"&alternativa3="+alt3+"&alternativa4="+alt4+"&alternativa5="+alt5;
-	hr.open("GET",url,true);
-	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	hr.onreadystatechange=function(){
 		if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
