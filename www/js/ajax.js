@@ -138,7 +138,8 @@ console.log(materias);
     
     console.log(dific);
 
-    
+    var vars = "materias="+JSON.stringify(materias);
+
     httpRequestCreate("GET","partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
