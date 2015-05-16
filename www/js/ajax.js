@@ -82,13 +82,13 @@ function ajax_cadastro()
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
+			document.getElementsByTagName("status").innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";	
+    document.getElementById("status").innerHTML = "processing...";	
         }
         }
 
