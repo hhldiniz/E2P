@@ -190,7 +190,9 @@ function ajaxSelectOpt(id){
             var html = "<br>";
             
             for(var i=0;i<return_data.length;i++){
-              html +=  '<input type="radio" name="answer" value="'+return_data[i].right_answer+'"> '+return_data[i].content+"<br>";
+              html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
+                  '<label for="op'+i+'">'+return_data[i].content+
+                  '</label><br>';
             }
 			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
