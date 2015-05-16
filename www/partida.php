@@ -6,10 +6,31 @@
             mysql_set_charset('utf8', $conexao);
             mysql_select_db("e2p");
 
+        $dificuldade = $_POST['dific'];
+        
+        $sql = "select id,titulo from questoes";
+
+        if(isset($_POST['materias'])){
+            $materia = json_decode(stripslashes($_POST['materias']));
+            $sql .= " where id_mate in (";
+            $i =0;
+              foreach($materia as $m){
+                  if($i>=1){
+                    $sql .= ",";
+                }
+                 $i++;
+                 $sql .= $m;
+                
+              }
+            $sql .= ")";
+        
+        }
+
+
 
 
             
-     $resultado =  mysql_query("select id,titulo from questoes") or die(mysql_error());
+     $resultado =  mysql_query($sql) or die(mysql_error());
          
 		   if(mysql_num_rows($resultado) > 0)
 		   {

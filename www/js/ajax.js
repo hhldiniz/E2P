@@ -138,9 +138,12 @@ console.log(materias);
     
     console.log(dific);
 
-    var vars = "materias="+JSON.stringify(materias);
+    //var vars = "materias="+JSON.stringify(materias);
+    var vars = "dific="+dific;
+    //adicionando materias ao post se foram selecionadas
+    if(materias.length>0){ vars+="&materias="+JSON.stringify(materias)}
 
-    httpRequestCreate("GET","partida.php");
+    httpRequestCreate("POST","partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
     {
@@ -150,13 +153,17 @@ console.log(materias);
             return_data = $.parseJSON(return_data);
 			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
 
+            //document.getElementById("site").innerHTML = return_data;
+            
 		   //return return_data;
-             ajaxSelectOpt(return_data[0].id);
+           
+            ajaxSelectOpt(return_data[0].id);
+            
             // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
-    hr.send(); // Actually execute the request
+    hr.send(vars); // Actually execute the request
      document.getElementById("status").innerHTML = "processing...";	       
 }
 
