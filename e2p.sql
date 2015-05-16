@@ -1,13 +1,13 @@
-﻿-- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- phpMyAdmin SQL Dump
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 14/05/2015 às 16h36min
--- Versão do Servidor: 5.5.43
--- Versão do PHP: 5.3.10-1ubuntu3.18
+-- Host: 127.0.0.1
+-- Generation Time: 16-Maio-2015 às 16:45
+-- Versão do servidor: 5.6.24
+-- PHP Version: 5.6.8
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `e2p`
+-- Database: `e2p`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `materias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(205) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `id` int(11) NOT NULL,
+  `nome` varchar(205) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `materias`
@@ -50,10 +49,9 @@ INSERT INTO `materias` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `nivel` (
-  `idNivel` int(10) NOT NULL AUTO_INCREMENT,
-  `nivel` varchar(205) NOT NULL,
-  PRIMARY KEY (`idNivel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `idNivel` int(10) NOT NULL,
+  `nivel` varchar(205) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `nivel`
@@ -71,13 +69,11 @@ INSERT INTO `nivel` (`idNivel`, `nivel`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `opcoes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `right_answer` tinyint(1) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `question_id` (`question_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `question_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `opcoes`
@@ -95,7 +91,11 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (9, '8', 0, 3),
 (10, '9', 0, 3),
 (11, '10', 1, 3),
-(12, '11', 0, 3);
+(12, '11', 0, 3),
+(13, 'Enforcado', 1, 4),
+(14, 'Com um tiro no cu', 0, 4),
+(15, 'Negaram água pra ele', 0, 4),
+(16, 'Ele se cansou de viver', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -104,24 +104,21 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questoes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `idNivel` int(10) NOT NULL,
-  `id_mate` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idNivel` (`idNivel`),
-  KEY `id_mate` (`id_mate`),
-  KEY `id_mate_2` (`id_mate`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `id_mate` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `questoes`
 --
 
 INSERT INTO `questoes` (`id`, `titulo`, `idNivel`, `id_mate`) VALUES
-(1, 'Quanto é dois mais dois?', 1, 1),
-(2, 'X + 2 = 4. Qual o valor de X? ', 2, 1),
-(3, '5+5 = ?', 1, 1);
+(1, 'Quanto é dois mais dois?', 0, 1),
+(2, 'X + 2 = 4. Qual o valor de X? ', 0, 1),
+(3, '5+5 = ?', 0, 1),
+(4, 'Como Tiradentes foi morto?', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -135,8 +132,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `usuario` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `matricula` varchar(50) NOT NULL,
-  `senha` varchar(50) NOT NULL,
-  PRIMARY KEY (`usuario`,`senha`)
+  `senha` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -148,14 +144,72 @@ INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `s
 ('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com');
 
 --
--- Restrições para as tabelas dumpadas
+-- Indexes for dumped tables
 --
 
 --
--- Restrições para a tabela `opcoes`
+-- Indexes for table `materias`
+--
+ALTER TABLE `materias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nivel`
+--
+ALTER TABLE `nivel`
+  ADD PRIMARY KEY (`idNivel`);
+
+--
+-- Indexes for table `opcoes`
 --
 ALTER TABLE `opcoes`
-  ADD CONSTRAINT `opcoes_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questoes` (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
+
+--
+-- Indexes for table `questoes`
+--
+ALTER TABLE `questoes`
+  ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario`,`senha`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `materias`
+--
+ALTER TABLE `materias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `nivel`
+--
+ALTER TABLE `nivel`
+  MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `opcoes`
+--
+ALTER TABLE `opcoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `questoes`
+--
+ALTER TABLE `questoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `opcoes`
+--
+ALTER TABLE `opcoes`
+ADD CONSTRAINT `opcoes_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questoes` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
