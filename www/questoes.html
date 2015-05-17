@@ -34,10 +34,13 @@
 		<script>
 		function retornaContador(){return count;}
     var count=0;
+            var acum=0;
 			function addQuestao()
 			{
+        acum+=5;  
         count++;
-				$("span").append("<BR><BR><input type='text' id='questao_texto"+count+"' placeholder='Texto da questão'><BR><input type='radio' name='alternativas' value='a'> <input type='text' id='alternativa1'"+count+"' placeholder='Alternativa 1'><BR><input type='radio' name='alternativas' value='b'> <input type='text' id='alternativa2"+count+"' placeholder='Alternativa 2'><BR> <input type='radio' name='alternativas' value='c'> <input type='text' id='alternativa3"+count+"' placeholder='Alternativa 3'><BR> <input type='radio' name='alternativas' value='d'> <input type='text' id='alternativa4"+count+"' placeholder='Alternativa 4'><BR> <input type='radio' name='alternativas' value='e'> <input type='text' id='alternativa5"+count+"' placeholder='Alternativa 5'><BR>");
+				$("span").append("<BR><BR><input type='text' id='questao_texto"+count+"' placeholder='Texto da questão'><BR><input type='radio'"+
+" name='alternativas"+count+"' value='a'> <input type='text' id='alternativa"+(acum+1)+"' placeholder='Alternativa 1'><BR><input type='radio' name='alternativas"+count+"' value='b'> <input type='text' id='alternativa"+(acum+2)+"' placeholder='Alternativa 2'><BR> <input type='radio' name='alternativas"+count+"' value='c'> <input type='text' id='alternativa"+(acum+3)+"' placeholder='Alternativa 3'><BR> <input type='radio' name='alternativas"+count+"' value='d'> <input type='text' id='alternativa"+(acum+4)+"' placeholder='Alternativa 4'><BR> <input type='radio' name='alternativas"+count+"' value='e'> <input type='text' id='alternativa"+(acum+5)+"' placeholder='Alternativa 5'><BR>");
 			}
 		</script>
 		<div id='fundo-externo'>
