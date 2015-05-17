@@ -9,8 +9,8 @@ function httpRequestCreate(method,url){
 
     if($("#usuario").val() != "" && $("#senha").val() != ""){
 
-    var fn = document.getElementById("usuario").value;
-    var ln = document.getElementById("senha").value;
+    var fn = $("#usuario").val();
+    var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
         
     httpRequestCreate("POST","login.php");
@@ -18,12 +18,12 @@ function httpRequestCreate(method,url){
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data;
+			$("#status").html(return_data);
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";
+    $("#status").html("processing...");
     
     }else{
         $("#status").text("Usuario e/ou senha não foram digitadas!");
@@ -40,7 +40,7 @@ function httpRequestCreate(method,url){
 	hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data;
+			$("#status").html(return_data);
 	    }
         else
         {
@@ -50,7 +50,7 @@ function httpRequestCreate(method,url){
     
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";
+    $("#site").html("processing...");
     
     }
 }
@@ -61,7 +61,7 @@ function ajax_cadastro()
     {
             $("#senha2").css({"border" : "1px solid #F00", "padding": "2px"});
              $("#senha").css({"border" : "1px solid #F00", "padding": "2px"});
-            document.getElementById("status").innerHTML = "Senhas não coincidem!";
+            $("#status").html("Senhas não coincidem!");
             
         }
     else
@@ -69,12 +69,12 @@ function ajax_cadastro()
 
 
 
-    var fn = document.getElementById("matricula").value;
-    var ln = document.getElementById("senha").value;
-    var email=document.getElementById("email").value;
-    var nome=document.getElementById("nome").value;
-    var sobrenome=document.getElementById("sobrenome").value;
-    var usuario=document.getElementById("usuario").value;
+    var fn = $("#matricula").val();
+    var ln = $("#senha").val();
+    var email=$("#email").val();
+    var nome=$("#nome").val();
+    var sobrenome=$("#sobrenome").val();
+    var usuario=$("#usuario").val();
     var vars = "matricula="+fn+"&senha="+ln+"&email="+email+"&nome="+nome+"&sobrenome="+sobrenome+"&usuario="+usuario;
     
     httpRequestCreate("POST","cadastro.php");
@@ -82,13 +82,13 @@ function ajax_cadastro()
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("status").innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
+			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("status").innerHTML = "processing...";	
+    $("#status").html("processing...");	
         }
         }
 
@@ -151,7 +151,7 @@ console.log(materias);
         {
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
-			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
+			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
 
             //document.getElementById("site").innerHTML = return_data;
             
@@ -164,7 +164,7 @@ console.log(materias);
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-     document.getElementById("status").innerHTML = "processing...";	       
+     $("#status").html("processing...");	       
 }
 
 
@@ -200,7 +200,7 @@ function ajaxSelectOpt(id){
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    //document.getElementById("status").innerHTML = "processing...";	
+    //$("#status").html("processing...");	
         }
     
 function ajaxCadastroQuestao(texto, alt1,alt2,alt3,alt4,alt5)
@@ -211,7 +211,7 @@ function ajaxCadastroQuestao(texto, alt1,alt2,alt3,alt4,alt5)
 	hr.onreadystatechange=function(){
 		if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data;
+			$("body")[0].html(return_data);
 }
 hr.send(vars);
 }
