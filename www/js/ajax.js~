@@ -204,22 +204,21 @@ function ajaxSelectOpt(id){
         }
 function ajaxCadastraQuestao()
 {
-	 httpRequestCreate("POST","cadastroQuestoes.php");
+	 httpRequestCreate("GET","cadastroQuestoes.php");
 var questao_texto=$("#questao_texto").val();
 var alternativa=$("#alternativa").val();
 var nivel=$("#nivel").val();
 var materia=$("#materia").val();
 var vars="questao_texto="+questao_texto+"&alternativa="+alternativa+"&nivel="+nivel+"&materia="+materia;
-	hr.onreadystatechange = function() 
-    {
-	    if(hr.readyState == 4 && hr.status == 200) 
-        {
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-            return_data = $.parseJSON(return_data);
-			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
+			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
+		   // alert("Cadastro Concluido");
 	    }
     }
-   	 hr.send(vars);
-     	$("#status").html("processing...");
-}
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+    $("#status").html("processing...");	
 }
