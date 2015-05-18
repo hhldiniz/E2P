@@ -202,17 +202,23 @@ function ajaxSelectOpt(id){
     hr.send(vars); // Actually execute the request
     //$("#status").html("processing...");	
         }
-    
-function ajaxCadastroQuestao(texto, alt1,alt2,alt3,alt4,alt5)
-{   
-    
-    httpRequestCreate("GET","cadastroQuestoes.php");
-	var vars="questao_texto="+texto+"&alternativa1="+alt1+"&alternativa2="+alt2+"&alternativa3="+alt3+"&alternativa4="+alt4+"&alternativa5="+alt5;
-	hr.onreadystatechange=function(){
-		if(hr.readyState == 4 && hr.status == 200) {
+function ajaxCadastraQuestao()
+{
+	 httpRequestCreate("POST","cadastroQuestoes.php");
+var questao_texto=$("#questao_texto").val();
+var alternativa=$("#alternativa").val();
+var nivel=$("#nivel").val();
+var materia=$("#materia").val();
+var vars="questao_texto="+questao_texto+"&alternativa="+alternativa+"&nivel="+nivel+"&materia="+materia;
+	hr.onreadystatechange = function() 
+    {
+	    if(hr.readyState == 4 && hr.status == 200) 
+        {
 		    var return_data = hr.responseText;
-			$("body")[0].html(return_data);
-}
-hr.send(vars);
-}
+            return_data = $.parseJSON(return_data);
+			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
+	    }
+    }
+   	 hr.send(vars);
+     	$("#status").html("processing...");
 }

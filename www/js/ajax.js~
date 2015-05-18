@@ -1,28 +1,29 @@
 var hr = new XMLHttpRequest();
+
+function httpRequestCreate(method,url){
+    hr.open(method,url,true);    
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
+}
   
   function ajax_post(){
 
     if($("#usuario").val() != "" && $("#senha").val() != ""){
 
-    // Create our XMLHttpRequest object
-    // Create some variables we need to send to our PHP file
-    var url = "login.php";
-    var fn = document.getElementById("usuario").value;
-    var ln = document.getElementById("senha").value;
+    var fn = $("#usuario").val();
+    var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+    httpRequestCreate("POST","login.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data;
+			$("#status").html(return_data);
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";
+    $("#status").html("processing...");
     
     }else{
         $("#status").text("Usuario e/ou senha não foram digitadas!");
@@ -33,14 +34,13 @@ var hr = new XMLHttpRequest();
  function ajax_sessao(usuario,senha) //função para ser chamada apenas quando o usuário e senha são obtidos da sessão do navegador
 {
 
-	var url="login.php"
 	var vars = "usuario="+usuario+"&senha="+senha;
-	hr.open("POST",url,true);
-	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    httpRequestCreate("POST","login.php");
 	hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data;
+			$("#status").html(return_data);
 	    }
         else
         {
@@ -50,7 +50,7 @@ var hr = new XMLHttpRequest();
     
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";
+    $("#site").html("processing...");
     
     }
 }
@@ -61,36 +61,34 @@ function ajax_cadastro()
     {
             $("#senha2").css({"border" : "1px solid #F00", "padding": "2px"});
              $("#senha").css({"border" : "1px solid #F00", "padding": "2px"});
-            document.getElementById("status").innerHTML = "Senhas não coincidem!";
+            $("#status").html("Senhas não coincidem!");
             
         }
     else
         {
-    
-	 // Create our XMLHttpRequest object
-    // Create some variables we need to send to our PHP file
-    var url = "cadastro.php";
-    var fn = document.getElementById("matricula").value;
-    var ln = document.getElementById("senha").value;
-    var email=document.getElementById("email").value;
-    var nome=document.getElementById("nome").value;
-    var sobrenome=document.getElementById("sobrenome").value;
-    var usuario=document.getElementById("usuario").value;
+
+
+
+    var fn = $("#matricula").val();
+    var ln = $("#senha").val();
+    var email=$("#email").val();
+    var nome=$("#nome").val();
+    var sobrenome=$("#sobrenome").val();
+    var usuario=$("#usuario").val();
     var vars = "matricula="+fn+"&senha="+ln+"&email="+email+"&nome="+nome+"&sobrenome="+sobrenome+"&usuario="+usuario;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    httpRequestCreate("POST","cadastro.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			document.getElementsByTagName("body")[0].innerHTML = return_data; //gambiarra para contornar problema indescritivel com javascript
+			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    document.getElementById("site").innerHTML = "processing...";	
+    $("#status").html("processing...");	
         }
         }
 
@@ -100,12 +98,52 @@ function ajaxSelectQuest()
     
 
     // Create some variables we need to send to our PHP file
-    var url = "partida.php";
+
+    var materias = [];
+    materias = $('input:checkbox:checked.subjects').map(function () {
+      switch (this.value){
+        case "mat":
+            return 1;
+            break;
+        case "geo":
+            return 2;
+            break;
+        case "hist":
+            return 3;
+            break;
+        case "port":
+            return 4;
+            break;
+        case "quim":
+            return 5;
+            break;
+
+      }
+}).get();
+console.log(materias);
+    var dific;
+    dific = $("input:radio[name=dificulty]:checked").val();
     
-  
-    hr.open("GET", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    switch(dific){
+        case "facil":
+            dific=1;
+            break;
+        case "medio":
+            dific=2;
+            break;
+        case "dificil":
+            dific=3;
+            break;
+    }
+    
+    console.log(dific);
+
+    //var vars = "materias="+JSON.stringify(materias);
+    var vars = "dific="+dific;
+    //adicionando materias ao post se foram selecionadas
+    if(materias.length>0){ vars+="&materias="+JSON.stringify(materias)}
+
+    httpRequestCreate("POST","partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
     {
@@ -113,16 +151,20 @@ function ajaxSelectQuest()
         {
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
-			document.getElementById("site").innerHTML = return_data[0].titulo; //gambiarra para contornar problema indescritivel com javascript
+			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
 
+            //document.getElementById("site").innerHTML = return_data;
+            
 		   //return return_data;
-             ajaxSelectOpt(return_data[0].id);
+           
+            ajaxSelectOpt(return_data[0].id);
+            
             // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
-    hr.send(); // Actually execute the request
-     document.getElementById("status").innerHTML = "processing...";	       
+    hr.send(vars); // Actually execute the request
+     $("#status").html("processing...");	       
 }
 
 
@@ -134,20 +176,23 @@ function ajaxSelectQuest()
 
 function ajaxSelectOpt(id){
     
-   var url = "opcoes.php";
+    
+    httpRequestCreate("POST","opcoes.php");
+    
     var vars = "id="+id;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
+            
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             var html = "<br>";
             
             for(var i=0;i<return_data.length;i++){
-              html +=  '<input type="radio" name="answer" value="'+return_data[i].right_answer+'"> '+return_data[i].content+"<br>";
+              html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
+                  '<label for="op'+i+'">'+return_data[i].content+
+                  '</label><br>';
             }
 			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
@@ -155,6 +200,26 @@ function ajaxSelectOpt(id){
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-    //document.getElementById("status").innerHTML = "processing...";	
+    //$("#status").html("processing...");	
         }
-    
+function ajaxCadastraQuestao()
+{
+	 httpRequestCreate("POST","cadastroQuestoes.php");
+var questao_texto=$("#questao_texto").val();
+var alternativa=$("#alternativa").val();
+var nivel=$("#nivel").val();
+var materia=$("#materia").val();
+var vars="questao_texto="+questao_texto+"&alternativa="+alternativa+"&nivel="+nivel+"&materia="+materia;
+	hr.onreadystatechange = function() 
+    {
+	    if(hr.readyState == 4 && hr.status == 200) 
+        {
+		    var return_data = hr.responseText;
+            return_data = $.parseJSON(return_data);
+			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
+	    }
+    }
+   	 hr.send(vars);
+     	$("#status").html("processing...");
+}
+}
