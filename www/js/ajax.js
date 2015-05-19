@@ -1,5 +1,8 @@
 var hr = new XMLHttpRequest();
 
+var questoes;
+var cont = 0;
+
 function httpRequestCreate(method,url){
     hr.open(method,url,true);    
     hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
@@ -151,6 +154,7 @@ console.log(materias);
         {
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
+            questoes = return_data;
 			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
 
             //document.getElementById("site").innerHTML = return_data;
@@ -237,10 +241,16 @@ function shuffle(sourceArray) {
 }
 
 function checaQuestao() {
-      /* Act on the event */
-      console.log("yopa");
+
       if($('input:radio[name=answer]:checked').length>0){
-          console.log("yopa");
+          if($('input:radio[name=answer]:checked').val()== 1){
+
+          }
+
+          cont++;
+          if(questoes[cont] != undefined){
+          $("#site").html(questoes[cont].titulo);
+          ajaxSelectOpt(questoes[cont].id);}
 
       }else{
           $("#status").html("Selecione uma resposta");
