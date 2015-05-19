@@ -245,8 +245,10 @@ function checaQuestao() {
     //Criando localStorage se não existir
     if(!localStorage.questCont){localStorage.questCont=0;}
 
-
+      //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
+
+          //Testando se e certa  
           if($('input:radio[name=answer]:checked').val()== 1){
             localStorage.questCont = Number(localStorage.questCont)+1;
             console.log(localStorage.questCont);
