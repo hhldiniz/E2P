@@ -195,6 +195,8 @@ function ajaxSelectOpt(id){
                   '<label for="op'+i+'">'+return_data[i].content+
                   '</label><br>';
             }
+            html += '<button type="button" id="ans">responder</button>';
+            html += '<br><div id="status"></div>';
 			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
