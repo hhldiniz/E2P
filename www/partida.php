@@ -7,6 +7,7 @@
             mysql_select_db("e2p");
 
         $dificuldade = $_POST['dific'];
+        $limiteQues = (int)$_POST['nquest'];
         
         $sql = "select id,titulo from questoes";
 
@@ -25,6 +26,8 @@
             $sql .= ")";
         
         }
+
+        $sql .= " limit ".$limiteQues."";
 
 
 

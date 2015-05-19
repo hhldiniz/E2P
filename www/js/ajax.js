@@ -123,7 +123,10 @@ function ajaxSelectQuest()
 
       }
 }).get();
-console.log(materias);
+
+    console.log("Materias: "+materias);
+
+
     var dific;
     dific = $("input:radio[name=dificulty]:checked").val();
     
@@ -139,10 +142,14 @@ console.log(materias);
             break;
     }
     
-    console.log(dific);
+    console.log("Dificuldade: "+dific);
+
+    var nquest = Number($("#nQuest").val());
+
+    console.log("Numero de Questoes: "+nquest);
 
     //var vars = "materias="+JSON.stringify(materias);
-    var vars = "dific="+dific;
+    var vars = "dific="+dific+"&nquest="+nquest;
     //adicionando materias ao post se foram selecionadas
     if(materias.length>0){ vars+="&materias="+JSON.stringify(materias)}
 
