@@ -242,16 +242,24 @@ function shuffle(sourceArray) {
 
 function checaQuestao() {
 
+    //Criando localStorage se não existir
+    if(!localStorage.questCont){localStorage.questCont=0;}
+
+
       if($('input:radio[name=answer]:checked').length>0){
           if($('input:radio[name=answer]:checked').val()== 1){
-
+            localStorage.questCont = Number(localStorage.questCont)+1;
+            console.log(localStorage.questCont);
           }
 
           cont++;
+
+          //Caso uma proxima questao exista mostra a proxima
           if(questoes[cont] != undefined){
           $("#site").html(questoes[cont].titulo);
           ajaxSelectOpt(questoes[cont].id);}
 
+      //Se nenhuma opção estiver selecionada alerta o usuario
       }else{
           $("#status").html("Selecione uma resposta");
       }
