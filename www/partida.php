@@ -29,6 +29,21 @@
 
         $sql .= " limit ".$limiteQues."";
 
+        /*
+          select id, titulo from (
+    select *
+    from questoes
+    where idNivel = 1
+    limit 1) a
+      union
+      select id, titulo
+      from (
+    select *
+     from questoes
+    where idNivel = 2
+     limit 1) b;
+        */
+
 
 
 
