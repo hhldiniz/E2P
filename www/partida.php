@@ -46,9 +46,10 @@
      limit 1) b;
         */
 
+
            $sql1 = "select id,titulo from questoes where idNivel=".$dificuldade."";
-           $sql2 = "select id,titulo from questoes where idNivel="
-           $sql3 = "select id,titulo from questoes where idNivel="
+           $sql2 = "select id,titulo from questoes where idNivel=";
+           $sql3 = "select id,titulo from questoes where idNivel=";
 
            switch($dificuldade){
             case 1:
@@ -65,7 +66,7 @@
               break;
            }
 
-
+           
            if(isset($_POST['materias'])){
             $materia = json_decode(stripslashes($_POST['materias']));
             $matQuery .= " and id_mate in (";
@@ -85,15 +86,19 @@
             $sql3 .= $matQuery;
         }
 
-        $sql1 .= " limit ".$limiteQues/2."";
-        $sql2 .= " limit ".round($limiteQues/4)."";
-        $sql3 .= " limit ".round($limiteQues/4)."";
 
-        $sql = "( ".$sql1." ) union ( ".$sql2." ) union ( ".$sql3." )"
+        $sql1 .= " limit ".(round($limiteQues/2))."";
+        $sql2 .= " limit ".(round($limiteQues/4))."";
+        $sql3 .= " limit ".(round($limiteQues/4))."";
+       
 
+        $sql = "(".$sql1.") union (".$sql2.") union (".$sql3.");";
 
+        
 
-            
+        
+
+         
      $resultado =  mysql_query($sql) or die(mysql_error());
          
 		   if(mysql_num_rows($resultado) > 0)
