@@ -87,9 +87,9 @@
         }
 
 
-        $sql1 .= " limit ".(round($limiteQues/2))."";
-        $sql2 .= " limit ".(round($limiteQues/4))."";
-        $sql3 .= " limit ".(round($limiteQues/4))."";
+        $sql1 .= " order by rand() limit ".(round($limiteQues/2))."";
+        $sql2 .= " order by rand() limit ".(round($limiteQues/4))."";
+        $sql3 .= " order by rand() limit ".(round($limiteQues/4))."";
        
 
         $sql = "(".$sql1.") union (".$sql2.") union (".$sql3.");";
