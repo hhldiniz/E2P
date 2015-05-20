@@ -13,6 +13,7 @@
 	
 	function ajaxSelectQuest(){
 
+
     var materias = [];
     materias = $('input:checkbox:checked.subjects').map(function () {
       switch (this.value){
@@ -57,6 +58,8 @@
 
     var nquest = Number($("#nQuest").val());
 
+    tempo = nquest *(150);
+
     console.log("Numero de Questoes: "+nquest);
 
     //var vars = "materias="+JSON.stringify(materias);
@@ -80,6 +83,7 @@
 		   //return return_data;
            
             ajaxSelectOpt(return_data[0].id);
+            startCountdown();
             
             // alert("Cadastro Concluido");
 	    }
