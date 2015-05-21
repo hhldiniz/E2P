@@ -9,6 +9,8 @@
   
 
 	var questoes;
+    var estatisticas={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
+    var estaAcertos={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -165,15 +167,53 @@ function enviarUsuarioParaBanco()
 function checaQuestao() {
 
     //Criando localStorage se não existir
-    if(!localStorage.questCont){localStorage.questCont=0;}
+    if(!questCont){var questCont=0;}
 
       //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
 
+            switch (questoes[cont].id_mate){
+                case "1":
+                    estatisticas.mat+=1;
+                    break;
+                case "2":
+                    estatisticas.geo+=1;
+                    break;
+                case "3":
+                    estatisticas.hist+=1;
+                    break;
+                case "4":
+                    estatisticas.port+=1;
+                    break;
+                case "5":
+                    estatisticas.quim+=1;
+                    break;
+
+          }
+
           //Testando se e certa  
           if($('input:radio[name=answer]:checked').val()== 1){
-            localStorage.questCont = Number(localStorage.questCont)+1;
-            console.log(localStorage.questCont);
+            questCont += 1;
+                switch (questoes[cont].id_mate){
+                    case "1":
+                        estaAcertos.mat+=1;
+                        break;
+                    case "2":
+                        estaAcertos.geo+=1;
+                        break;
+                    case "3":
+                        estaAcertos.hist+=1;
+                        break;
+                    case "4":
+                        estaAcertos.port+=1;
+                        break;
+                    case "5":
+                        estaAcertos.quim+=1;
+                        break;
+                    }
+
+            console.log(questCont);
+
           }
 
           cont++;
@@ -187,6 +227,14 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
+
+                //VARIAVEIS IMPORTANTES
+                
+                //cont - Número de questões
+                //questCont - Número toral de acertos
+
+                //estatistica - Número de questoes de cada matéria
+                //estaAcertos - Número de acertos de cada matéria
 				
 			}
 
