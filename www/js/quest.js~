@@ -168,7 +168,6 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-				localStorage.setItem("numero_questoes",count);
 
 			}
 
