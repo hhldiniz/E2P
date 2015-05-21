@@ -1,0 +1,54 @@
+.radioDific {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.radioDific:after {
+  content: "";
+  clear: both;
+}
+
+.radioDifics {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  float: left;
+  height: 70px;
+  position: relative;
+  width: 120px;
+}
+
+.radioDifics + .radioDifics {
+  margin-left: 25px;
+}
+
+.radioDifics label {
+  background: #fff no-repeat center center;
+  bottom: 1px;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  text-indent: 100%;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.facil label {
+  background-image: url(uol.png);
+}
+
+.medio label {
+  background-image: url(paypal.png);
+}
+
+.dificil label {
+  background-image: url(bankslip.png);
+}
+
+
+.radioDifics input:checked + label {
+  outline: 4px solid #6BBC44;
+}

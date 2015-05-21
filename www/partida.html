@@ -4,6 +4,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/estilo_partida.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
@@ -143,10 +144,23 @@ function startCountdown(){
     <h1>Dificuldade</h1>
         <h4>Selecione o Nivel Das Questões</h4>
        
-       <input type='radio' name='dificulty' value='facil' checked="true"> Fácil 
-       <input type='radio' name='dificulty' value='medio'> Médio
-       <input type='radio' name='dificulty' value='dificil'> Dificil <br><br> 
-           
+        <ul class="radioDific">
+        
+        <li class="radioDifics facil">
+            <input type='radio' name='dificulty' value='facil' checked="true" id="facil"> <label for="facil">Fácil</label>
+        </li>
+            
+            <li class="radioDifics medio">
+            <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio">Médio</label>
+            </li>
+            
+            <li class="radioDifics dificil">
+            <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil">Dificil</label>
+            </li>
+        </ul>
+        
+        <br><br>
+            
        <h1> Numero de Questoes</h1>
 
        <select id="nQuest">
