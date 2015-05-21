@@ -142,7 +142,26 @@ function ajaxSelectOpt(id){
         sourceArray[n] = temp;
     }
 }
-
+function enviarUsuarioParaBanco()
+{
+	httpRequestCreate("POST","php/enviarUsuario.php");
+    
+    var vars ="usuario="+localStorage.getItem("usuario");
+    
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+            
+		    var return_data = hr.responseText;
+     
+			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+    //$("#status").html("processing...");	
+        }
+}
 function checaQuestao() {
 
     //Criando localStorage se não existir
@@ -168,8 +187,7 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-				localStorage.setItem("numero_questoes",count);
-
+				
 			}
 
       //Se nenhuma opção estiver selecionada alerta o usuario

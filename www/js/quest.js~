@@ -142,7 +142,37 @@ function ajaxSelectOpt(id){
         sourceArray[n] = temp;
     }
 }
-
+function enviarUsuarioParaBanco()
+{
+	httpRequestCreate("POST","php/enviarUsuario.php");
+    
+    var vars ="usuario="+localStorage.getItem("usuario");
+    
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+            
+		    var return_data = hr.responseText;
+            return_data = $.parseJSON(return_data);
+            shuffle(return_data);
+            var html = "<br>";
+            
+            for(var i=0;i<return_data.length;i++){
+              html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
+                  '<label for="op'+i+'">'+return_data[i].content+
+                  '</label><br>';
+            }
+            html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
+            html += '<br><div id="status"></div>';
+			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
+		   // alert("Cadastro Concluido");
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+    //$("#status").html("processing...");	
+        }
+}
 function checaQuestao() {
 
     //Criando localStorage se não existir
@@ -168,7 +198,7 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-
+				
 			}
 
       //Se nenhuma opção estiver selecionada alerta o usuario
