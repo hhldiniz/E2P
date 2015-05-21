@@ -1,3 +1,4 @@
+jQuery( document ).ready(function( $ ) {
 
 
 	var hr = new XMLHttpRequest();
@@ -179,3 +180,4 @@ function checaQuestao() {
     }
 
 
+});

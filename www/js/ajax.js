@@ -1,3 +1,5 @@
+jQuery( document ).ready(function( $ ) {
+
 var hr = new XMLHttpRequest();
 
 
@@ -117,3 +119,4 @@ function ajaxCadastraQuestao()
     $("#status").html("processing...");	
 }
 
+});
