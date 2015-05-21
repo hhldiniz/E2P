@@ -1,4 +1,4 @@
-jQuery( document ).ready(function( $ ) {
+
 
 var hr = new XMLHttpRequest();
 
@@ -17,7 +17,7 @@ function httpRequestCreate(method,url){
     var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
         
-    httpRequestCreate("POST","login.php");
+    httpRequestCreate("POST","php/login.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
@@ -40,7 +40,7 @@ function httpRequestCreate(method,url){
 
 	var vars = "usuario="+usuario+"&senha="+senha;
     
-    httpRequestCreate("POST","login.php");
+    httpRequestCreate("POST","php/login.php");
 	hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
@@ -81,7 +81,7 @@ function ajax_cadastro()
     var usuario=$("#usuario").val();
     var vars = "matricula="+fn+"&senha="+ln+"&email="+email+"&nome="+nome+"&sobrenome="+sobrenome+"&usuario="+usuario;
     
-    httpRequestCreate("POST","cadastro.php");
+    httpRequestCreate("POST","php/cadastro.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
@@ -100,7 +100,7 @@ function ajax_cadastro()
 
 function ajaxCadastraQuestao()
 {
-	 httpRequestCreate("GET","cadastroQuestoes.php");
+	 httpRequestCreate("GET","php/cadastroQuestoes.php");
 	var questao_texto=$("#questao_texto").val();
 	var alternativa=$("#alternativa").val();
 	var nivel=$("#nivel").val();
@@ -119,4 +119,3 @@ function ajaxCadastraQuestao()
     $("#status").html("processing...");	
 }
 
-});
