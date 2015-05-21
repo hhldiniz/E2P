@@ -22,7 +22,14 @@ function httpRequestCreate(method,url){
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			$("body").html(return_data);
+             console.log(return_data);
+            return_data = Number(return_data);
+            console.log(return_data);
+			if(return_data>0){
+                window.location.href="home.html";
+            }else{
+                $("#status").html("Usuario e/ou senha incorreta(s)!");
+            }
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div

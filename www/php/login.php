@@ -1,5 +1,4 @@
-<html>
-        <body>
+
     <?php
             $usuario=$_POST['usuario'];
             $senha=$_POST['senha'];
@@ -12,14 +11,13 @@
            $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha='$senha'") or die(mysql_error());
 		   if(mysql_num_rows($resultado) > 0)
 		   {
-			mysql_close($conexao);
-              		header("location: http://localhost/E2P/www/home.html");
+			
+              		echo 1;
+                    mysql_close($conexao);
 		   }	
 			else
             {
-			 echo "Usuario/Senha nao foi encontrado";
+			 echo 0;
 			 mysql_close($conexao);
             }
         ?>
-        </body>
-</html>
