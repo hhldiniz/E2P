@@ -1,4 +1,3 @@
-jQuery( document ).ready(function( $ ) {
 
 
 	var hr = new XMLHttpRequest();
@@ -68,7 +67,7 @@ jQuery( document ).ready(function( $ ) {
     //adicionando materias ao post se foram selecionadas
     if(materias.length>0){ vars+="&materias="+JSON.stringify(materias)}
 
-    httpRequestCreate("POST","partida.php");
+    httpRequestCreate("POST","php/partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
     {
@@ -104,7 +103,7 @@ jQuery( document ).ready(function( $ ) {
 function ajaxSelectOpt(id){
     
     
-    httpRequestCreate("POST","opcoes.php");
+    httpRequestCreate("POST","php/opcoes.php");
     
     var vars = "id="+id;
     
@@ -178,6 +177,3 @@ function checaQuestao() {
       }
 
     }
-
-
-});
