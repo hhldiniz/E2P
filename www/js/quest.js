@@ -158,7 +158,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
             
 		    var return_data = hr.responseText;
      
-			//$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
+			console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div

@@ -27,6 +27,7 @@
 
     $sql .= "WHERE user=".$usuario."";
 
-	mysql_query($sql);
+	//mysql_query($sql);
+	echo $sql;
 	mysql_close($conexao);
 ?>
