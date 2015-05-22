@@ -10,9 +10,9 @@ function httpRequestCreate(method,url){
 }
   
   function ajax_post(){
-
+    localStorage("usuario",$("#usuario").val());
     if($("#usuario").val() != "" && $("#senha").val() != ""){
-
+    
     var fn = $("#usuario").val();
     var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
