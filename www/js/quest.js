@@ -9,8 +9,8 @@
   
 
 	var questoes;
-    var estatisticas={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
-    var estaAcertos={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
+   // var estatisticas={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
+   // var estaAcertos={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -170,6 +170,8 @@ function checaQuestao() {
 
     //Criando variavel se não existir
     if(!questCont){var questCont=0;}
+    if(!estatisticas){var estatisticas={};}
+    if(!estaAcertos){var estaAcertos={};}
 
       //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
@@ -213,7 +215,7 @@ function checaQuestao() {
                         estaAcertos.quim+=1;
                         break;
                     }
-
+            console.log(estaAcertos);
             console.log(questCont);
 
           }

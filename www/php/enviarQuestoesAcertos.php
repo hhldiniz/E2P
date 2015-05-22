@@ -3,11 +3,11 @@
 	$conexao=mysql_connect("localhost","root","");
 	mysql_select_db("e2p");	
 
-	$usuario = json$_POST['usuario'];
+	$usuario = $_POST['usuario'];
     $totalq = $_POST['totalQ'];
     $totalac= $_POST['totalAc'];
-    $totalqmat = $_POST['totalmat'];
-    $acertosmat = $_POST['acertosmat'];
+    $totalqmat = json_decode($_POST['totalmat']);
+    $acertosmat = json_decode($_POST['acertosmat']);
 
 
     $sql = "INSERT INTO estatisticas (acertos_geral,total_questoes";
