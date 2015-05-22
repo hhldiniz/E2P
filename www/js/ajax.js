@@ -12,7 +12,7 @@ function httpRequestCreate(method,url){
   function ajax_post(){
     if($("#usuario").val() != "" && $("#senha").val() != ""){
     var fn = $("#usuario").val();
-    localStorage("usuario",fn);
+    localStorage("usuario",fn);  //aproveita o momento do click para o login e envia o nome de usuário para o armazenamento local
     var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
         
@@ -63,7 +63,7 @@ function httpRequestCreate(method,url){
     
     }
 }
-function ajax_cadastro()
+function ajax_cadastro() //função ajax para cadastro do usuário
 {
     
     if($("#senha2").val() != $("#senha").val())
@@ -103,7 +103,7 @@ function ajax_cadastro()
 
 
 
-function ajaxCadastraQuestao()
+function ajaxCadastraQuestao() //função para cadastro da questão
 {
 	 httpRequestCreate("GET","php/cadastroQuestoes.php");
 	var questao_texto=$("#questao_texto").val();
