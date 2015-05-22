@@ -9,7 +9,7 @@ $(document).ready(function(){
     {
         
     }
-});
+
     $("#botao").click(function(){
      var cont = 0;
      $("#form input").each(function(){
@@ -26,4 +26,5 @@ $(document).ready(function(){
          }
     });
     
+
 });

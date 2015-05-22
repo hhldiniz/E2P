@@ -1,10 +1,13 @@
 <?php
 
+     
 
           header('Content-Type: text/html; charset=utf-8');
             $conexao = mysql_connect("localhost","root","");
             mysql_set_charset('utf8', $conexao);
             mysql_select_db("e2p");
+
+
 
         $dificuldade = $_POST['dific'];
         $limiteQues = (int)$_POST['nquest'];
@@ -120,7 +123,7 @@
             }
     
 
-        
+       
 
     
         ?>

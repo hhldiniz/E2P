@@ -163,7 +163,7 @@ function enviarQuestoesAcertos()
     hr.send(vars); // Actually execute the request
     //$("#status").html("processing...");	
         }
-}
+
 function checaQuestao() {
 
     //Criando localStorage se não existir
