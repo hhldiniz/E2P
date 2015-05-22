@@ -54,9 +54,9 @@
         */
 
 
-           $sql1 = "select id,titulo from questoes where idNivel=".$dificuldade."";
-           $sql2 = "select id,titulo from questoes where idNivel=";
-           $sql3 = "select id,titulo from questoes where idNivel=";
+           $sql1 = "select id,titulo,id_mate from questoes where idNivel=".$dificuldade."";
+           $sql2 = "select id,titulo,id_mate from questoes where idNivel=";
+           $sql3 = "select id,titulo,id_mate from questoes where idNivel=";
 
            switch($dificuldade){
             case 1:
