@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2015 às 05:04
+-- Generation Time: 22-Maio-2015 às 05:27
 -- Versão do servidor: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `e2p`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estatisticas`
+--
+
+CREATE TABLE IF NOT EXISTS `estatisticas` (
+  `user` varchar(205) NOT NULL,
+  `acertos_geral` varchar(205) NOT NULL,
+  `total_questoes` varchar(205) NOT NULL,
+  `total_mat` varchar(205) NOT NULL,
+  `acertos_mat` varchar(205) NOT NULL,
+  `total_geo` varchar(205) NOT NULL,
+  `acertos_geo` varchar(205) NOT NULL,
+  `total_hist` varchar(205) NOT NULL,
+  `acertos_hist` varchar(205) NOT NULL,
+  `total_port` varchar(205) NOT NULL,
+  `acertos_port` varchar(205) NOT NULL,
+  `total_quim` varchar(205) NOT NULL,
+  `acertos_quim` varchar(205) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
