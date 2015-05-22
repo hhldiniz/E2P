@@ -144,12 +144,12 @@ function ajaxSelectOpt(id){
         sourceArray[n] = temp;
     }
 }
-function enviarQuestoesAcertos()
+function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 {
 	httpRequestCreate("POST","php/enviarQuestoesAcertos.php");
-    var totalmat= JSON.stringify(estatisticas);
-    var acertosmat = JSON.stringify(estaAcertos);
-    var vars ="usuario="+localStorage.getItem("usuario")+"&totalQ="+count+"&totalAc="+questCont+
+    var totalmat= JSON.stringify(esta);
+    var acertosmat = JSON.stringify(estaacertos);
+    var vars ="usuario="+localStorage.getItem("usuario")+"&totalQ="+numquest+"&totalAc="+acertos+
               "&totalmat="+totalmat+"&acertosmat="+acertosmat;
     
     // Access the onreadystatechange event for the XMLHttpRequest object
@@ -231,7 +231,7 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-			enviarQuestoesAcertos();
+			enviarQuestoesAcertos(estatisticas,estaAcertos,cont,questCont);
                 //VARIAVEIS IMPORTANTES
                 
                 //cont - Número de questões
