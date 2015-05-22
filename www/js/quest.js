@@ -147,8 +147,10 @@ function ajaxSelectOpt(id){
 function enviarQuestoesAcertos()
 {
 	httpRequestCreate("POST","php/enviarQuestoesAcertos.php");
-    
-    var vars ="acertos="+count;
+    var totalmat= JSON.stringify(estatisticas);
+    var acertosmat = JSON.stringify(estaAcertos);
+    var vars ="usuario="+localStorage.getItem("usuario")+"&totalQ="+count+"&totalAc="+questCont+
+              "&totalmat="+totalmat+"&acertosmat="+acertosmat;
     
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
@@ -166,7 +168,7 @@ function enviarQuestoesAcertos()
 
 function checaQuestao() {
 
-    //Criando localStorage se não existir
+    //Criando variavel se não existir
     if(!questCont){var questCont=0;}
 
       //Testando se ha uma opção selecionada 
