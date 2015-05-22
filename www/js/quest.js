@@ -144,11 +144,11 @@ function ajaxSelectOpt(id){
         sourceArray[n] = temp;
     }
 }
-function enviarUsuarioParaBanco()
+function enviarQuestoesAcertos()
 {
-	httpRequestCreate("POST","php/enviarUsuario.php");
+	httpRequestCreate("POST","php/enviarQuestoesAcertos.php");
     
-    var vars ="usuario="+localStorage.getItem("usuario");
+    var vars ="acertos="+count;
     
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
@@ -227,7 +227,7 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-
+			enviarQuestoesAcertos();
                 //VARIAVEIS IMPORTANTES
                 
                 //cont - Número de questões
