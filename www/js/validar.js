@@ -9,17 +9,6 @@ $(document).ready(function(){
     {
         
     }
-    $("#permanecer").click(function(){
-	if($(this).is(':checked'))
-	{
-		$.localStorage('usuario',$('#usuario').val());
-		$.localStorage('senha',$('#senha').val());
-	}
-	else
-	{
-		$.localStorage('usuario',null);
-		$.localStorage('senha',null);
-	}
 });
     $("#botao").click(function(){
      var cont = 0;
