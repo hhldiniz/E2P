@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: 23-Maio-2015 às 17:32
--- Versão do servidor: 5.6.21
--- PHP Version: 5.6.3
+-- Host: 127.0.0.1
+-- Generation Time: 23-Maio-2015 às 19:00
+-- Versão do servidor: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -74,7 +74,7 @@ INSERT INTO `frases` (`content`, `reacao`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `materias` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(205) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -101,7 +101,7 @@ INSERT INTO `materias` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `nivel` (
-`idNivel` int(10) NOT NULL,
+  `idNivel` int(10) NOT NULL,
   `nivel` varchar(205) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -121,7 +121,7 @@ INSERT INTO `nivel` (`idNivel`, `nivel`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `opcoes` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `right_answer` tinyint(1) NOT NULL,
   `question_id` int(11) NOT NULL
@@ -184,7 +184,7 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questoes` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `idNivel` int(10) NOT NULL,
   `id_mate` int(11) NOT NULL
@@ -219,7 +219,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(50) NOT NULL,
   `matricula` varchar(50) NOT NULL,
   `senha` varchar(50) NOT NULL,
-  `acertos` int(11) NOT NULL,
   `nivel` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -227,9 +226,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `acertos`, `nivel`) VALUES
-('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 10, 1),
-('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 5, 1);
+INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `nivel`) VALUES
+('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 1),
+('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -239,31 +238,31 @@ INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `s
 -- Indexes for table `materias`
 --
 ALTER TABLE `materias`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nivel`
 --
 ALTER TABLE `nivel`
- ADD PRIMARY KEY (`idNivel`);
+  ADD PRIMARY KEY (`idNivel`);
 
 --
 -- Indexes for table `opcoes`
 --
 ALTER TABLE `opcoes`
- ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
 
 --
 -- Indexes for table `questoes`
 --
 ALTER TABLE `questoes`
- ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
+  ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`usuario`,`senha`);
+  ADD PRIMARY KEY (`usuario`,`senha`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -273,22 +272,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `materias`
 --
 ALTER TABLE `materias`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `nivel`
 --
 ALTER TABLE `nivel`
-MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `opcoes`
 --
 ALTER TABLE `opcoes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `questoes`
 --
 ALTER TABLE `questoes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
