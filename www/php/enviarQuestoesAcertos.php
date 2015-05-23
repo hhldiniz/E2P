@@ -25,9 +25,9 @@
     $sql .= ",acertos_port = acertos_port + ".$acertosmat->port."";
     $sql .= ",acertos_quim = acertos_quim + ".$acertosmat->quim."";
 
-    $sql .= " WHERE user=".$usuario."";
+    $sql .= " WHERE user='".$usuario."'";
 
-	//mysql_query($sql);
-	echo $sql;
+	mysql_query($sql);
+	//echo $sql;
 	mysql_close($conexao);
 ?>
