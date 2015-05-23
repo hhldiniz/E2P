@@ -158,8 +158,10 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 	    if(hr.readyState == 4 && hr.status == 200) {
             
 		    var return_data = hr.responseText;
-     
-			console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
+            
+            window.location.href = "home.html";
+            
+			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
