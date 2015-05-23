@@ -6,7 +6,7 @@
             mysql_select_db("e2p");
 
 
-            $resultado =  mysql_query("select nome,usuario,acertos from usuarios order by acertos desc limit 10") or die(mysql_error());
+            $resultado =  mysql_query("select user,acertos_geral from estatisticas order by acertos_geral desc limit 10") or die(mysql_error());
 		  
 		  if(mysql_num_rows($resultado) > 0)
 		   {

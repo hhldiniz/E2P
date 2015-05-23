@@ -31,42 +31,63 @@
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
     </script>
 
-    <script>
-        jQuery(document).ready(function($) {
+   
+
+</head>
+<body>
+    
+    
+     <script>
+         
+        
+         
             var hr = new XMLHttpRequest();
-            hr.open("GET","ranking.php",true);    
+            hr.open("GET","php/ranking.php",true);    
             hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             hr.onreadystatechange = function() {
-                if(hr.readyState == 4 && hr.status == 200) 
-                {
+                if(hr.readyState == 4 && hr.status == 200){
                     var return_data = hr.responseText;
                     return_data = $.parseJSON(return_data);
+                    console.log(return_data[0].user);
+                   
                     var html='<table border="1px">';
-                        html+="<tr> <td></td><td>Nome</td> <td>Username</td> <td>Numero de Acertos</td>"
+                        html+="<tr> <td></td> <td>Username</td> <td>Numero de Acertos</td>"
                     for(var i=0;i<return_data.length;i++){
-                    html += "<tr> <td>"+(i+1)+"° Lugar</td><td>"+return_data[i].nome+"</td>";
-                    html += "<td>"+return_data[i].usuario+"</td><td>"+return_data[i].acertos+"</td>"
-                    //$("#ranking").append(return_data[i].nome); //gambiarra para contornar problema indescritivel com javascript
+                    html += "<tr> <td>"+(i+1)+"° Lugar</td>";
+                    html += "<td>"+return_data[i].user+"</td><td>"+return_data[i].acertos_geral+"</td>"
                     }
+                     html += "</table>";
+                     $("#ranking").html(html);
+                   
+                    
+                   // $("#ranking").append(return_data[0].user); //gambiarra para contornar problema indescritivel com javascript
+                   
+                     
+                    
+                   
+                       
+                    
                     //document.getElementById("site").innerHTML = return_data;
-                    html += "</table>";
-                    $("#ranking").append(html);
+                
+                   // html += "</table>";
+                    //$("#ranking").append(html);
+                
+                
                    //return return_data;
                     
                     // alert("Cadastro Concluido");
                 }
-                 }
+                 
     // Send the data to PHP now... and wait for response to update the status div
-             hr.send(); // Actually execute the request
-             //$("#ranking").html("processing...");     
+               
                     
-                });
+        }
+            hr.send(); // Actually execute the request
+             $("#ranking").html("processing...");   
+      
 
     </script>
-
-</head>
-<body>
       
     
     <div id='fundo-externo'>
