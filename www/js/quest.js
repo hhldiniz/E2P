@@ -9,8 +9,9 @@
   
 
 	var questoes;
-    //var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
-    //var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
+    var questCont=0;
+    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
+    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -169,9 +170,9 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 function checaQuestao() {
 
     //Criando variavel se não existir
-    if(!questCont){var questCont=0;}
-    if(!estatisticas){var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
-    if(!estaAcertos){var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
+    //if(!questCont){var questCont=0;}
+    //if(!estatisticas){var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
+    //if(!estaAcertos){var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
 
       //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
@@ -197,7 +198,7 @@ function checaQuestao() {
 
           //Testando se e certa  
           if($('input:radio[name=answer]:checked').val()== 1){
-            questCont += 1;
+            questCont++;
                 switch (questoes[cont].id_mate){
                     case "1":
                         estaAcertos.mat+=1;
