@@ -12,7 +12,7 @@ function httpRequestCreate(method,url){
   function ajax_post(){
     if($("#usuario").val() != "" && $("#senha").val() != ""){
     var fn = $("#usuario").val();
-    localStorage("usuario",fn);  //aproveita o momento do click para o login e envia o nome de usuário para o armazenamento local
+    localStorage.setItem("usuario",fn);  //aproveita o momento do click para o login e envia o nome de usuário para o armazenamento local
     var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
         

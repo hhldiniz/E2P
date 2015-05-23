@@ -9,8 +9,9 @@
   
 
 	var questoes;
-    var estatisticas={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
-    var estaAcertos={"mat": 0, "geo": 0, "hist": 0, "port": 0, "quim": 0};
+    var questCont=0;
+    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
+    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -144,30 +145,36 @@ function ajaxSelectOpt(id){
         sourceArray[n] = temp;
     }
 }
-function enviarQuestoesAcertos()
+function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 {
 	httpRequestCreate("POST","php/enviarQuestoesAcertos.php");
-    
-    var vars ="acertos="+count;
+    var totalmat= JSON.stringify(esta);
+    var acertosmat = JSON.stringify(estaacertos);
+    var vars ="usuario="+localStorage.getItem("usuario")+"&totalQ="+numquest+"&totalAc="+acertos+
+              "&totalmat="+totalmat+"&acertosmat="+acertosmat;
     
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
             
 		    var return_data = hr.responseText;
-     
-			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
+            
+            window.location.href = "home.html";
+            
+			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
     //$("#status").html("processing...");	
         }
-}
+
 function checaQuestao() {
 
-    //Criando localStorage se não existir
-    if(!questCont){var questCont=0;}
+    //Criando variavel se não existir
+    //if(!questCont){var questCont=0;}
+    //if(!estatisticas){var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
+    //if(!estaAcertos){var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
 
       //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
@@ -193,7 +200,7 @@ function checaQuestao() {
 
           //Testando se e certa  
           if($('input:radio[name=answer]:checked').val()== 1){
-            questCont += 1;
+            questCont++;
                 switch (questoes[cont].id_mate){
                     case "1":
                         estaAcertos.mat+=1;
@@ -211,7 +218,7 @@ function checaQuestao() {
                         estaAcertos.quim+=1;
                         break;
                     }
-
+            console.log(estaAcertos.port);
             console.log(questCont);
 
           }
@@ -227,7 +234,7 @@ function checaQuestao() {
 		  }else{
 				//É AQUI O LOCAL!!!!
 				// o numero de questoes certas esta em localStorage.questCont , talvez isso mude
-			enviarQuestoesAcertos();
+			enviarQuestoesAcertos(estatisticas,estaAcertos,cont,questCont);
                 //VARIAVEIS IMPORTANTES
                 
                 //cont - Número de questões

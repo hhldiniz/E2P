@@ -9,7 +9,7 @@ $(document).ready(function(){
     {
         $("document.window.location").attr("href","http://localhost/home.html");
     }
-});
+
     $("#botao").click(function(){
      var cont = 0;
      $("#form input").each(function(){
@@ -26,4 +26,5 @@ $(document).ready(function(){
          }
     });
     
+
 });

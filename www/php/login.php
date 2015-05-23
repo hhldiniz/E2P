@@ -1,5 +1,6 @@
-
     <?php
+
+        if(isset($_POST['usuario']) && isset($_POST['senha'])){
             $usuario=$_POST['usuario'];
             $senha=$_POST['senha'];
 
@@ -20,4 +21,7 @@
 			 echo 0;
 			 mysql_close($conexao);
             }
+
+        }
+
         ?>

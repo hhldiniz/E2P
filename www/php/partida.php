@@ -1,14 +1,21 @@
 <?php
 
+      if(isset($_POST['dific']) && isset($_POST['nquest'])){
 
           header('Content-Type: text/html; charset=utf-8');
             $conexao = mysql_connect("localhost","root","");
             mysql_set_charset('utf8', $conexao);
             mysql_select_db("e2p");
 
+
+
         $dificuldade = $_POST['dific'];
-        $limiteQues = (int)$_POST['nquest'];
+        $limiteQues = $_POST['nquest'];
         
+        $dificuldade = preg_replace('/[^[:alnum:]_]/', '',$dificuldade);
+        $limiteQues = preg_replace('/[^[:alnum:]_]/', '',$limiteQues);
+
+
        /* $sql = "select id,titulo from questoes";
 
         if(isset($_POST['materias'])){
@@ -47,9 +54,9 @@
         */
 
 
-           $sql1 = "select id,titulo from questoes where idNivel=".$dificuldade."";
-           $sql2 = "select id,titulo from questoes where idNivel=";
-           $sql3 = "select id,titulo from questoes where idNivel=";
+           $sql1 = "select id,titulo,id_mate from questoes where idNivel=".$dificuldade."";
+           $sql2 = "select id,titulo,id_mate from questoes where idNivel=";
+           $sql3 = "select id,titulo,id_mate from questoes where idNivel=";
 
            switch($dificuldade){
             case 1:
@@ -120,7 +127,7 @@
             }
     
 
-        
+        }
 
     
         ?>

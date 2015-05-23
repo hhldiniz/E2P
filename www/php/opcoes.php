@@ -1,7 +1,7 @@
 <?php
 
 	//Por enquanto separei em dois arquivos para não perder tempo, depois otimizo pra ficar em um arquivo só
-
+if(isset($_POST['id'])){
 	header('Content-Type: text/html; charset=utf-8');
             $conexao = mysql_connect("localhost","root","");
             mysql_set_charset('utf8', $conexao);
@@ -9,6 +9,7 @@
 
 
         	$id = $_POST['id'];
+          $id = preg_replace('/[^[:alnum:]_]/', '',$id);
                 $resultado =  mysql_query("select content,right_answer from opcoes where question_id=".$id."") or die(mysql_error());
 
                if(mysql_num_rows($resultado) > 0)
@@ -30,6 +31,6 @@
                 }
 
 
-
+}
 
 ?>

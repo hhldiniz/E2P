@@ -8,6 +8,16 @@
 		$sobrenome=$_POST['sobrenome'];
 		$usuario=$_POST['usuario'];
 		$email=$_POST['email'];
+
+		$matricula=preg_replace('/[^[:alnum:]_]/', '',$matricula);;
+	    $senha=preg_replace('/[^[:alnum:]_]/', '',$senha);;
+		$nome=preg_replace('/[^[:alnum:]_]/', '',$nome);;
+		$sobrenome=preg_replace('/[^[:alnum:]_]/', '',$sobrenome);;
+		$usuario=preg_replace('/[^[:alnum:]_]/', '',$usuario);;
+		$email=preg_replace('/[^[:alnum:]_]/', '',$email);;
+
+
+
 		$conexao = mysql_connect("localhost","root","");
            	mysql_select_db("e2p");
 		$sql_string="INSERT INTO usuarios VALUES "."('".$nome."','".$sobrenome."','".$usuario."','".$email."','".$matricula."','".$senha."')";

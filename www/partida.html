@@ -31,12 +31,7 @@
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
     </script>
 
-    <script>jQuery(document).ready(function($) {
-        localStorage.clear();
-
-    });
-      
-    </script>
+    
 
 
 	</head>
@@ -109,7 +104,8 @@ function startCountdown(){
 
     } else {
 
-        window.open('home.html', '_self');
+        //window.open('home.html', '_self');
+        location.reload();
 
     }
 
