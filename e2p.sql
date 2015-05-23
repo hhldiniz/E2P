@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 23-Maio-2015 às 16:53
--- Versão do servidor: 5.6.24
--- PHP Version: 5.6.8
+-- Host: localhost
+-- Generation Time: 23-Maio-2015 às 17:32
+-- Versão do servidor: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,26 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `estatisticas` (
   `user` varchar(205) NOT NULL,
-  `acertos_geral` int(11) NOT NULL,
-  `total_questoes` int(11) NOT NULL,
-  `total_mat` int(11) NOT NULL,
-  `acertos_mat` int(11) NOT NULL,
-  `total_geo` int(11) NOT NULL,
-  `acertos_geo` int(11) NOT NULL,
-  `total_hist` int(11) NOT NULL,
-  `acertos_hist` int(11) NOT NULL,
-  `total_port` int(11) NOT NULL,
-  `acertos_port` int(11) NOT NULL,
-  `total_quim` int(11) NOT NULL,
-  `acertos_quim` int(11) NOT NULL
+  `acertos_geral` int(11) NOT NULL DEFAULT '0',
+  `total_questoes` int(11) NOT NULL DEFAULT '0',
+  `total_mat` int(11) NOT NULL DEFAULT '0',
+  `acertos_mat` int(11) NOT NULL DEFAULT '0',
+  `total_geo` int(11) NOT NULL DEFAULT '0',
+  `acertos_geo` int(11) NOT NULL DEFAULT '0',
+  `total_hist` int(11) NOT NULL DEFAULT '0',
+  `acertos_hist` int(11) NOT NULL DEFAULT '0',
+  `total_port` int(11) NOT NULL DEFAULT '0',
+  `acertos_port` int(11) NOT NULL DEFAULT '0',
+  `total_quim` int(11) NOT NULL DEFAULT '0',
+  `acertos_quim` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `estatisticas`
---
-
-INSERT INTO `estatisticas` (`user`, `acertos_geral`, `total_questoes`, `total_mat`, `acertos_mat`, `total_geo`, `acertos_geo`, `total_hist`, `acertos_hist`, `total_port`, `acertos_port`, `total_quim`, `acertos_quim`) VALUES
-('abc', 10, 10, 2, 2, 0, 0, 4, 4, 3, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -68,6 +61,10 @@ INSERT INTO `frases` (`content`, `reacao`) VALUES
 ('Aah!! que ótimo simula... err digo plataforma!', 0),
 ('Isto não é um simulador, viu?', 0),
 ('Se você ver um animal, desconfie se não é um alienígena!', 0),
+('Vortex, ahh... NÃo!!', 0),
+('Aah!! que ótimo simula... err digo plataforma!', 0),
+('Isto não é um simulador, viu?', 0),
+('Se você ver um animal, desconfie se não é um alienígena!', 0),
 ('Vortex, ahh... NÃo!!', 0);
 
 -- --------------------------------------------------------
@@ -77,9 +74,9 @@ INSERT INTO `frases` (`content`, `reacao`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `materias` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `nome` varchar(205) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `materias`
@@ -90,7 +87,12 @@ INSERT INTO `materias` (`id`, `nome`) VALUES
 (2, 'Geografia'),
 (3, 'História'),
 (4, 'Português'),
-(5, 'Química');
+(5, 'Química'),
+(6, 'Inglês'),
+(7, 'Espanhol'),
+(8, 'Literatura'),
+(9, 'Sociologia'),
+(10, 'Filosofia');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,7 @@ INSERT INTO `materias` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `nivel` (
-  `idNivel` int(10) NOT NULL,
+`idNivel` int(10) NOT NULL,
   `nivel` varchar(205) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -119,7 +121,7 @@ INSERT INTO `nivel` (`idNivel`, `nivel`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `opcoes` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `right_answer` tinyint(1) NOT NULL,
   `question_id` int(11) NOT NULL
@@ -182,7 +184,7 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questoes` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `idNivel` int(10) NOT NULL,
   `id_mate` int(11) NOT NULL
@@ -217,56 +219,51 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(50) NOT NULL,
   `matricula` varchar(50) NOT NULL,
   `senha` varchar(50) NOT NULL,
-  `acertos` int(11) NOT NULL
+  `acertos` int(11) NOT NULL,
+  `nivel` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `acertos`) VALUES
-('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 10),
-('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 5);
+INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `acertos`, `nivel`) VALUES
+('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 10, 1),
+('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 5, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `frases`
---
-ALTER TABLE `frases`
-  ADD UNIQUE KEY `content` (`content`);
-
---
 -- Indexes for table `materias`
 --
 ALTER TABLE `materias`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nivel`
 --
 ALTER TABLE `nivel`
-  ADD PRIMARY KEY (`idNivel`);
+ ADD PRIMARY KEY (`idNivel`);
 
 --
 -- Indexes for table `opcoes`
 --
 ALTER TABLE `opcoes`
-  ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
 
 --
 -- Indexes for table `questoes`
 --
 ALTER TABLE `questoes`
-  ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
+ ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`usuario`,`senha`);
+ ADD PRIMARY KEY (`usuario`,`senha`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -276,22 +273,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `nivel`
 --
 ALTER TABLE `nivel`
-  MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `opcoes`
 --
 ALTER TABLE `opcoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `questoes`
 --
 ALTER TABLE `questoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
