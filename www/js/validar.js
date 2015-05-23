@@ -7,7 +7,7 @@ $(document).ready(function(){
     });
     if(localStorage.getItem('usuario')!=null)
     {
-        
+        $("document.window.location").attr("href","http://localhost/home.html");
     }
 });
     $("#botao").click(function(){
