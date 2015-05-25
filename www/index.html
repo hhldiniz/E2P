@@ -34,20 +34,24 @@
     </script>
 </head>
 <body>
-      
-    
+
     <div id='fundo-externo'>
     <div id='fundo'>
-        <img src="imagens/1.png">
+        <img src="imagens/tela_login.png">
     </div>
     </div>
+
+    <div id='barraSuperior'>
+        <a href="#"><img src="imagens/logo.png"></a>
+        <a href='cadastro.html'> <input type="button" class='botao' value='Cadastrar'></a>
+    </div>
+    
     <div id="site">
-    <h1>Enem to Play</h1>
     <p>
-        <input type="text" id='usuario' placeholder='Usuario'><BR>
-        <input type="password" id='senha' placeholder='Senha'><BR>
-        <input type="image" onclick="ajax_post()" src="imagens/botao_confirm_teste.png">
-	 <a href='cadastro.html'><input type='image' src="imagens/botao_chose_teste.png"></a>
+        <h1>Embase</h1> <br>
+        <input type="text" id='usuario' class='caixaTxt' placeholder='Usuario'><BR>
+        <input type="password" id='senha'  class='caixaTxt' placeholder='Senha'><BR>
+        <input type="button" onclick="ajax_post()" class='botao' value='Entrar'><BR>
         <div id="status"></div>
     </p>
 </div>

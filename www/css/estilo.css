@@ -2,10 +2,59 @@
     margin: 0;
     padding:0;
 }
+
 body, html {
     width: 100%;
     height: 100%;
     font-family: 'Lobster', cursive, sans-serif;
+}
+
+.botao {
+    text-align: center;
+    color: #fefefe;
+    width: 20em;
+    padding: 1em;
+    background-color: #178eb2;
+    border-radius: 3px;
+    border: 0px;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.botao:hover {
+    background-color: #6abe45;
+    cursor: pointer;
+}
+
+.caixaTxt {
+    border: 1px solid #888;
+    border-radius: 3px;
+    width: 20em;
+    height: 3em;
+    background-color: rgba(255, 255, 255, 0.8);;
+}
+
+#barraSuperior {
+    padding: 0% 10%;
+    position: absolute;
+    top: 0px;
+    width: 80%;
+    background-color: #16637D;
+    height: 6%;
+}
+
+#barraSuperior img {
+    float: left;
+    height: 60%;
+    margin-top: 6px;
+}
+
+#barraSuperior .botao {
+    margin: 0px;
+    float: right;
+    margin-top: 6px;
+    width: 10em;
+    padding: 0.5em;
 }
 #fundo
 {
@@ -13,28 +62,105 @@ body, html {
     width: 100%;
     height: 100%;
 }
+
 #fundo-externo {
     overflow: hidden; /* para que não tenha rolagem se a imagem de fundo for maior que a tela */
     width: 100%;
     height: 100%;
     position: relative; /* criamos um contexto para posicionamento */
 }
+
 #fundo img {
     width: 100%; /* com isso imagem ocupará toda a largura da tela. Se colocarmos height: 100% também, a imagem irá distorcer */
     position: absolute;
 }
+
 #site {
     position: absolute;
-    top: 30%;
-    left: 50%;
-    width: 400px;
-    padding: 20px;
-    margin-left: -300px; /* por causa do posicionamento absoluto temos que usar margem negativa para centralizar o site */
+    top: 40px;
+    width: 100%;
+    height: 93.8%;
+    /* margin-left: -180px;  por causa do posicionamento absoluto temos que usar margem negativa para centralizar o site */
     background: #FFF; /* fundo branco para navegadores que não suportam rgba */
-    background: rgba(255,255,255,0.8); /* fundo branco com um pouco de transparência */
-    padding-left: 200px;
+    background: rgba(19, 99, 126, 0.4); /* fundo branco com um pouco de transparência padding-left: 200px; */
+    text-align: center;
+    color: #fdfdfd;
+    /* border-radius: 30px; */
 }
  
-p {
+#site p {
+    margin-top: 8%;
     margin-bottom: 1.5em;
 }
+
+#site a {
+    color: #fefefe;
+}
+
+
+/* -------  ICONES  ------- */
+
+/* - FOGUETE - */
+.foguete {
+    background-color: #fff;
+    background-image: url('../imagens/icones/foguete1.png');
+}
+
+.foguete:hover {
+    background-color: #fff;
+    background-image: url('../imagens/icones/foguete2.png');
+}
+
+.foguete_selecionado {
+    background-color: #fff;
+    background-image: url('../imagens/icones/foguete3.png');
+}
+
+/* - ESTRELA - */
+.estrela {
+    background-color: #fff;
+    background-image: url('../imagens/icones/estrel1.png');
+}
+
+.estrela:hover {
+    background-color: #fff;
+    background-image: url('../imagens/icones/estrel2.png');
+}
+
+.estrela_selecionado {
+    background-color: #fff;
+    background-image: url('../imagens/icones/estrel3.png');
+}
+
+/* - ESTATISTICA - */
+.estatistica {
+    background-color: #fff;
+    background-image: url('../imagens/icones/esta1.png');
+}
+
+.estatistica:hover {
+    background-color: #fff;
+    background-image: url('../imagens/icones/esta2.png');
+}
+
+.estatistica_selecionado {
+    background-color: #fff;
+    background-image: url('../imagens/icones/esta3.png');
+}
+
+/* - COROA - */
+.coroa {
+    background-color: #fff;
+    background-image: url('../imagens/icones/coroa1.png');
+}
+
+.coroa:hover {
+    background-color: #fff;
+    background-image: url('../imagens/icones/coroa2.png');
+}
+
+.coroa_selecionado {
+    background-color: #fff;
+    background-image: url('../imagens/icones/coroa3.png');
+}
+
