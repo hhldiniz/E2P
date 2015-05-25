@@ -10,8 +10,8 @@
 
 	var questoes;
     var questCont=0;
-    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
-    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};
+    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, bio: 0,fis: 0};
+    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, bio: 0,fis: 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -34,6 +34,12 @@
             break;
         case "quim":
             return 5;
+            break;
+        case "fis":
+            return 11;
+            break;
+        case "bio":
+            return 12;
             break;
 
       }
@@ -195,6 +201,12 @@ function checaQuestao() {
                 case "5":
                     estatisticas.quim+=1;
                     break;
+                case "11":
+                    estatisticas.fis+=1;
+                    break;
+                case "12":
+                    estatisticas.bio+=1;
+                    break;
 
           }
 
@@ -217,7 +229,16 @@ function checaQuestao() {
                     case "5":
                         estaAcertos.quim+=1;
                         break;
+                    case "11":
+                        estatisticas.fis+=1;
+                        break;
+                    case "12":
+                        estatisticas.bio+=1;
+                        break;
+
                     }
+
+
             console.log(estaAcertos.port);
             console.log(questCont);
 
