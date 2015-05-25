@@ -1,7 +1,8 @@
-var grafico= new Highcharts.Chart({
+$(function(){
+$("#grafico").highcharts({
 chart:
 {
-	renderTo:'grafico',
+	renderTo: grafico,
 	defaultSeriesType: 'bar' 
 },
 
@@ -35,4 +36,4 @@ series:[
 }
 ]
 });
-
+};
