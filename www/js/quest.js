@@ -79,7 +79,7 @@
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             questoes = return_data;
-			$("#site").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
+			$("#ilustracao").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
 
             //document.getElementById("site").innerHTML = return_data;
             
@@ -126,7 +126,7 @@ function ajaxSelectOpt(id){
             }
             html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
             html += '<br><div id="status"></div>';
-			$("#site").append(html); //gambiarra para contornar problema indescritivel com javascript
+			$("#ilustracao").append(html); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
