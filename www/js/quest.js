@@ -122,7 +122,7 @@ function ajaxSelectOpt(id){
             
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
-            shuffle(return_data);
+            //shuffle(return_data);
             var html = "<br>";
             
             for(var i=0;i<return_data.length;i++){
@@ -142,15 +142,6 @@ function ajaxSelectOpt(id){
         }
 
 
-	function shuffle(sourceArray) {
-    for (var n = 0; n < sourceArray.length - 1; n++) {
-        var k = n + Math.floor(Math.random() * (sourceArray.length - n));
-
-        var temp = sourceArray[k];
-        sourceArray[k] = sourceArray[n];
-        sourceArray[n] = temp;
-    }
-}
 function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 {
 	httpRequestCreate("POST","php/enviarQuestoesAcertos.php");

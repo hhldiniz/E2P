@@ -10,7 +10,7 @@ if(isset($_POST['id'])){
 
         	$id = $_POST['id'];
           $id = preg_replace('/[^[:alnum:]_]/', '',$id);
-                $resultado =  mysql_query("select content,right_answer from opcoes where question_id=".$id."") or die(mysql_error());
+                $resultado =  mysql_query("select content,right_answer from opcoes where question_id=".$id." order by rand()") or die(mysql_error());
 
                if(mysql_num_rows($resultado) > 0)
                {
