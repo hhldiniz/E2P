@@ -1,3 +1,148 @@
+.materias {
+  width: 900px;
+  display: inline-block;
+}
+
+.checkbox_wrapper{
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.radio_wrapper{
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+input[type="radio"] {
+    opacity:0;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+input[type="radio"] + label{
+    background-color: #eef0ef;
+    border: 5px solid #bdbdbd;
+    border-radius: 5px;
+    height: 35px;
+    width: 50px;
+    display:inline-block;
+    padding: 15 0 0 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    color: #bdbdbd;
+}
+
+input[type="checkbox"] {
+    opacity:0;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+input[type="checkbox"] + label{
+    background-color: #eef0ef;
+    border: 5px solid #bdbdbd;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+input[type="checkbox"]:checked + label {
+    height: 50px;
+    width: 50px;
+    border-color: #6bbc43;
+    border-radius: 50px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+input[type="radio"]:checked + label {
+    border-color: #6bbc43;
+    color:  #6bbc43;
+}
+
+input[type="checkbox"] + #matematica {
+  background-image: url('../imagens/icones/calc1.png');
+}
+
+input[type="checkbox"]:checked + #matematica {
+  background-image: url('../imagens/icones/calc3.png');
+}
+
+input[type="checkbox"] + #fisica {
+  background-image: url('../imagens/icones/ima1.png');
+}
+
+input[type="checkbox"]:checked + #fisica {
+  background-image: url('../imagens/icones/ima3.png');
+}
+
+input[type="checkbox"] + #geografia {
+  background-image: url('../imagens/icones/globo1.png');
+}
+
+input[type="checkbox"]:checked + #geografia {
+  background-image: url('../imagens/icones/globo3.png');
+}
+
+input[type="checkbox"] + #historia {
+  background-image: url('../imagens/icones/ampu1.png');
+}
+
+input[type="checkbox"]:checked + #historia {
+  background-image: url('../imagens/icones/ampu3.png');
+}
+
+input[type="checkbox"] + #portugues {
+  background-image: url('../imagens/icones/abc1.png');
+}
+
+input[type="checkbox"]:checked + #portugues {
+  background-image: url('../imagens/icones/abc3.png');
+}
+
+input[type="checkbox"] + #quimica {
+  background-image: url('../imagens/icones/garrafa1.png');
+}
+
+input[type="checkbox"]:checked + #quimica {
+  background-image: url('../imagens/icones/garrafa3.png');
+}
+
+input[type="checkbox"] + #biologia {
+  background-image: url('../imagens/icones/dna1.png');
+}
+
+input[type="checkbox"]:checked + #biologia {
+  background-image: url('../imagens/icones/dna3.png');
+}
+
+/* ----- FIM DOS CHECKBOX ----- */
+
 .radioDific {
   list-style: none;
   margin: 0;

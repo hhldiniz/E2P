@@ -4,6 +4,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/estilos_home.css" rel="stylesheet">
     <link href="css/estilo_partida.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
@@ -104,8 +105,7 @@ function startCountdown(){
 
     } else {
 
-        //window.open('home.html', '_self');
-        location.reload();
+        window.open('home.html', '_self');
 
     }
 
@@ -119,24 +119,33 @@ function startCountdown(){
 
     </script> 
         
-        
-		<div id='fundo-externo'>
-    <div id='fundo'>
-        <img src="imagens/1.png">
-    </div>
-    </div>
-    <div id="site">
-    <h1>Matérias</h1>
-        <h4>Selecione as Matérias Que Deseja Exercitar</h4><br>
     
-       <div class='materias'>
-       <input type='checkbox' class='subjects' value='mat'> Matematica 
-       <input type='checkbox' class='subjects' value='geo'> Geografia
-       <input type='checkbox' class='subjects' value='hist'> História
-       <input type='checkbox' class='subjects' value='port'> Português
-       <input type='checkbox' class='subjects' value='quim'> Quimico 
-       </div><br>
-           
+    <div id='barraSuperior'>
+        <a href="#"><img src="imagens/logo.png"></a>
+    </div>
+
+    <div id='linha_dados_usuario'>
+       <!--  <progress id="prg" value="22" max="100"></progress> -->
+
+    </div>
+    <div id='linha_menus'>
+        
+    </div>
+
+    <div id='ilustracao'>
+    <h1>Matérias</h1>
+        <h4>Selecione as Matérias Que Deseja Exercitar</h4>
+        <div class='materias'>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='fis'> <label id='fisica'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='mat'> <label id='matematica'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='geo'> <label id='geografia'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='hist'> <label id='historia'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='port'> <label id='portugues'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='quim'> <label id='quimica'></label> </div>
+           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='bio'> <label id='biologia'></label> </div>
+        </div>
+    <br>
+    <br>   
     <h1>Dificuldade</h1>
         <h4>Selecione o Nivel Das Questões</h4> <br>
        <!--
@@ -158,30 +167,29 @@ function startCountdown(){
             </li>
         </ul>
         -->
-        <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label>
+            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label></div>
             
-            <input type='radio' name='dificulty' value='medio' id="medio"><label for="medio"> Médio</label>
+            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio"> Médio</label></div>
             
-            <input type='radio' name='dificulty' value='dificil' id="dificil"><label for="dificil"> Dificil</label>
+            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil"> Dificil</label></div>
 
 
 
         <br><br>
             
        <h1> Numero de Questoes</h1>
-
-       <select id="nQuest">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="2">2</option>
-      </select>
+        <select id="nQuest">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="2">2</option>
+        </select>
 
            <div id="status"></div>
            
        <span></span>
         <BR>
-       <input type='button' onclick='ajaxSelectQuest()' value='Iniciar Rodada' name="callQuest">
+       <input type='button' class='botao' onclick='ajaxSelectQuest()' value='Iniciar Rodada' name="callQuest">
    
 
     
