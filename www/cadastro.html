@@ -27,25 +27,32 @@
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
     </script>
+
     <div id='fundo-externo'>
     <div id='fundo'>
-        <img src="imagens/1.png">
+        <img src="imagens/tela_login.png">
     </div>
     </div>
+
+    <div id='barraSuperior'>
+        <a href="#"><img src="imagens/logo.png"></a>
+    </div>
+    
     <div id="site">
-    <h1>Cadastro</h1>
-    <p>
-	<input type='text' id='nome' placeholder='Nome'>
-	<input type='text' id='sobrenome' placeholder='Sobrenome'>
-    <input type='text' id='usuario' placeholder='Usuario'>
-	<input type='email' id='email' placeholder='Email'>
-        <input type="text" id='matricula' placeholder='Matricula'>
-        <input type="password" id='senha' placeholder='Senha'>
-        <input type="password" id='senha2' placeholder='Confirmar Senha'>
-        <button onclick='ajax_cadastro()'>Cadastrar</button>
-    </p>
-	 <div id="status"></div>
-</div>
-<footer><a href='cadastro_professor.html'>Você é um professor? Click aqui</footer>
+        <p>
+        <h1>Cadastro</h1>
+    	<input type='text' id='nome' placeholder='Nome'  class='caixaTxt'> <br>
+    	<input type='text' id='sobrenome' placeholder='Sobrenome'  class='caixaTxt'> <br>
+        <input type='text' id='usuario' placeholder='Usuario'  class='caixaTxt'> <br>
+    	<input type='email' id='email' placeholder='Email'  class='caixaTxt'> <br>
+            <input type="text" id='matricula' placeholder='Matricula'  class='caixaTxt'> <br>
+            <input type="password" id='senha' placeholder='Senha' class='caixaTxt'> <br>
+            <input type="password" id='senha2' placeholder='Confirmar Senha' class='caixaTxt'> <br>
+            <button onclick='ajax_cadastro()'class='botao'>Cadastrar</button >
+            <div id="status"></div> <br>
+            <a href='cadastro_professor.html'>Você é um professor? Click aqui</a>
+        </p>
+    </div>
+
 </body>
 </html>
