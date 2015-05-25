@@ -91,8 +91,8 @@ function ajax_cadastro() //função ajax para cadastro do usuário
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
-		   // alert("Cadastro Concluido");
+			$("body").html(return_data);
+			alert("Cadastro realizado");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div

@@ -12,7 +12,7 @@ function httpRequestCreate(method,url){
   function ajax_post(){
     if($("#usuario").val() != "" && $("#senha").val() != ""){
     var fn = $("#usuario").val();
-    localStorage("usuario",fn);  //aproveita o momento do click para o login e envia o nome de usuário para o armazenamento local
+    localStorage.setItem("usuario",fn);  //aproveita o momento do click para o login e envia o nome de usuário para o armazenamento local
     var ln = $("#senha").val();
     var vars = "usuario="+fn+"&senha="+ln;
         
@@ -91,8 +91,7 @@ function ajax_cadastro() //função ajax para cadastro do usuário
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
-		   // alert("Cadastro Concluido");
+			$("body").html(return_data);
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
@@ -103,7 +102,7 @@ function ajax_cadastro() //função ajax para cadastro do usuário
 
 
 
-function ajaxCadastraQuestao()
+function ajaxCadastraQuestao() //função para cadastro da questão
 {
 	 httpRequestCreate("GET","php/cadastroQuestoes.php");
 	var questao_texto=$("#questao_texto").val();
