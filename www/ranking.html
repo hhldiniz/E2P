@@ -23,6 +23,7 @@
     <script src="js/jquery.localstorage.js"></script>
     <script src="js/adaptarBackground.js"></script>
     <script src='js/highcharts.js'></script>
+    <script src='js/controleDeGrafico.js'></script>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
@@ -65,7 +66,7 @@
         }
             hr.send(); // Actually execute the request
              $("#ranking").html("processing...");   
-      
+
 
     </script>
       
@@ -84,5 +85,6 @@
     </p>
      <div id="status"></div>
 </div>
+<div id='grafico' style="width:'800px' height: '600px'"></div>
 </body>
 </html>
