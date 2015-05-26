@@ -7,6 +7,7 @@
             mysql_set_charset('utf8', $conexao);
             mysql_select_db("e2p");
 
+    if($_SERVER['REQUEST_METHOD'] === 'GET'){
                 $resultado =  mysql_query("select content,reacao from frases order by rand() limit 1") or die(mysql_error());
 
                if(mysql_num_rows($resultado) > 0)
@@ -27,7 +28,7 @@
                  mysql_close($conexao);
                 }
 
-
+    }else if($_SERVER['REQUEST_METHOD'] === 'POST'){}
 
 
 ?>
