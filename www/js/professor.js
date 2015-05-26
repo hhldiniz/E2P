@@ -33,6 +33,10 @@ var hr = new XMLHttpRequest();
             prg.max = ((Number(return_data[0].nivel)+1)*10)-10;
             prg.value = Number(return_data[0].acertos_geral);
             
+            var esch = "<br>Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*10)-10);
+            
+            $("#linha_dados_usuario").append(esch);
+            
 			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
 
 	    }
