@@ -27,9 +27,12 @@ var hr = new XMLHttpRequest();
 		    var return_data = xhr.responseText;
             return_data = $.parseJSON(return_data);
             //$("#prg").progressbar({value: return_data.acertos_geral});
-            $("#prg").val(Number(return_data[0].acertos_geral));
+            //$("#prg").val(Number(return_data[0].acertos_geral));
             //$("#prg").max(((Number(return_data[0].nivel)+1)*10)-10);
-            $("#prg");
+            
+            prg.max = ((Number(return_data[0].nivel)+1)*10)-10;
+            prg.value = Number(return_data[0].acertos_geral);
+            
 			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
 
 	    }
