@@ -25,6 +25,13 @@
     $sql .= ",acertos_port = acertos_port + ".$acertosmat->port."";
     $sql .= ",acertos_quim = acertos_quim + ".$acertosmat->quim."";
 
+    $sql .= ",acertos_ing = acertos_ing + ".$acertosmat->ing."";
+    $sql .= ",acertos_esp = acertos_esp + ".$acertosmat->esp."";
+    $sql .= ",acertos_soc = acertos_soc + ".$acertosmat->soc."";
+    $sql .= ",acertos_fil = acertos_fil + ".$acertosmat->fil."";
+    $sql .= ",acertos_fis = acertos_fis + ".$acertosmat->fis."";
+    $sql .= ",acertos_bio = acertos_bio + ".$acertosmat->bio."";
+
     $sql .= " WHERE user='".$usuario."'";
 
 	mysql_query($sql);
