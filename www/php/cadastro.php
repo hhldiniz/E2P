@@ -1,7 +1,4 @@
-<html>
-	<head></head>
-<body>
-	<?php
+<?php
 		$matricula=$_POST['matricula'];
 	    $senha=$_POST['senha'];
 		$nome=$_POST['nome'];
@@ -26,9 +23,7 @@
 		$resultado2=mysql_query($sql_string_aux) or die(mysql_error());
         if($resultado && $resultado2)
         {
-            	    header("location: http://localhost/E2P/www/index.html");
+            	   echo 1;
         }
                 mysql_close($conexao);
 	?>
-</body>
-</html>
