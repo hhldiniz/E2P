@@ -29,20 +29,55 @@ var hr = new XMLHttpRequest();
             //$("#prg").progressbar({value: return_data.acertos_geral});
             //$("#prg").val(Number(return_data[0].acertos_geral));
             //$("#prg").max(((Number(return_data[0].nivel)+1)*10)-10);
+
+            if(Number(return_data[0].acertos_geral) >= ((Number(return_data[0].nivel)+1)*15)-15){
+                nivelret = levelUp(localStorage.usuario);
+            }else{
             
-            prg.max = ((Number(return_data[0].nivel)+1)*10)-10;
+            prg.max = ((Number(return_data[0].nivel)+1)*15)-15;
             prg.value = Number(return_data[0].acertos_geral);
             
-            var esch = "<br>Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*10)-10);
+            var esch = "<br>Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
             
             $("#linha_dados_usuario").append(esch);
             
 			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
-
+        }
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
     xhr.send(vars); // Actually execute the request
     // $("#fraseTeacher").html("Pensando...");
+
+
+    function levelUp(user){
+        lvl = new XMLHttpRequest(); 
+
+        lvl.open("POST","php/professor.php",true);
+        lvl.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        var vars = "usuario="+user;
+    
+        lvl.onreadystatechange = function(){
+        if(lvl.readyState == 4 && lvl.status == 200){
+            location.reload();
+            //var return_data = lvl.responseText;
+            //return_data = $.parseJSON(return_data);
+            //console.log(return_data[0].nivel);
+            
+            //$("#linha_dados_usuario").append("Nivel "+return_data[0].nivel);
+            
+            //$("#linha_dados_usuario").append(esch);
+            
+            //$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+        }
+        }
+
+         lvl.send(vars);
+    }
+
+   
+
+
     
 });
