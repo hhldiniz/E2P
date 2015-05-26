@@ -28,7 +28,33 @@
                  mysql_close($conexao);
                 }
 
-    }else if($_SERVER['REQUEST_METHOD'] === 'POST'){}
+    }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $user = $_POST['user'];
+            $user = preg_replace('/[^[:alnum:]_]/', '',$user);
+        
+            $sql= "SELECT usuarios.nivel, estatisticas.acertos_geral FROM usuarios, estatisticas ";
+            $sql .= "WHERE usuarios.usuario='".$user."' AND estatisticas.user='".$user."'";
+
+            $resultado =  mysql_query($sql) or die(mysql_error());
+
+               if(mysql_num_rows($resultado) > 0)
+               {
+                   $retorno = array();
+                 while($row = mysql_fetch_assoc($resultado)) {
+                     $retorno[] = $row;
+
+
+                }
+                   echo json_encode($retorno);
+                mysql_close($conexao);
+
+                }	
+                else
+                {
+                 echo "Erro com o banco de questoes!";
+                 mysql_close($conexao);
+                }
+    }
 
 
 ?>

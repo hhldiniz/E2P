@@ -26,7 +26,11 @@ var hr = new XMLHttpRequest();
 	    if(xhr.readyState == 4 && xhr.status == 200){
 		    var return_data = xhr.responseText;
             return_data = $.parseJSON(return_data);
-			$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+            //$("#prg").progressbar({value: return_data.acertos_geral});
+            $("#prg").val(Number(return_data[0].acertos_geral));
+            //$("#prg").max(((Number(return_data[0].nivel)+1)*10)-10);
+            $("#prg");
+			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
 
 	    }
     }
