@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: 25/05/2015 às 14h09min
+-- Tempo de Geração: 26/05/2015 às 15h07min
 -- Versão do Servidor: 5.5.43
 -- Versão do PHP: 5.3.10-1ubuntu3.18
 
@@ -39,8 +39,28 @@ CREATE TABLE IF NOT EXISTS `estatisticas` (
   `total_port` int(11) NOT NULL DEFAULT '0',
   `acertos_port` int(11) NOT NULL DEFAULT '0',
   `total_quim` int(11) NOT NULL DEFAULT '0',
-  `acertos_quim` int(11) NOT NULL DEFAULT '0'
+  `acertos_quim` int(11) NOT NULL DEFAULT '0',
+  `total_ing` int(11) NOT NULL DEFAULT '0',
+  `acertos_ing` int(11) NOT NULL DEFAULT '0',
+  `total_esp` int(11) NOT NULL DEFAULT '0',
+  `acertos_esp` int(11) NOT NULL DEFAULT '0',
+  `total_soc` int(11) NOT NULL DEFAULT '0',
+  `acertos_soc` int(11) NOT NULL DEFAULT '0',
+  `total_fil` int(11) NOT NULL DEFAULT '0',
+  `acertos_fil` int(11) NOT NULL DEFAULT '0',
+  `total_fis` int(11) NOT NULL DEFAULT '0',
+  `acertos_fis` int(11) NOT NULL DEFAULT '0',
+  `total_bio` int(11) NOT NULL DEFAULT '0',
+  `acertos_bio` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `estatisticas`
+--
+
+INSERT INTO `estatisticas` (`user`, `acertos_geral`, `total_questoes`, `total_mat`, `acertos_mat`, `total_geo`, `acertos_geo`, `total_hist`, `acertos_hist`, `total_port`, `acertos_port`, `total_quim`, `acertos_quim`, `total_ing`, `acertos_ing`, `total_esp`, `acertos_esp`, `total_soc`, `acertos_soc`, `total_fil`, `acertos_fil`, `total_fis`, `acertos_fis`, `total_bio`, `acertos_bio`) VALUES
+('alyssonmoreira', 105, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('asdf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -239,6 +259,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `nivel`) VALUES
 ('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 1),
+('Alysson', 'Moreira', 'alyssonmoreira', 'alyssonyopacom', '123456', 'senha', 8),
+('aasd', 'asd', 'asdf', 'asdfasdfcom', '123456', 'senha', 1),
 ('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 1);
 
 --

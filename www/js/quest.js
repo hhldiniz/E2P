@@ -10,8 +10,8 @@
 
 	var questoes;
     var questCont=0;
-    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, bio: 0,fis: 0};
-    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, bio: 0,fis: 0};
+    var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, ing: 0, esp: 0, soc: 0, fil: 0, bio: 0,fis: 0};
+    var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, ing: 0, esp: 0, soc: 0, fil: 0, bio: 0,fis: 0};
 	var cont = 0;
 	
 	function ajaxSelectQuest(){
@@ -34,6 +34,18 @@
             break;
         case "quim":
             return 5;
+            break;
+        case "ing":
+            return 6;
+            break;
+        case "esp":
+            return 7;
+            break;
+        case "soc":
+            return 9;
+            break;
+        case "fil":
+            return 11;
             break;
         case "fis":
             return 11;
@@ -192,6 +204,18 @@ function checaQuestao() {
                 case "5":
                     estatisticas.quim+=1;
                     break;
+                case "6":
+                    estatisticas.ing+=1;
+                    break;
+                case "7":
+                    estatisticas.esp+=1;
+                    break;
+                case "9":
+                    estatisticas.soc+=1;
+                    break;
+                case "10":
+                    estatisticas.fil+=1;
+                    break;
                 case "11":
                     estatisticas.fis+=1;
                     break;
@@ -220,6 +244,18 @@ function checaQuestao() {
                     case "5":
                         estaAcertos.quim+=1;
                         break;
+                    case "6":
+                        estatisticas.ing+=1;
+                        break;
+                    case "7":
+                        estatisticas.esp+=1;
+                        break;
+                    case "9":
+                        estatisticas.soc+=1;
+                        break;
+                    case "10":
+                         estatisticas.fil+=1;
+                         break;
                     case "11":
                         estatisticas.fis+=1;
                         break;
