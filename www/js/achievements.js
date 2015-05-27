@@ -1,11 +1,9 @@
 function checaAchievements(){
 
-	switch(Number(localStorage.sequencia)){
-		case 10:
+	if(Number(localStorage.sequencia)>=5){
 			console.log("opa garoto");
-		case 5:
+	}
+	if(Number(localStorage.sequencia)>=10){
 			console.log("rapazz");
-
-
 		}
 }
