@@ -1,5 +1,4 @@
-
-
+var display;
 	var hr = new XMLHttpRequest();
 
 	function httpRequestCreate(method,url){
@@ -79,7 +78,7 @@
 
     var nquest = Number($("#nQuest").val());
 
-    tempo = nquest *(150);
+    //tempo = nquest *(150);
 
     console.log("Numero de Questoes: "+nquest);
 
@@ -103,8 +102,10 @@
             
 		   //return return_data;
            
-            ajaxSelectOpt(return_data[0].id);
-            startCountdown();
+            ajaxSelectOpt(return_data[0].id,nquest);
+            //startCountdown();
+
+             
             
             // alert("Cadastro Concluido");
 	    }
@@ -121,7 +122,7 @@
 //     alert(aux);
 // }
 
-function ajaxSelectOpt(id){
+function ajaxSelectOpt(id,quest){
     
     
     httpRequestCreate("POST","php/opcoes.php");
@@ -145,7 +146,12 @@ function ajaxSelectOpt(id){
             html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
             html += '<br><div id="status"></div>';
 			$("#ilustracao").append(html); //gambiarra para contornar problema indescritivel com javascript
-		   // alert("Cadastro Concluido");
+
+
+		    display = document.querySelector('#status');
+            timer = new CountDownTimer(quest*150);
+            timer.onTick(format).onTick(restart).start();
+           // alert("Cadastro Concluido");
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div
@@ -299,3 +305,16 @@ function checaQuestao() {
       }
 
     }
+
+
+function restart() {
+    if (this.expired()) {
+      window.location.href = "home.html"
+    }
+  }
+
+  function format(minutes, seconds) {
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    display.textContent = minutes + ':' + seconds;
+  }
