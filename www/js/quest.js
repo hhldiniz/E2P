@@ -9,6 +9,7 @@ var display;
 
 	var questoes;
     var questCont=0;
+    localStorage.sequences = 0;
     var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, ing: 0, esp: 0, soc: 0, fil: 0, bio: 0,fis: 0};
     var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, ing: 0, esp: 0, soc: 0, fil: 0, bio: 0,fis: 0};
 	var cont = 0;
@@ -102,8 +103,11 @@ var display;
             
 		   //return return_data;
            
-            ajaxSelectOpt(return_data[0].id,nquest);
+            ajaxSelectOpt(return_data[0].id);
             //startCountdown();
+            display = document.querySelector('#status');
+            timer = new CountDownTimer(nquest*150);
+            timer.onTick(format).onTick(restart).start();
 
              
             
@@ -122,7 +126,7 @@ var display;
 //     alert(aux);
 // }
 
-function ajaxSelectOpt(id,quest){
+function ajaxSelectOpt(id){
     
     
     httpRequestCreate("POST","php/opcoes.php");
@@ -144,13 +148,11 @@ function ajaxSelectOpt(id,quest){
                   '</label><br>';
             }
             html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
-            html += '<br><div id="status"></div>';
+            //html += '<br><div id="status"></div>';
 			$("#ilustracao").append(html); //gambiarra para contornar problema indescritivel com javascript
 
 
-		    display = document.querySelector('#status');
-            timer = new CountDownTimer(quest*150);
-            timer.onTick(format).onTick(restart).start();
+		    
            // alert("Cadastro Concluido");
 	    }
     }
@@ -173,7 +175,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 	    if(hr.readyState == 4 && hr.status == 200) {
             
 		    var return_data = hr.responseText;
-            
+            checaAchievements();
             window.location.href = "home.html";
             
 			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
@@ -193,6 +195,7 @@ function checaQuestao() {
 
       //Testando se ha uma opção selecionada 
       if($('input:radio[name=answer]:checked').length>0){
+
 
             switch (questoes[cont].id_mate){
                 case "1":
@@ -233,6 +236,7 @@ function checaQuestao() {
 
           //Testando se e certa  
           if($('input:radio[name=answer]:checked').val()== 1){
+            localStorage.sequences = Number(localStorage.sequences)+1;
             questCont++;
                 switch (questoes[cont].id_mate){
                     case "1":
@@ -275,13 +279,13 @@ function checaQuestao() {
             console.log(estaAcertos.port);
             console.log(questCont);
 
-          }
+          }else if($('input:radio[name=answer]:checked').val()== 0){localStorage.sequences=0;}
 
           cont++;
 
           //Caso uma proxima questao exista mostra a proxima
           if(questoes[cont] != undefined){
-          $("#site").html(questoes[cont].titulo);
+          $("#ilustracao").html(questoes[cont].titulo);
           ajaxSelectOpt(questoes[cont].id);
 		  
 		  //Se ja não ha mais questões, a sessão acabou
