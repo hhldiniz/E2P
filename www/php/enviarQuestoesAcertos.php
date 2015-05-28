@@ -18,6 +18,14 @@
     $sql .= ",total_hist = total_hist + ".$totalqmat->hist."";
     $sql .= ",total_port = total_port + ".$totalqmat->port."";
     $sql .= ",total_quim = total_quim + ".$totalqmat->quim."";
+    
+    $sql .= ",total_ing = total_ing + ".$totalqmat->ing."";
+    $sql .= ",total_esp = total_esp + ".$totalqmat->esp."";
+    $sql .= ",total_soc = total_soc + ".$totalqmat->soc."";
+    $sql .= ",total_fil = total_fil + ".$totalqmat->fil."";
+    $sql .= ",total_fis = total_fis + ".$totalqmat->fis."";
+    $sql .= ",total_bio = total_bio + ".$totalqmat->bio."";
+
 
     $sql .= ",acertos_mat = acertos_mat + ".$acertosmat->mat."";
     $sql .= ",acertos_geo = acertos_geo + ".$acertosmat->geo."";

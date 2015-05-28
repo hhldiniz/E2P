@@ -60,7 +60,8 @@ var hr = new XMLHttpRequest();
     
         lvl.onreadystatechange = function(){
         if(lvl.readyState == 4 && lvl.status == 200){
-            location.reload();
+            if(Number(lvl.responseText)>0){
+            location.reload();}
             //var return_data = lvl.responseText;
             //return_data = $.parseJSON(return_data);
             //console.log(return_data[0].nivel);

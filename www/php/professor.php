@@ -62,31 +62,18 @@
             $usuario = preg_replace('/[^[:alnum:]_]/', '',$usuario);
         
             $sql= "UPDATE usuarios SET nivel = nivel + 1 WHERE usuario='".$usuario."';";
-            $sql2= "SELECT nivel FROM usuarios WHERE usuario='".$usuario."'";
+           //$sql2= "SELECT nivel FROM usuarios WHERE usuario='".$usuario."'";
 
             $resultado =  mysql_query($sql) or die(mysql_error());
-            $resultado2 = mysql_query($sql2) or die(mysql_error());
+           // $resultado2 = mysql_query($sql2) or die(mysql_error());
 
-               if(mysql_num_rows($resultado2) > 0 && $resultado)
-               {
-                    $retorno = array();
-                 while($row = mysql_fetch_assoc($resultado2)) {
-                     $retorno[] = $row;
+               if($resultado){
+                   echo 1;
+                   mysql_close($conexao);
 
-
-                }
-                   echo json_encode($retorno);
-                mysql_close($conexao);
-                   }   
-                else
-                {
+                }else{
                  echo "Erro com o banco de questoes!";
                  mysql_close($conexao);
-                }
-
-
-        }
-    }
-
-
-?>
+                } }}
+    
+    ?>
