@@ -24,6 +24,7 @@
     <script src="js/adaptarBackground.js"></script>
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
+    <script src="js/armazenarEmLocalStorage.js"></script>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
@@ -51,7 +52,7 @@
         <h1>Embase</h1> <br>
         <input type="text" id='usuario' class='caixaTxt' placeholder='Usuario'><BR>
         <input type="password" id='senha'  class='caixaTxt' placeholder='Senha'><BR>
-        <input type="button" onclick="ajax_post()" class='botao' value='Entrar'><BR>
+        <input type="button" id='login' onclick="ajax_post()" class='botao' value='Entrar'><BR>
         <div id="status"></div>
     </p>
 </div>
