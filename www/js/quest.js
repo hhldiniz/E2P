@@ -176,7 +176,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
             
 		    var return_data = hr.responseText;
             checaAchievements();
-            window.location.href = "home.html";
+           // window.location.href = "home.html";
             
 			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
 	    }

@@ -6,4 +6,6 @@ function checaAchievements(){
 	if(Number(localStorage.sequencia)>=10){
 			console.log("rapazz");
 		}
+    
+    windows.location.href = "home.html";
 }
