@@ -9,7 +9,7 @@
 
             $conexao = mysql_connect("localhost","root","");
             mysql_select_db("e2p");
-           $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha=MD5('$senha')") or die(mysql_error());
+           $resultado =  mysql_query("select * from usuarios where usuario='$usuario' and senha='$senha'") or die(mysql_error());
 		   if(mysql_num_rows($resultado) > 0)
 		   {
 			
