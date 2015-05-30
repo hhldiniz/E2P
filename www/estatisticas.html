@@ -1,7 +1,7 @@
-
 <html>
     <head>
         <meta charset="utf-8">
+        <title>Impulso - Insignias</title>
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/estilos_home.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
@@ -15,11 +15,10 @@
     </style>
     <script src="cordova.js" id="xdkJScordova_"></script>
     <script src="js/jquery-2.1.3.min.js"></script>
-    <script src='js/highcharts.js'></script>
     <script src="js/adaptarBackground.js"></script>
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
-
+    <script src="js/professor.js"></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">
@@ -29,79 +28,6 @@
             }
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
-    </script>
-
-    <script>
-
-        $(function () {
-            var opa;
-
-            var vars = "user="+localStorage.usuario;
-            var hr = new XMLHttpRequest();
-                hr.open("POST","php/estatisticas.php",true);    
-                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
-
-                hr.onreadystatechange = function(){
-                if(hr.readyState == 4 && hr.status == 200){
-                    var return_data = hr.responseText;
-                    return_data = $.parseJSON(return_data);
-                    opa = return_data;
-                    geragrafico();
-                   // $("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
-
-                }
-            }
-            // Send the data to PHP now... and wait for response to update the status div
-            hr.send(vars); // Actually execute the request
-             $("#fraseTeacher").html("Pensando...");    
-
-             function geragrafico(){
-            $('#container').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
-                },
-                title: {
-                    text: 'Browser market shares at a specific website, 2014'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    type: 'pie',
-                    name: 'Aproveitamento das matérias',
-                    data: [
-                        ['Firefox',   opa[0].acertos_quim*100/opa[0].acertos_geral],
-                        ['IE',       26.8],
-                        {
-                            name: 'Chrome',
-                            y: 12.8,
-                            sliced: true,
-                            selected: true
-                        },
-                        ['Safari',    8.5],
-                        ['Opera',     6.2],
-                        ['Others',   0.7]
-                    ]
-                }]
-            });
-}
-        });
-
     </script>
 
     <style>
@@ -154,28 +80,32 @@
         /* Prefix-free was creating issues with the animation */
     </style>
 
-    <div id='barraSuperior'>
+	<div id='barraSuperior'>
         <a href="#"><img src="imagens/logo.png"></a>
-    </div>
+	</div>
 
-    <div id='linha_dados_usuario'>
+	<div id='linha_dados_usuario'>
         <progress id="prg" value="0" max="0"></progress>
-    </div>
+	</div>
 
 
     <div id='area_menus'>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu foguete_selecionado selecionado'></div>
-            <div class='nome_menu'>Laboratório <p>Tela incial</p></div>
+            <div class='icone_menu foguete'></div>
         </div>
 
+        <div class='item_menu_lateral'>
+            <div class='icone_menu joystick'></div>
+        </div>
+        
         <div class='item_menu_lateral'>
             <div class='icone_menu estrela'></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu estatistica'></div>
+            <div class='icone_menu estatistica_selecionado selecionado'></div>
+            <div class='nome_menu'>Estatísticas <p>Seus resultados</p></div>
         </div>
 
         <div class='item_menu_lateral'>
@@ -184,14 +114,44 @@
 
     </div>
 
-    <div id='ilustracao'>
-        <center><div id="container"></div></center>
-    </div>
+	<div id='ilustracao'>
+        <center><p id="fraseTeacher"></p></center>
+        <div id='conteudo'>
+            <div id='area_sub_menus'>
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_fisica_selecionado selecionado'></div>
+                    <div class='nome_menu_esq'>Física</div>
+                </div>
 
-    <div id='btJogar'> 
-        <input type='button' class='botao' value='Jogar'>
-    </div>
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_matematica'></div>
+                </div>
 
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_geografia'></div>
+                </div>
+
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_historia'></div>
+                </div>
+
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_portugues'></div>
+                </div>
+
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_quimica'></div>
+                </div>
+
+                <div class='item_menu_lateral'>
+                    <div class='icone_menu icone_biologia'></div>
+                </div>
+            </div>
+
+            <!-- RESTANTE DO CONTEUDO -->
+
+        </div>
+	</div>
 
 </body>
 </html>

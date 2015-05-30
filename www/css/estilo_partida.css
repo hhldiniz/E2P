@@ -12,41 +12,6 @@
   margin-right: 1em;
 }
 
-.radio_wrapper{
-  position: relative;
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-input[type="radio"] {
-    opacity:0;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-
-input[type="radio"] + label{
-    background-color: #eef0ef;
-    border: 5px solid #bdbdbd;
-    border-radius: 5px;
-    height: 35px;
-    width: 50px;
-    display:inline-block;
-    padding: 15 0 0 0px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    text-align: center;
-    color: #bdbdbd;
-}
-
 input[type="checkbox"] {
     opacity:0;
     height: 50px;
@@ -78,11 +43,6 @@ input[type="checkbox"]:checked + label {
     border-radius: 50px;
     display:inline-block;
     padding: 0 0 0 0px;
-}
-
-input[type="radio"]:checked + label {
-    border-color: #6bbc43;
-    color:  #6bbc43;
 }
 
 input[type="checkbox"] + #matematica {
@@ -143,57 +103,54 @@ input[type="checkbox"]:checked + #biologia {
 
 /* ----- FIM DOS CHECKBOX ----- */
 
-.radioDific {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.radioDific:after {
-  content: "";
-  clear: both;
-}
-
-.radioDifics {
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  float: left;
-  height: 70px;
+.radio_wrapper{
   position: relative;
-  width: 120px;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
-.radioDifics + .radioDifics {
-  margin-left: 25px;
+input[type="radio"] {
+    opacity:0;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
-.radioDifics label {
-  background: #fff no-repeat center center;
-  bottom: 1px;
-  cursor: pointer;
-  display: block;
-  font-size: 0;
-  left: 1px;
-  position: absolute;
-  right: 1px;
-  text-indent: 100%;
-  top: 1px;
-  white-space: nowrap;
+input[type="radio"] + label{
+    font-weight: bold;
+    background-color: #eef0ef;
+    border: 5px solid #bdbdbd;
+    border-radius: 5px;
+    height: 35px;
+    width: 50px;
+    display:inline-block;
+    padding: 15 0 0 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    color: #bdbdbd;
 }
 
-.facil label {
-  background-image: url(uol.png);
+input[type="radio"]:checked + label {
+    border-color: #6bbc43;
+    color:  #6bbc43;
 }
 
-.medio label {
-  background-image: url(paypal.png);
+/* ----- FIM DOS RADIOS ----- */
+
+select {
+
+  border: 2px solid #6bbc43;
+  border-radius: 5px;
+  width: 60px;
 }
 
-.dificil label {
-  background-image: url(bankslip.png);
-}
-
-
-.radioDifics input:checked + label {
-  outline: 4px solid #6BBC44;
-}
+/* ----- FIM DO SELECT BOX ----- */

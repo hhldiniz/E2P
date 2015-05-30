@@ -1,4 +1,4 @@
-html,body{
+html, body{
 	width:100%;
 	margin:0px;
     font-family: 'arial', cursive, sans-serif;
@@ -21,6 +21,13 @@ html,body{
 	text-align: center;
 	width: 80%;
 	height: 60%;
+}
+
+#conteudo {
+	border: 1px solid #ff0;
+	float: right;
+	width: 82%;
+	height: 100%;
 }
 
 #areas_conhecimento
@@ -48,8 +55,18 @@ html,body{
 	border: 1px solid #00f;
 	float: left;
 	margin-left: 10%;
-	width: 15%;
+	width: 14%;
 	height: 60%;
+}
+
+#area_sub_menus
+{
+	float: right;
+	position: relative;
+	display: inline-block;
+	border: 1px solid #00f;
+	width: 7%;
+	height: 100%;
 }
 
 .item_menu_lateral {
@@ -97,6 +114,63 @@ html,body{
 	font-size: 15px;
 }
 
-.nome_menu p{
+.nome_menu_esq {
+	float: right;
+	text-align: right;
+	position: absolute;
+	top: 15px;
+	right: -35px;
+	width: 80px;
+	height: 20px;
+	border-radius: 50px;
+	background-color: #6bbc43;
+	z-index: 1;
+	padding: 5px 42px 5px 5px;
+	color: #fff;
+	font-size: 15px;
+}
+
+.nome_menu p, .nome_menu_esq p{
 	font-size: 11px;
+}
+
+.insignia {
+	display: inline-block;
+	float: left;
+	width: 140px;
+	text-align: center;
+	margin: 10px 20px;
+}
+
+.nome_insignia {
+	margin-bottom: 10px;
+	color: #16637D;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.simbolo_insignia {
+	border: 10px solid #bdbdbd;
+	border-radius: 100px;
+	margin: auto;
+	width: 100px;
+	height: 100px;
+}
+
+.insignia_estrela {
+	background-image: url('../imagens/icones/estrela_100_1.png');
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: center;
+}
+
+.insignia_chapeu {
+	background-image: url('../imagens/icones/beca_100_1.png');
+}
+
+.descricao_insignia {
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 12px;
+	background-color: #eee;
 }

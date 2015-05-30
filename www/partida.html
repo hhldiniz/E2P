@@ -1,6 +1,6 @@
 <html>
 	<head>
-			<title>Enem to Play - Cadastro de Questoes</title>
+			<title>Impulso - Jogar</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href="css/estilo.css" rel="stylesheet">
@@ -61,72 +61,73 @@
        <!--  <progress id="prg" value="22" max="100"></progress> -->
 
     </div>
-    <div id='linha_menus'>
+    <div id='area_menus'>
         
+        <div class='item_menu_lateral'>
+            <div class='icone_menu foguete'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu joystick_selecionado selecionado'></div>
+            <div class='nome_menu'>Jogar <p>Exercícios</p></div>
+        </div>
+        
+        <div class='item_menu_lateral'>
+            <div class='icone_menu estrela'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu estatistica'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu coroa'></div>
+        </div>
+
     </div>
 
     <div id='ilustracao'>
-    <h1>Matérias</h1>
-        <h4>Selecione as Matérias Que Deseja Exercitar</h4>
-        <div class='materias'>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='fis'> <label id='fisica'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='mat'> <label id='matematica'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='geo'> <label id='geografia'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='hist'> <label id='historia'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='port'> <label id='portugues'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='quim'> <label id='quimica'></label> </div>
-           <div class="checkbox_wrapper"> <input type='checkbox' class='subjects' value='bio'> <label id='biologia'></label> </div>
-        </div>
-    <br>
-    <br>   
-    <h1>Dificuldade</h1>
-        <h4>Selecione o Nivel Das Questões</h4> <br>
-       <!--
-        <ul class="radioDific">
-        
-        <li class="radioDifics facil">
-            <input type='radio' name='dificulty' value='facil' checked="true" id="facil"> 
-            <label for="facil">Fácil</label>
-        </li>
+        <h1>Matérias</h1>
+            <h4>Selecione as Matérias Que Deseja Exercitar</h4>
+            <div class='materias'>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='fis'> <label id='fisica'></label> <span>Física</span> </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='mat'> <label id='matematica'></label> <span>Matemática</span> </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='geo'> <label id='geografia'></label> <span>Geografia</span> </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='hist'> <label id='historia'></label> <span>História</span> </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='port'> <label id='portugues'></label> <span>Português</span>  </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='quim'> <label id='quimica'></label> <span>Química</span> </div>
+               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='bio'> <label id='biologia'></label> <span>Biologia</span> </div>
+            </div>
+        <br>
+        <br>   
+        <h1>Dificuldade</h1>
             
-            <li class="radioDifics medio">
-            <input type='radio' name='dificulty' value='medio' id="medio"> 
-            <label for="medio">Médio</label>
-            </li>
-            
-            <li class="radioDifics dificil">
-            <input type='radio' name='dificulty' value='dificil' id="dificil"> 
-            <label for="dificil">Dificil</label>
-            </li>
-        </ul>
-        -->
-            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label></div>
-            
-            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio"> Médio</label></div>
-            
-            <div class="radio_wrapper"> <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil"> Dificil</label></div>
+            <h4>Selecione o Nivel Das Questões</h4> <br>
+                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label></div>
+                
+                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio"> Médio</label></div>
+                
+                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil"> Dificil</label></div>
 
 
 
-        <br><br>
-            
-       <h1> Numero de Questoes</h1>
-        <select id="nQuest">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="2">2</option>
-        </select>
+            <br><br>
+                
+           <h1> Numero de Questoes</h1>
+            <select id="nQuest">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+               
+               
+            <span></span>
+            <BR>
+            <BR>
 
-           
-           
-       <span></span>
-        <BR>
-       <input type='button' class='botao' onclick='ajaxSelectQuest()' value='Iniciar Rodada' name="callQuest">
-   
-
-    
-</div>
+            <div><input type='button' class='botao' onclick='ajaxSelectQuest()' value='Iniciar' name="callQuest"></div>
+    </div>
     <div id="status"></div>
 	</body>
 </html>

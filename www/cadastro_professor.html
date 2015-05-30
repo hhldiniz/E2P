@@ -2,6 +2,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">	
 		<meta charset='utf-8'>
+		<title>Cadastro - Professor</title>
 		<script src="cordova.js" id="xdkJScordova_"></script>
 		<script src="intelxdk.js"></script>
 		<script src="xhr.js"></script>
@@ -13,17 +14,25 @@
 		<link href="css/estilo.css" rel="stylesheet">
 	</head>
 	<body>
-		<div id='fundo_externo'>
-		<div id='fundo'>
-        <img src="imagens/1.png">
-    </div>
-		</div>
+
+	    <div id='fundo-externo'>
+	    <div id='fundo'>
+	        <img src="imagens/tela_login.png">
+	    </div>
+	    </div>
+
+	    <div id='barraSuperior'>
+	        <a href="#"><img src="imagens/logo.png"></a>
+	    </div>
+	    
 		<div id='site'>
-			<h1>CADASTRO DO PROFESSOR</h1>
-			<input type='text' id='nome_professor' placeholder='Nome'><BR>
-			<input type='text' id='usuario_professor' placeholder='Usuário'><BR>
-			<input type='password' id='senha_professor' placeholder='Senha'><BR>
-			<button>Cadastrar</button>
+			<p>
+				<h1>CADASTRO DO PROFESSOR</h1><br>
+				<input type='text' id='nome_professor' placeholder='Nome' class='caixaTxt'><BR>
+				<input type='text' id='usuario_professor' placeholder='Usuário' class='caixaTxt'><BR>
+				<input type='password' id='senha_professor' placeholder='Senha' class='caixaTxt'><BR>
+				<button class='botao'>Cadastrar</button>
+			</p>
 		</div>
 	</body>
 </html>
