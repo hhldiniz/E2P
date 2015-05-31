@@ -1,0 +1,99 @@
+<html>
+	<head>
+			<title>Impulso - Resolução</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/estilos_home.css" rel="stylesheet">
+    <link href="css/estilo_resolucao.css" rel="stylesheet">
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+    <script src="cordova.js" id="xdkJScordova_"></script>
+    <script src="intelxdk.js"></script>
+    <script src="xhr.js"></script>
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/adaptarBackground.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/validar.js"></script>
+    <script src="js/quest.js"></script>
+    <script id="xdkJSonDeviceReady_">
+        function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
+            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
+                navigator.splashscreen.hide() ;
+            }
+        }
+        document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
+    </script>
+
+    
+
+
+	</head>
+	<body>
+		
+        <script type="text/javascript">
+
+ 
+
+// Chama a função ao carregar a tela
+
+//startCountdown();
+
+    
+
+    </script> 
+        
+    
+    <div id='barraSuperior'>
+        <a href="#"><img src="imagens/logo.png"></a>
+    </div>
+
+    <div id='barraTimer'>
+        <input type='button' class='botao' value='Sair'>
+        <div id='numeroQuestao'>17/20</div>
+        <div id='tempo'>12:34</div>
+    </div>
+
+    <div id='resolucao'>
+        <div id='enunciado'>
+            Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+        </div>
+        <div id='alternativas'>
+            <div class='alternativa'>
+                <input type='radio' name='dificulty' value='a' checked="true" id="a"><label for="a">A</label>
+                <div class='texto_alternativa'>Alternativa A.</div>
+            </div>
+            <div class='alternativa'>
+                <input type='radio' name='dificulty' value='b' id="b"><label for="b">B</label>
+                <div class='texto_alternativa'>Alternativa B.</div>
+            </div>
+            <div class='alternativa'>
+                <input type='radio' name='dificulty' value='c' id="c"><label for="c">C</label>
+                <div class='texto_alternativa'>Alternativa C.</div>
+            </div>
+            <div class='alternativa'>
+                <input type='radio' name='dificulty' value='d' id="d"><label for="d">D</label>
+                <div class='texto_alternativa'>Alternativa D.</div>
+            </div>
+            <div class='alternativa'>
+                <input type='radio' name='dificulty' value='e' id="e"><label for="e">E</label>
+                <div class='texto_alternativa'>Alternativa E.</div>
+            </div>
+        </div>
+        <div id='rodapeBotoes'>
+            <input type='button' class='botao' value='Pular'>
+            <input type='button' class='botao' value='Confirmar'>
+        </div>
+    </div>
+    
+	</body>
+</html>
