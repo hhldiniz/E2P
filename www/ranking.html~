@@ -23,7 +23,6 @@
     <script src="js/adaptarBackground.js"></script>
     <script src='js/highcharts.js'></script>
     <script src='js/controleDeGrafico.js'></script>
-<script src='bloqueiaPagina.js'></script>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it

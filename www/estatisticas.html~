@@ -19,7 +19,6 @@
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/professor.js"></script>
-<script src='bloqueiaPagina.js'></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">

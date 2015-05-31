@@ -1,7 +1,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Impulso - Insignias</title>
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/estilos_home.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
@@ -19,7 +18,6 @@
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/professor.js"></script>
-<script src='bloqueiaPagina.js'></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">
@@ -93,20 +91,20 @@
     <div id='area_menus'>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu foguete'></div>
+            <div class='icone_menu foguete_selecionado selecionado'></div>
+            <div class='nome_menu'>Laboratório <p>Tela incial</p></div>
         </div>
 
         <div class='item_menu_lateral'>
             <div class='icone_menu joystick'></div>
         </div>
-        
+
         <div class='item_menu_lateral'>
             <div class='icone_menu estrela'></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu estatistica_selecionado selecionado'></div>
-            <div class='nome_menu'>Estatísticas <p>Seus resultados</p></div>
+            <div class='icone_menu estatistica'></div>
         </div>
 
         <div class='item_menu_lateral'>
@@ -117,42 +115,9 @@
 
 	<div id='ilustracao'>
         <center><p id="fraseTeacher"></p></center>
-        <div id='conteudo'>
-            <div id='area_sub_menus'>
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_fisica_selecionado selecionado'></div>
-                    <div class='nome_menu_esq'>Física</div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_matematica'></div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_geografia'></div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_historia'></div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_portugues'></div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_quimica'></div>
-                </div>
-
-                <div class='item_menu_lateral'>
-                    <div class='icone_menu icone_biologia'></div>
-                </div>
-            </div>
-
-            <!-- RESTANTE DO CONTEUDO -->
-
-        </div>
 	</div>
+
+   
 
 </body>
 </html>
