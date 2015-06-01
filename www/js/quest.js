@@ -1,3 +1,12 @@
+$(function(){
+
+$("input:button[name=callQuest]").click(function(event) {
+    /* Act on the event */
+    ajaxSelectQuest();
+});
+
+
+
 var display;
 	var hr = new XMLHttpRequest();
 
@@ -114,10 +123,14 @@ var display;
         "</div>"+
         "<div id='rodapeBotoes'>"+
             "<input type='button' class='botao' value='Pular'>"+
-            "<input type='button' class='botao' value='Confirmar' onClick='checaQuestao()'>"+
+            "<input type='button' class='botao' value='Confirmar' id='confirm'>"+
         "</div>"+
     "</div>";
     $("body").html(html);
+    $("#confirm").click(function(event) {
+    /* Act on the event */
+    checaQuestao();
+});
 
 			$("#enunciado").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
             $("#numeroQuestao").html("1/"+return_data.length);
@@ -147,6 +160,12 @@ var display;
 //     var aux=document.getElementsByClass("questoes")[1];
 //     alert(aux);
 // }
+
+
+$("#confirm").click(function(event) {
+    /* Act on the event */
+    checaQuestao();
+});
 
 function ajaxSelectOpt(id){
     
@@ -351,6 +370,11 @@ function checaQuestao() {
     });
 }
 
+$("#confirm").click(function(event) {
+    /* Act on the event */
+    checaQuestao();
+});
+
 
 function restart() {
     if (this.expired()) {
@@ -364,3 +388,4 @@ function restart() {
     display.textContent = minutes + ':' + seconds;
   }
 
+});
