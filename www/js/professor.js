@@ -39,7 +39,7 @@ var hr = new XMLHttpRequest();
             prg.max = ((Number(return_data[0].nivel)+1)*15)-15;
             prg.value = Number(return_data[0].acertos_geral);
             
-            var esch = "<br>Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
+            var esch = "Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
             
             $("#linha_dados_usuario").append(esch);
             
