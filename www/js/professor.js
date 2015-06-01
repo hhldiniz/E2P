@@ -9,7 +9,7 @@ var hr = new XMLHttpRequest();
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
 			$("#fraseTeacher").html(return_data[0].content);
-            $("#fraseTeacher").append("<br><img src='imagens/professor/"+return_data[0].reacao+".png' />")
+            $("#fraseTeacher").append("<br><img src='imagens/professor/"+return_data[0].reacao+".png' style='height:75%;width:auto;'/>")
             //gambiarra para contornar problema indescritivel com javascript
 
 	    }
