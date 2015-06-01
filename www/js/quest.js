@@ -170,7 +170,7 @@ function ajaxSelectOpt(id){
 
 
                 html+="<div class='alternativa'> <input type='radio' name='dificulty' value='"+label+"' id='"+i+"'><label for='"+i+"'>"+label.toUpperCase()+"</label>";
-                html+="<div class='texto_alternativa'>"+return_data[i].content+"</div><br>"
+                html+="<div class='texto_alternativa'>"+return_data[i].content+"</div></div>"
                 label = nextLetter(label);
              // html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
               //    '<label for="op'+i+'">'+return_data[i].content+
