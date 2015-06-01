@@ -110,7 +110,8 @@
         <div class='item_menu_lateral'>
             <div class='icone_menu coroa'></div>
         </div>
-	<div class='button' id='Sair'>
+	<div class='item_menu_lateral'>
+		<input type='botao' class='botao'>
 	</div>
 
     </div>
