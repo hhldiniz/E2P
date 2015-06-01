@@ -7,5 +7,5 @@ function checaAchievements(){
 			console.log("rapazz");
 		}
     
-   //window.location.href = "home.html";
+   //   window.location.href = "home.html";
 }
