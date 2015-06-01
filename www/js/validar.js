@@ -1,4 +1,5 @@
 $(document).ready(function(){ 
+     $("html").attr("lang","pt");
      $("input").blur(function(){ //adiciona borda vermelha quando campo é deixado em branco
      if($(this).val() == "")
          {
