@@ -1,9 +1,11 @@
 $(document).ready(function(){ 
-     $("input").blur(function(){
+     $("input").blur(function(){ //adiciona borda vermelha quando campo é deixado em branco
      if($(this).val() == "")
          {
              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
          }
+	else
+		$(this).css({"border": "1px solid black"});
     });
     $("#botao_cadastrar").click(function(){ //usando expressão regular para validar o email pois o html5 está deixando passar
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -14,7 +16,7 @@ $(document).ready(function(){
 		});
 	}
 	});
-    if(localStorage.getItem('usuario')!=null)
+    if(localStorage.getItem('usuario')!=null) //verifica o localStorage por usuário e deixa passar apenas quando o usuário existe
     {
         $("document.window.location").attr("href","http://localhost/home.html");
     }

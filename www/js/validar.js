@@ -4,6 +4,8 @@ $(document).ready(function(){
          {
              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
          }
+	else
+		$(this).css({"border": "1px solid #888"});
     });
     $("#botao_cadastrar").click(function(){ //usando expressão regular para validar o email pois o html5 está deixando passar
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
