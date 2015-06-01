@@ -184,11 +184,11 @@ function ajaxSelectOpt(id){
             opcoes = return_data;
 
             var html="";
-            var label = 'a';
+            var label = 'A';
             for(var i=0;i<return_data.length;i++){
 
 
-                html+="<div class='alternativa'> <input type='radio' name='dificulty' value='"+label+"' id='"+i+"'><label for='"+i+"'>"+label.toUpperCase()+"</label>";
+                html+="<div class='alternativa'> <input type='radio' name='dificulty' value='"+label+"' id='"+i+"'><label for='"+i+"'>"+label+"</label>";
                 html+="<div class='texto_alternativa'>"+return_data[i].content+"</div></div>"
                 label = nextLetter(label);
              // html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
@@ -223,6 +223,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 	    if(hr.readyState == 4 && hr.status == 200) {
             
 		    var return_data = hr.responseText;
+            estatistics();
             checaAchievements();
            // window.location.href = "home.html";
             
@@ -234,6 +235,12 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
     //$("#status").html("processing...");	
         }
 
+function estatistics(){
+    display = null;
+    $("#resolucao").html("<p>Você fez "+cont+" Questoes e acertou "+questCont+". Clique em sair para retornar ao foguete</p>");
+    
+}
+    
 function checaQuestao() {
 
     //Criando variavel se não existir
