@@ -8,6 +8,7 @@ var display;
   
 
 	var questoes;
+    var opcoes;
     var questCont=0;
     localStorage.sequences = 0;
     var estatisticas={mat: 0, geo: 0, hist: 0, port: 0, quim: 0, ing: 0, esp: 0, soc: 0, fil: 0, bio: 0,fis: 0};
@@ -97,15 +98,36 @@ var display;
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             questoes = return_data;
-			$("#ilustracao").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
 
+            var html = "<div id='barraSuperior'>"+
+            "<a href='#'><img src='imagens/logo.png'></a>"+
+            "</div>"+
+            "<div id='barraTimer'>"+
+        "<input type='button' class='botao' value='Sair'>"+
+        "<div id='numeroQuestao'></div>"+
+        "<div id='tempo'></div>"+
+    "</div>"+
+    "<div id='resolucao'>"+
+        "<div id='enunciado'>"+
+        "</div>"+
+        "<div id='alternativas'>"+  
+        "</div>"+
+        "<div id='rodapeBotoes'>"+
+            "<input type='button' class='botao' value='Pular'>"+
+            "<input type='button' class='botao' value='Confirmar' onClick='checaQuestao()'>"+
+        "</div>"+
+    "</div>";
+    $("body").html(html);
+
+			$("#enunciado").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
+            $("#numeroQuestao").html("1/"+return_data.length);
             //document.getElementById("site").innerHTML = return_data;
             
 		   //return return_data;
            
             ajaxSelectOpt(return_data[0].id);
             //startCountdown();
-            display = document.querySelector('#status');
+            display = document.querySelector('#tempo');
             timer = new CountDownTimer(nquest*150);
             timer.onTick(format).onTick(restart).start();
 
@@ -140,16 +162,23 @@ function ajaxSelectOpt(id){
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             //shuffle(return_data);
-            var html = "<br>";
-            
+            opcoes = return_data;
+
+            var html="";
+            var label = 'a';
             for(var i=0;i<return_data.length;i++){
-              html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
-                  '<label for="op'+i+'">'+return_data[i].content+
-                  '</label><br>';
+
+
+                html+="<div class='alternativa'> <input type='radio' name='dificulty' value='"+label+"' id='"+i+"'><label for='"+i+"'>"+label.toUpperCase()+"</label>";
+                html+="<div class='texto_alternativa'>"+return_data[i].content+"</div><br>"
+                label = nextLetter(label);
+             // html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
+              //    '<label for="op'+i+'">'+return_data[i].content+
+                 // '</label><br>';
             }
-            html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
+           // html += '<button type="button" id="ans" onClick="checaQuestao()">responder</button>';
             //html += '<br><div id="status"></div>';
-			$("#ilustracao").append(html); //gambiarra para contornar problema indescritivel com javascript
+			$("#alternativas").html(html); //gambiarra para contornar problema indescritivel com javascript
 
 
 		    
@@ -194,7 +223,7 @@ function checaQuestao() {
     //if(!estaAcertos){var estaAcertos={mat: 0, geo: 0, hist: 0, port: 0, quim: 0};}
 
       //Testando se ha uma opção selecionada 
-      if($('input:radio[name=answer]:checked').length>0){
+      if($('input:radio[name=dificulty]:checked').length>0){
 
 
             switch (questoes[cont].id_mate){
@@ -235,7 +264,7 @@ function checaQuestao() {
           }
 
           //Testando se e certa  
-          if($('input:radio[name=answer]:checked').val()== 1){
+          if(opcoes[Number($('input:radio[name=dificulty]:checked').attr("id"))].right_answer== 1){
             localStorage.sequences = Number(localStorage.sequences)+1;
             questCont++;
                 switch (questoes[cont].id_mate){
@@ -285,7 +314,8 @@ function checaQuestao() {
 
           //Caso uma proxima questao exista mostra a proxima
           if(questoes[cont] != undefined){
-          $("#ilustracao").html(questoes[cont].titulo);
+          $("#enunciado ").html(questoes[cont].titulo);
+          $("#numeroQuestao").html((cont+1)+"/"+questoes.length);
           ajaxSelectOpt(questoes[cont].id);
 		  
 		  //Se ja não ha mais questões, a sessão acabou
@@ -310,6 +340,17 @@ function checaQuestao() {
 
     }
 
+    function nextLetter(s){
+    return s.replace(/([a-zA-Z])[^a-zA-Z]*$/, function(a){
+        var c= a.charCodeAt(0);
+        switch(c){
+            case 90: return 'A';
+            case 122: return 'a';
+            default: return String.fromCharCode(++c);
+        }
+    });
+}
+
 
 function restart() {
     if (this.expired()) {
@@ -322,3 +363,4 @@ function restart() {
     seconds = seconds < 10 ? "0" + seconds : seconds;
     display.textContent = minutes + ':' + seconds;
   }
+
