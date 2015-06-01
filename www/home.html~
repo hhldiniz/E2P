@@ -19,7 +19,7 @@
     <script src="js/ajax.js"></script>
     <script src="js/professor.js"></script>
 </head>
-<body>
+<body class='ilu_background'>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
@@ -110,6 +110,8 @@
         <div class='item_menu_lateral'>
             <div class='icone_menu coroa'></div>
         </div>
+	<div class='button' id='Sair'>
+	</div>
 
     </div>
 
