@@ -78,6 +78,12 @@
         }
         /* Prefix-free was creating issues with the animation */
     </style>
+	
+	<script>function iniciaPartida()
+		{
+			location.href="/partida.html";
+		}
+	</script>
 
 	<div id='barraSuperior'>
         <a href="#"><img src="imagens/logo.png"></a>
@@ -110,14 +116,11 @@
         <div class='item_menu_lateral'>
             <div class='icone_menu coroa'></div>
         </div>
-	<div class='item_menu_lateral'>
-		<input type='botao' class='botao'>
-	</div>
 
     </div>
 
 	<div id='ilustracao'>
-        <center><p id="fraseTeacher"></p></center>
+        <center><p id="fraseTeacher"></p><input type='button' class='botao' value='Jogar' onclick='iniciaPartida()'></center>
 	</div>
 
    
