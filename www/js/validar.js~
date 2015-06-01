@@ -7,12 +7,6 @@ $(document).ready(function(){
     });
     $("#botao_cadastrar").click(function(){
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	if(!filtro.test($("#email").val()))
-	{
-		$("#email").blur(function(){
-			$(this).css({"border" : "1px solid #F00", "padding": "2px"});
-		});
-	}
 	});
     if(localStorage.getItem('usuario')!=null)
     {
