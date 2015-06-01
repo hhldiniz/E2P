@@ -19,6 +19,7 @@
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/professor.js"></script>
+    <script src="js/controleDeGrafico.js"></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">
@@ -149,7 +150,7 @@
             </div>
 
             <!-- RESTANTE DO CONTEUDO -->
-
+		<div id='grafico'></div>
         </div>
 	</div>
 
