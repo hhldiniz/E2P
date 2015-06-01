@@ -8,7 +8,9 @@ var hr = new XMLHttpRequest();
 	    if(hr.readyState == 4 && hr.status == 200){
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
-			$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+			$("#fraseTeacher").html(return_data[0].content);
+            $("#fraseTeacher").append("<br><img src='imagens/professor/"+return_data[0].reacao+".png' />")
+            //gambiarra para contornar problema indescritivel com javascript
 
 	    }
     }

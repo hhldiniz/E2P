@@ -236,7 +236,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
         }
 
 function estatistics(){
-    display = null;
+   // display = null;
     $("#resolucao").html("<p>Você fez "+cont+" Questoes e acertou "+questCont+". Clique em sair para retornar ao foguete</p>");
     
 }
