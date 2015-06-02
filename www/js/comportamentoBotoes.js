@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$(".icone_menu estatistica").click(function(){
 		location.href="http://localhost/E2P/www/html/estatisticas.html";
 });
-	$(".icone_menu coroa").click(function(){]
+	$(".icone_menu coroa").click(function()({
 		location.href="http://localhost/E2P/www/html/ranking.html";
 });
 });
