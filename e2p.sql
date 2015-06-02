@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tempo de Geração: 26/05/2015 às 15h07min
--- Versão do Servidor: 5.5.43
--- Versão do PHP: 5.3.10-1ubuntu3.18
+-- Host: 127.0.0.1
+-- Generation Time: 02-Jun-2015 às 01:12
+-- Versão do servidor: 5.6.24
+-- PHP Version: 5.6.8
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `e2p`
+-- Database: `e2p`
 --
 
 -- --------------------------------------------------------
@@ -60,7 +60,9 @@ CREATE TABLE IF NOT EXISTS `estatisticas` (
 
 INSERT INTO `estatisticas` (`user`, `acertos_geral`, `total_questoes`, `total_mat`, `acertos_mat`, `total_geo`, `acertos_geo`, `total_hist`, `acertos_hist`, `total_port`, `acertos_port`, `total_quim`, `acertos_quim`, `total_ing`, `acertos_ing`, `total_esp`, `acertos_esp`, `total_soc`, `acertos_soc`, `total_fil`, `acertos_fil`, `total_fis`, `acertos_fis`, `total_bio`, `acertos_bio`) VALUES
 ('alyssonmoreira', 105, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-('asdf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+('asdf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('alicetotosa', 16, 20, 7, 5, 1, 1, 4, 3, 7, 6, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('ozeias', 38, 38, 17, 17, 2, 2, 12, 12, 4, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -69,23 +71,24 @@ INSERT INTO `estatisticas` (`user`, `acertos_geral`, `total_questoes`, `total_ma
 --
 
 CREATE TABLE IF NOT EXISTS `frases` (
+  `id` int(11) NOT NULL,
   `content` varchar(205) NOT NULL,
   `reacao` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `frases`
 --
 
-INSERT INTO `frases` (`content`, `reacao`) VALUES
-('Aah!! que ótimo simula... err digo plataforma!', 0),
-('Isto não é um simulador, viu?', 0),
-('Se você ver um animal, desconfie se não é um alienígena!', 0),
-('Vortex, ahh... NÃo!!', 0),
-('Aah!! que ótimo simula... err digo plataforma!', 0),
-('Isto não é um simulador, viu?', 0),
-('Se você ver um animal, desconfie se não é um alienígena!', 0),
-('Vortex, ahh... NÃo!!', 0);
+INSERT INTO `frases` (`id`, `content`, `reacao`) VALUES
+(1, 'Aah!! que ótimo simula... err digo plataforma!', 1),
+(2, 'Isto não é um simulador, viu?', 1),
+(3, 'Se você ver um animal, desconfie se não é um alienígena!', 1),
+(4, 'Vortex, ahh... NÃo!!', 1),
+(5, 'Aah!! que ótimo simula... err digo plataforma!', 1),
+(6, 'Isto não é um simulador, viu?', 1),
+(7, 'Se você ver um animal, desconfie se não é um alienígena!', 1),
+(8, 'Vortex, ahh... NÃo!!', 1);
 
 -- --------------------------------------------------------
 
@@ -94,10 +97,9 @@ INSERT INTO `frases` (`content`, `reacao`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `materias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(205) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  `id` int(11) NOT NULL,
+  `nome` varchar(205) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `materias`
@@ -123,10 +125,9 @@ INSERT INTO `materias` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `nivel` (
-  `idNivel` int(10) NOT NULL AUTO_INCREMENT,
-  `nivel` varchar(205) NOT NULL,
-  PRIMARY KEY (`idNivel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `idNivel` int(10) NOT NULL,
+  `nivel` varchar(205) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `nivel`
@@ -144,13 +145,11 @@ INSERT INTO `nivel` (`idNivel`, `nivel`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `opcoes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `right_answer` tinyint(1) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `question_id` (`question_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+  `question_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `opcoes`
@@ -170,7 +169,7 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (11, '10', 1, 3),
 (12, '11', 0, 3),
 (13, 'Enforcado', 1, 4),
-(14, 'Com um tiro no cu', 0, 4),
+(14, 'Com um tiro no cocurutu', 0, 4),
 (15, 'Negaram água pra ele', 0, 4),
 (16, 'Ele se cansou de viver', 0, 4),
 (17, 'Ceará', 0, 5),
@@ -209,16 +208,11 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questoes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `idNivel` int(10) NOT NULL,
-  `id_mate` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idNivel` (`idNivel`),
-  KEY `id_mate` (`id_mate`),
-  KEY `id_mate_2` (`id_mate`),
-  KEY `idNivel_2` (`idNivel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `id_mate` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `questoes`
@@ -249,8 +243,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(50) NOT NULL,
   `matricula` varchar(50) NOT NULL,
   `senha` varchar(50) NOT NULL,
-  `nivel` int(10) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`usuario`,`senha`)
+  `nivel` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -259,19 +252,90 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`nome`, `sobrenome`, `usuario`, `email`, `matricula`, `senha`, `nivel`) VALUES
 ('abc', 'abc', 'abc', 'abc@abc.com', '123', '123', 1),
+('alice', 'asd', 'alicetotosa', 'asda', 'asd', 'e8d95a51f3af4a3b134bf6bb680a213a', 2),
 ('Alysson', 'Moreira', 'alyssonmoreira', 'alyssonyopacom', '123456', 'senha', 8),
 ('aasd', 'asd', 'asdf', 'asdfasdfcom', '123456', 'senha', 1),
-('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 1);
+('123', '123', 'hugo', 'diniz', 'aaa', 'aaa@aaa.com', 1),
+('ozeias', 'dalmon', 'ozeias', 'wololologmailcom', '12345', 'e8d95a51f3af4a3b134bf6bb680a213a', 3);
 
 --
--- Restrições para as tabelas dumpadas
+-- Indexes for dumped tables
 --
 
 --
--- Restrições para a tabela `opcoes`
+-- Indexes for table `frases`
+--
+ALTER TABLE `frases`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materias`
+--
+ALTER TABLE `materias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nivel`
+--
+ALTER TABLE `nivel`
+  ADD PRIMARY KEY (`idNivel`);
+
+--
+-- Indexes for table `opcoes`
 --
 ALTER TABLE `opcoes`
-  ADD CONSTRAINT `opcoes_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questoes` (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `question_id` (`question_id`);
+
+--
+-- Indexes for table `questoes`
+--
+ALTER TABLE `questoes`
+  ADD PRIMARY KEY (`id`), ADD KEY `idNivel` (`idNivel`), ADD KEY `id_mate` (`id_mate`), ADD KEY `id_mate_2` (`id_mate`), ADD KEY `idNivel_2` (`idNivel`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario`,`senha`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `frases`
+--
+ALTER TABLE `frases`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `materias`
+--
+ALTER TABLE `materias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `nivel`
+--
+ALTER TABLE `nivel`
+  MODIFY `idNivel` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `opcoes`
+--
+ALTER TABLE `opcoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT for table `questoes`
+--
+ALTER TABLE `questoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `opcoes`
+--
+ALTER TABLE `opcoes`
+ADD CONSTRAINT `opcoes_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questoes` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
