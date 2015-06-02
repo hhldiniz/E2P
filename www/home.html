@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css/estilo.css" rel="stylesheet">
+        <link href="css/estilos_home.css" rel="stylesheet">
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+    <script src="cordova.js" id="xdkJScordova_"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/adaptarBackground.js"></script>
+    <script src="js/validar.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/professor.js"></script>
+    <script src='js/comportamentoBotoes.js'></script>
+</head>
+<body class='ilu_background'>
+    <script id="xdkJSonDeviceReady_">
+        function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
+            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
+                navigator.splashscreen.hide() ;
+            }
+        }
+        document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
+    </script>
+
+    <style>
+        
+        #prg {
+            width: 400px;
+            height: 10px;
+            margin: 50px auto;
+            border-radius: 50px;
+            background: #188FB1;
+            display: block;
+            /* Important Thing */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: none;
+        }
+
+        /* All good till now. Now we'll style the background */
+        #prg::-webkit-progress-bar {
+            background: #188FB1;
+            border-radius: 50px;
+           
+            
+        }
+
+        /* Now the value part */
+        #prg::-webkit-progress-value {
+            border-radius: 50px;
+            /*box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);*/
+            background:#6ABE45;
+            
+            /* Looks great, now animating it */
+            background-size: 25px 14px, 100% 100%, 100% 100%;
+            -webkit-animation: move 5s linear 0 infinite;
+        }
+
+        /* Firefox */
+        #prg::-moz-progress-bar { 
+            background: #6ABE45;
+            border-radius: 50px;
+            padding: 1px;
+            
+        }
+
+        /* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
+        @-webkit-keyframes move {
+            0% {background-position: 0px 0px, 0 0, 0 0}
+            100% {background-position: -100px 0px, 0 0, 0 0}
+        }
+        /* Prefix-free was creating issues with the animation */
+    </style>
+	
+	<script>function iniciaPartida()
+		{
+			location.href="http://localhost/E2P/www/html/partida.html";
+		}
+	</script>
+
+	<div id='barraSuperior'>
+        <a href="#"><img src="imagens/logo.png"></a>
+	<input type='button' class='botao' value='Sair' id='sair'>
+	</div>
+
+	<div id='linha_dados_usuario'>
+        <progress id="prg" value="0" max="0"></progress>
+	</div>
+
+
+    <div id='area_menus'>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu foguete_selecionado selecionado'></div>
+            <div class='nome_menu'>Laboratório <p>Tela incial</p></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu joystick'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu estrela'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu estatistica'></div>
+        </div>
+
+        <div class='item_menu_lateral'>
+            <div class='icone_menu coroa'></div>
+        </div>
+
+    </div>
+
+	<div id='ilustracao'>
+        <center><p id="fraseTeacher"></p></center>
+	</div>
+
+   
+
+</body>
+</html>
