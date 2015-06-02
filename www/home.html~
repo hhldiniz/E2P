@@ -81,12 +81,13 @@
 	
 	<script>function iniciaPartida()
 		{
-			location.href="/partida.html";
+			location.href="http://localhost/E2P/www/partida.html";
 		}
 	</script>
 
 	<div id='barraSuperior'>
         <a href="#"><img src="imagens/logo.png"></a>
+	<input type='button' class='botao' value='Sair' id='sair'>
 	</div>
 
 	<div id='linha_dados_usuario'>
