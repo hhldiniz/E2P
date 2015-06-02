@@ -237,6 +237,8 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
 
 function estatistics(){
    // display = null;
+   timer.stop();
+   $("#tempo").html("");
     $("#resolucao").html("<p>Você fez "+cont+" Questoes e acertou "+questCont+". Clique em sair para retornar ao foguete</p>");
     
 }
@@ -388,6 +390,8 @@ function restart() {
       window.location.href = "home.html"
     }
   }
+
+
 
   function format(minutes, seconds) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
