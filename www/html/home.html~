@@ -82,7 +82,7 @@
 	
 	<script>function iniciaPartida()
 		{
-			location.href="http://localhost/E2P/www/partida.html";
+			location.href="http://localhost/E2P/www/html/partida.html";
 		}
 	</script>
 
@@ -104,19 +104,19 @@
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu joystick'></div>
+            <div class="icone_menu joystick"></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu estrela'></div>
+            <div class="icone_menu estrela"></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu estatistica'></div>
+            <div class="icone_menu estatistica"></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu coroa'></div>
+            <div class="icone_menu coroa"></div>
         </div>
 
     </div>
