@@ -29,7 +29,7 @@ CountDownTimer.prototype.start = function() {
 
     obj = CountDownTimer.parse(diff);
     that.tickFtns.forEach(function(ftn) {
-      ftn.call(this, obj.minutes, obj.seconds);
+      ftn.call(this, obj.hours,obj.minutes, obj.seconds);
     }, that);
   }());
 };
@@ -51,6 +51,7 @@ CountDownTimer.prototype.stop = function() {
 
 CountDownTimer.parse = function(seconds) {
   return {
+    'hours': (seconds / 3600) | 0,
     'minutes': (seconds / 60) | 0,
     'seconds': (seconds % 60) | 0
   };
