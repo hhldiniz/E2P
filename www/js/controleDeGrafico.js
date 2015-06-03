@@ -15,6 +15,9 @@
            // window.location.href = "home.html";
            var total = Number(return_data[0].acertos_geral);
 
+           
+
+
            $('#grafico').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -44,12 +47,17 @@
             type: 'pie',
             name: 'Porcentagem',
             data: [
-            ["Física", (Number(return_data[0].acertos_fis)/total)*100],
+            
             ["Matematica", (Number(return_data[0].acertos_mat)/total)*100],
             ["Geografia", (Number(return_data[0].acertos_geo)/total)*100],
           	["História", (Number(return_data[0].acertos_hist)/total)*100],
           	["Português", (Number(return_data[0].acertos_port)/total)*100],
           	["Química", (Number(return_data[0].acertos_quim)/total)*100],
+            ["Inglês", (Number(return_data[0].acertos_ing)/total)*100],
+            ["Espanhol", (Number(return_data[0].acertos_esp)/total)*100],
+            ["Sociologia", (Number(return_data[0].acertos_soc)/total)*100],
+            ["Filosofia", (Number(return_data[0].acertos_fil)/total)*100],
+            ["Física", (Number(return_data[0].acertos_fis)/total)*100],
             ["Biologia", (Number(return_data[0].acertos_bio)/total)*100]
             ]
         }]
