@@ -5,7 +5,7 @@ function CountDownTimer(duration, granularity) {
   this.granularity = granularity || 1000;
   this.tickFtns = [];
   this.running = false;
-  this.timeout;
+  this.loop=true;
 }
 
 CountDownTimer.prototype.start = function() {
@@ -19,9 +19,9 @@ CountDownTimer.prototype.start = function() {
 
   (function timer() {
     diff = that.duration - (((Date.now() - start) / 1000) | 0);
-    if(this.timeout!=null){    
+      if(that.loop){
       if (diff > 0) {
-      this.timeout = setTimeout(timer, that.granularity);
+       setTimeout(timer, that.granularity);
     } else {
       diff = 0;
       that.running = false;
@@ -46,7 +46,7 @@ CountDownTimer.prototype.expired = function() {
 };
 
 CountDownTimer.prototype.stop = function() {
-  this.timeout=null;
+  this.loop=false;
 };
 
 CountDownTimer.parse = function(seconds) {
