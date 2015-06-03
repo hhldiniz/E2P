@@ -240,6 +240,70 @@ function estatistics(){
    timer.stop();
    $("#tempo").html("");
     $("#resolucao").html("<p>Você fez "+cont+" Questoes e acertou "+questCont+". Clique em sair para retornar ao foguete</p>");
+    $("#resolucao").append("<div id='grafico'>");
+
+    $("#grafico").highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Numero de questões feitas e acertadas'
+        },
+        xAxis: {
+            categories: [
+                'Matemática',
+                'Geografia',
+                'História',
+                'Português',
+                'Química',
+                'Inglês',
+                'Espanhol',
+                'Sociologia',
+                'Filosofia',
+                'Física',
+                'Biologia'
+            ]
+        },
+        yAxis: {
+            min: 0,
+            allowDecimals: false,
+            title: {
+                text: 'Questões'
+            }
+        },
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [
+        {
+            name: 'Questões respondidas',
+            color: 'rgba(24,143,177,1)',
+            data: [estatisticas.mat,estatisticas.geo,estatisticas.hist,estatisticas.port,estatisticas.quim,estatisticas.ing,estatisticas.esp,estatisticas.soc,estatisticas.fil,estatisticas.fis,estatisticas.bio],
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+        },
+        {
+            name: 'Acertos',
+            color: 'rgba(106,190,69,.9)',
+            data: [estaAcertos.mat,estaAcertos.geo,estaAcertos.hist,estaAcertos.port,estaAcertos.quim,estaAcertos.ing,estaAcertos.esp,estaAcertos.soc,estaAcertos.fil,estaAcertos.fis,estaAcertos.bio],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }
+        ]
+    });
+
+       
+
     
 }
     
