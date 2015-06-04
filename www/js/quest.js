@@ -447,6 +447,13 @@ function restart() {
     function ending(){
         console.log(this.duration);
         console.log(this.duration - this.time);
+        console.log(((this.duration - this.time)*100)/this.duration);
+        if(((this.duration - this.time)*100)/this.duration>=90 && ((this.duration - this.time)*100)/this.duration<95){
+            $("#tempo").css("color","#CC6600");
+        }
+        if(((this.duration - this.time)*100)/this.duration >=95){
+            $("#tempo").css("color","#990000");
+        }
         
     }
 
