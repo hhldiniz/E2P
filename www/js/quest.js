@@ -8,6 +8,7 @@ $("input:button[name=callQuest]").click(function(event) {
 
 
 var display;
+    var timer;
 	var hr = new XMLHttpRequest();
 
 	function httpRequestCreate(method,url){
@@ -130,7 +131,7 @@ var display;
             ajaxSelectOpt(return_data[0].id);
             //startCountdown();
             display = document.querySelector('#tempo');
-            var timer = new CountDownTimer(nquest*150);
+            timer = new CountDownTimer(nquest*150);
             timer.onTick(format).onTick(restart).onTick(ending).start();
 
              
@@ -282,7 +283,7 @@ function estatistics(){
         },
         {
             name: 'Acertos',
-            color: 'rgba(106,190,69,.9)',
+            color: 'rgba(106,190,69,1)',
             data: [estaAcertos.mat,estaAcertos.geo,estaAcertos.hist,estaAcertos.port,estaAcertos.quim,estaAcertos.ing,estaAcertos.esp,estaAcertos.soc,estaAcertos.fil,estaAcertos.fis,estaAcertos.bio],
             pointPadding: 0.4,
             pointPlacement: -0.2
