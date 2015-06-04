@@ -11,8 +11,8 @@ var display;
 	var hr = new XMLHttpRequest();
 
 	function httpRequestCreate(method,url){
-	    hr.open(method,url,true);    
-	    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
+        hr.open(method,url,true);
+        hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");    
 	}
   
 
@@ -32,37 +32,26 @@ var display;
       switch (this.value){
         case "mat":
             return 1;
-            break;
         case "geo":
             return 2;
-            break;
         case "hist":
             return 3;
-            break;
         case "port":
             return 4;
-            break;
         case "quim":
             return 5;
-            break;
         case "ing":
             return 6;
-            break;
         case "esp":
             return 7;
-            break;
         case "soc":
             return 9;
-            break;
         case "fil":
             return 11;
-            break;
         case "fis":
             return 11;
-            break;
         case "bio":
             return 12;
-            break;
 
       }
 }).get();
@@ -96,15 +85,15 @@ var display;
     //var vars = "materias="+JSON.stringify(materias);
     var vars = "dific="+dific+"&nquest="+nquest;
     //adicionando materias ao post se foram selecionadas
-    if(materias.length>0){ vars+="&materias="+JSON.stringify(materias)}
+    if(materias.length>0){ vars+="&materias="+JSON.stringify(materias);}
 
     httpRequestCreate("POST","php/partida.php");
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() 
     {
-	    if(hr.readyState == 4 && hr.status == 200) 
+        if(hr.readyState == 4 && hr.status == 200) 
         {
-		    var return_data = hr.responseText;
+            var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             questoes = return_data;
 
@@ -136,22 +125,22 @@ var display;
             $("#numeroQuestao").html("1/"+return_data.length);
             //document.getElementById("site").innerHTML = return_data;
             
-		   //return return_data;
+            //return return_data;
            
             ajaxSelectOpt(return_data[0].id);
             //startCountdown();
             display = document.querySelector('#tempo');
-            timer = new CountDownTimer(nquest*150);
-            timer.onTick(format).onTick(restart).start();
+            var timer = new CountDownTimer(nquest*150);
+            timer.onTick(format).onTick(restart).onTick(ending).start();
 
              
             
             // alert("Cadastro Concluido");
-	    }
+        }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
-     $("#status").html("processing...");	       
+     $("#status").html("processing...");       
 }
 
 
@@ -176,9 +165,9 @@ function ajaxSelectOpt(id){
     
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
-	    if(hr.readyState == 4 && hr.status == 200) {
+        if(hr.readyState == 4 && hr.status == 200) {
             
-		    var return_data = hr.responseText;
+            var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
             //shuffle(return_data);
             opcoes = return_data;
@@ -189,7 +178,7 @@ function ajaxSelectOpt(id){
 
 
                 html+="<div class='alternativa'> <input type='radio' name='dificulty' value='"+label+"' id='"+i+"'><label for='"+i+"'>"+label+"</label>";
-                html+="<div class='texto_alternativa'>"+return_data[i].content+"</div></div>"
+                html+="<div class='texto_alternativa'>"+return_data[i].content+"</div></div>";
                 label = nextLetter(label);
              // html +=  '<input type="radio" name="answer" id="op'+i+'" value="'+return_data[i].right_answer+'">'+
               //    '<label for="op'+i+'">'+return_data[i].content+
@@ -199,10 +188,9 @@ function ajaxSelectOpt(id){
             //html += '<br><div id="status"></div>';
 			$("#alternativas").html(html); //gambiarra para contornar problema indescritivel com javascript
 
-
-		    
+            
            // alert("Cadastro Concluido");
-	    }
+        }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
@@ -220,15 +208,15 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
     
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
-	    if(hr.readyState == 4 && hr.status == 200) {
+        if(hr.readyState == 4 && hr.status == 200) {
             
-		    var return_data = hr.responseText;
+            var return_data = hr.responseText;
             estatistics();
             checaAchievements();
            // window.location.href = "home.html";
             
 			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
-	    }
+        }
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
@@ -454,6 +442,12 @@ function restart() {
       window.location.href = "home.html"
     }
   }
+    
+    function ending(){
+        console.log(this.duration);
+        console.log(this.duration - this.time);
+        
+    }
 
 
 
