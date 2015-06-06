@@ -5,6 +5,7 @@ function CountDownTimer(duration, granularity) {
   this.granularity = granularity || 1000;
   this.tickFtns = [];
   this.running = false;
+  this.time;
   this.loop=true;
 }
 
@@ -19,6 +20,7 @@ CountDownTimer.prototype.start = function() {
 
   (function timer() {
     diff = that.duration - (((Date.now() - start) / 1000) | 0);
+      that.time = diff;
       if(that.loop){
       if (diff > 0) {
        setTimeout(timer, that.granularity);
