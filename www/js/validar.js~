@@ -1,4 +1,5 @@
 $(document).ready(function(){ 
+     $("html").attr("lang","pt");
      $("input").blur(function(){ //adiciona borda vermelha quando campo é deixado em branco
      if($(this).val() == "")
          {
@@ -9,6 +10,13 @@ $(document).ready(function(){
     });
     $("input").click(function(){
 	$(this).attr("spellcheck","true");
+});
+    $("textarea").blur(function(){
+	if($(this).val()=="")
+		$(this).css({"border" : "1px solid #F00", "padding": "2px"});
+	else
+		$(this).css({"border": "1px solid #888"});
+	
 });
     $("#botao_cadastrar").click(function(){ //usando expressão regular para validar o email pois o html5 está deixando passar
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;

@@ -11,6 +11,14 @@ $(document).ready(function(){
     $("input").click(function(){
 	$(this).attr("spellcheck","true");
 });
+    $("textarea").attr("spellcheck","true");
+    $("textarea").blur(function(){
+	if($(this).val()=="")
+		$(this).css({"border" : "1px solid #F00", "padding": "2px"});
+	else
+		$(this).css({"border": "1px solid #888"});
+	
+});
     $("#botao_cadastrar").click(function(){ //usando expressão regular para validar o email pois o html5 está deixando passar
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	if(!filtro.test($("#email").val()))
