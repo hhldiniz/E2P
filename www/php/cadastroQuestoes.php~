@@ -1,0 +1,11 @@
+<html>
+<body>
+	<?php
+		$questao_texto=$_GET['questao_texto'];
+		$alternativa=$_GET['alternativas'];
+		$conexao=mysql_connect("localhost","root","");
+		mysql_select_db("e2p");
+		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_texto."','".$alternativa1."','".$alternativa2."','".$alternativa3."','".$alternativa4."','".$alternativa5."'");
+	?>
+</body>
+</head>
