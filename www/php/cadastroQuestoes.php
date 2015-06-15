@@ -2,14 +2,16 @@
 <body>
 	<?php
 		$questao_texto=$_GET['questao_texto'];
-		$alternativa1=$_GET['alternativa1'];
-		$alternativa2=$_GET['alternativa2'];
-		$alternativa3=$_GET['alternativa3'];
-		$alternativa4=$_GET['alternativa4'];
-		$alternativa5=$_GET['alternativa5'];
+		$questao_corpo=$_GET['questao_corpo'];
+		$alternativa=$_GET['alternativa'];
+		$materia=$_GET['materia'];
+		$nivel=$_GET['nivel'];
+		$ultimo_insert;
 		$conexao=mysql_connect("localhost","root","");
 		mysql_select_db("e2p");
-		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_texto."','".$alternativa1."','".$alternativa2."','".$alternativa3."','".$alternativa4."','".$alternativa5."'");
+		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_texto."','".$nivel."','".$materia."'");
+		$ultimo_insert=$conexao->insert_id;
+		$resultado=mysql_query("INSERT INTO opcoes VALUES"."'".$questao_corpo."','".$alternativa."','".$ultimo_insert."'");
 	?>
 </body>
 </head>

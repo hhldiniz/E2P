@@ -40,14 +40,22 @@
     <p>
       <h1>Inserir Questões</h1>
 	 <select id='materia'>
-    		   <option value='1'></option>
-    		   <option value='2'></option>
-    		   <option value='3'></option>
-    		   <option value='4'></option>
-    		   <option value='5'></option>
+    		   <option value='1'>Matemática</option>
+    		   <option value='2'>Geografia</option>
+    		   <option value='3'>História</option>
+    		   <option value='4'>Português</option>
+    		   <option value='5'>Química</option>
+		   <option value='6'>Inglês</option>
+		   <option value='7'>Espanhol</option>
+		   <option value='8'>Sociologia</option>
+		   <option value='9'>Filosofia</option>
+		   <option value='10'>Física</option>
+		   <option value='11'>Biologia</option>
   		   </select>
       <div class='questoes'>
          <input type='text' id='questao_texto' placeholder='Texto da questão' class='caixaTxt'><BR>
+	 <textarea rows='8' cols=100>
+	 </textarea><BR>
          <input type='radio' name='alternativas' value='a'> <input type='text' id='alternativa1' placeholder='Alternativa 1' class='caixaTxt'><BR>
          <input type='radio' name='alternativas' value='b'> <input type='text' id='alternativa2' placeholder='Alternativa 2' class='caixaTxt'><BR>
          <input type='radio' name='alternativas' value='c'> <input type='text' id='alternativa3' placeholder='Alternativa 3' class='caixaTxt'><BR>
