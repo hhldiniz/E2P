@@ -12,6 +12,7 @@
 		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_texto."','".$nivel."','".$materia."'");
 		$ultimo_insert=$conexao->insert_id;
 		$resultado=mysql_query("INSERT INTO opcoes VALUES"."'".$questao_corpo."','".$alternativa."','".$ultimo_insert."'");
+		mysql_close($conexao);
 	?>
 </body>
 </head>
