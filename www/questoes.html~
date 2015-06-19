@@ -20,6 +20,7 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/adaptarBackground.js"></script>
     <script src="js/validar.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/ajax.js"></script>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
@@ -68,8 +69,6 @@
   			   <option value='3'>Difícil</option>
   			 </select>
          <BR>
-
-         <span></span>
          *Por favor clique na alternativa que você deseja que seja a resposta da questão<BR>
       </div>
       <input type='button' id='concluir' value='Concluir' class='botao'>

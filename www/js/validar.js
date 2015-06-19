@@ -12,16 +12,12 @@ $(document).ready(function(){
 		$(this).css({"border": "1px solid #888"}); //tb altera a cor caso aconteça o contrário da condição acima
     });
     $("textarea").blur(function(){
-	$(this).validate({
-	rules:{
-	
-}
-});
-	if($(this).val()=="")
-		$(this).css({"border" : "1px solid #F00", "padding": "2px"});
+	if(this.val().toString().lenght()<=10){ //verifica se o usuário digitou um texto muito pequeno
+		$(this).css({"border" : "1px solid #F00", "padding": "2px"});}
 	else
-		$(this).css({"border": "1px solid #888"});	
+		$(this).css({"border": "1px solid #888"});
 });
+
     $("#botao_cadastrar").click(function(){ //usando expressão regular para validar o email pois o html5 está deixando passar
 	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	if(!filtro.test($("#email").val()))
@@ -40,21 +36,21 @@ $(document).ready(function(){
 
     $("#botao").click(function(){
      var cont = 0;
+     
+
      $("#form input").each(function(){
 
-         if($(this).val() == "")
-             {
-                 $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-                 cont++;
-             }
-	else
+        if($(this).val() == "")
+            {
+                $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+                cont++;
+            }
+	    else
 	$(this).css({"border": "1px solid #888"});
         });
      if(cont == 0)
          {
              $("#form").submit();
          }
-    });
-    
-
+});
 });
