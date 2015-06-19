@@ -27,6 +27,7 @@
     <script src="js/validar.js"></script>
     <script src="js/highcharts.js"></script>
     <script src="js/quest.js"></script>
+    <script src='js/comportamentoBotoes.js'></script>
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it
@@ -61,12 +62,12 @@
 
     <div id='linha_dados_usuario'>
        <!--  <progress id="prg" value="22" max="100"></progress> -->
-
     </div>
+    
     <div id='area_menus'>
         
         <div class='item_menu_lateral'>
-            <div class='icone_menu foguete'></div>
+            <div id="foguete" class='icone_menu foguete'></div>
         </div>
 
         <div class='item_menu_lateral'>
@@ -75,61 +76,65 @@
         </div>
         
         <div class='item_menu_lateral'>
-            <div class='icone_menu estrela'></div>
+            <div id="estrela" class='icone_menu estrela'></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu estatistica'></div>
+            <div id="estatistica" class='icone_menu estatistica'></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu coroa'></div>
+            <div id="coroa" class='icone_menu coroa'></div>
         </div>
 
     </div>
 
     <div id='ilustracao'>
-        <h1>Matérias</h1>
-            <h4>Selecione as Matérias Que Deseja Exercitar</h4>
-            <div class='materias'>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='fis'> <label id='fisica'></label> <span>Física</span> </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='mat'> <label id='matematica'></label> <span>Matemática</span> </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='geo'> <label id='geografia'></label> <span>Geografia</span> </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='hist'> <label id='historia'></label> <span>História</span> </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='port'> <label id='portugues'></label> <span>Português</span>  </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='quim'> <label id='quimica'></label> <span>Química</span> </div>
-               <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='bio'> <label id='biologia'></label> <span>Biologia</span> </div>
-            </div>
-        <br>
-        <br>   
-        <h1>Dificuldade</h1>
-            
-            <h4>Selecione o Nivel Das Questões</h4> <br>
-                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label></div>
+        <div id='conteudo'>
+            <h1>Matérias</h1>
+                <h4>Selecione as Matérias Que Deseja Exercitar</h4>
+                <div class='materias'>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='fis'> <label id='fisica'></label> <span>Física</span> </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='mat'> <label id='matematica'></label> <span>Matemática</span> </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='geo'> <label id='geografia'></label> <span>Geografia</span> </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='hist'> <label id='historia'></label> <span>História</span> </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='port'> <label id='portugues'></label> <span>Português</span>  </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='quim'> <label id='quimica'></label> <span>Química</span> </div>
+                   <div class="checkbox_wrapper tooltips"> <input type='checkbox' class='subjects' value='bio'> <label id='biologia'></label> <span>Biologia</span> </div>
+                </div>
+            <br>
+            <br>   
+            <h1>Dificuldade</h1>
                 
-                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio"> Médio</label></div>
-                
-                <div class="radio_wrapper"> <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil"> Dificil</label></div>
+                <h4>Selecione o Nivel Das Questões</h4> <br>
+                    <div class="radio_wrapper"> <input type='radio' name='dificulty' value='facil' checked="true" id="facil"><label for="facil"> Fácil</label></div>
+                    
+                    <div class="radio_wrapper"> <input type='radio' name='dificulty' value='medio' id="medio"> <label for="medio"> Médio</label></div>
+                    
+                    <div class="radio_wrapper"> <input type='radio' name='dificulty' value='dificil' id="dificil"> <label for="dificil"> Dificil</label></div>
 
 
 
-            <br><br>
-                
-           <h1> Numero de Questoes</h1>
-            <select id="nQuest">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-            </select>
-               
-               
-            <span></span>
-            <BR>
-            <BR>
+                <br><br>
+                    
+               <h1> Numero de Questoes</h1>
+                <select id="nQuest">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+                   
+                   
+                <span></span>
+                <BR>
+                <BR>
 
-            <div><input type='button' class='botao' value='Iniciar' name="callQuest"></div>
+                <div><input type='button' class='botao' value='Iniciar' name="callQuest"></div>
+        </div>
     </div>
+
     <div id="status"></div>
-	</body>
+
+</body>
 </html>

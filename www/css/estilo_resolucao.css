@@ -8,6 +8,18 @@
   padding: 5px;
 }
 
+#resolucao {
+  text-align: center;
+}
+
+#resolucao p {
+  margin-bottom: 20px;
+}
+
+#enunciado, #alternativas {
+  text-align: justify;
+}
+
 #numeroQuestao {
   text-align: center;
   width: 80px;

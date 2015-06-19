@@ -1,18 +1,21 @@
 $(document).ready(function(){
 	$("#sair").click(function(){
-		localStorage.setItem("usuario",null);
+		localStorage.setItem("usuario", null);
 		location.href="http://localhost/E2P/www/";
-});
+	});
+	$("#foguete").click(function(){
+		location.href="http://localhost/E2P/www/home.html";
+	});
 	$("#joystick").click(function(){
-		location.href="http://localhost/E2P/www/html/partida.html";
-});
+		location.href="http://localhost/E2P/www/partida.html";
+	});
 	$("#estrela").click(function(){
-		location.href="http://localhost/E2P/www/html/insignias.html";
-});
+		location.href="http://localhost/E2P/www/insignias.html";
+	});
 	$("#estatistica").click(function(){
-		location.href="http://localhost/E2P/www/html/estatisticas.html";
-});
+		location.href="http://localhost/E2P/www/estatisticas.html";
+	});
 	$("#coroa").click(function(){
-		location.href="http://localhost/E2P/www/html/ranking.html";
-});
+		location.href="http://localhost/E2P/www/ranking.html";
+	});
 });

@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Impulso - Insignias</title>
+        <title>Impulso - Estatisticas</title>
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/estilos_home.css" rel="stylesheet">
     <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
@@ -18,7 +18,7 @@
     <script src="js/adaptarBackground.js"></script>
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
-    <script src="js/professor.js"></script>
+    <script src='js/comportamentoBotoes.js'></script>
     <script src="js/highcharts.js"></script>
     <script src="js/controleDeGrafico.js"></script>
 </head>
@@ -87,22 +87,21 @@
 	</div>
 
 	<div id='linha_dados_usuario'>
-        <progress id="prg" value="0" max="0"></progress>
 	</div>
 
 
     <div id='area_menus'>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu foguete'></div>
+            <div id="foguete" class='icone_menu foguete'></div>
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu joystick'></div>
+            <div id="joystick" class='icone_menu joystick'></div>
         </div>
         
         <div class='item_menu_lateral'>
-            <div class='icone_menu estrela'></div>
+            <div id="estrela" class='icone_menu estrela'></div>
         </div>
 
         <div class='item_menu_lateral'>
@@ -111,15 +110,15 @@
         </div>
 
         <div class='item_menu_lateral'>
-            <div class='icone_menu coroa'></div>
+            <div  id="coroa" class='icone_menu coroa'></div>
         </div>
 
     </div>
 
 	<div id='ilustracao'>
-        <center><p id="fraseTeacher"></p></center>
         <div id='conteudo'>
-            <div id='area_sub_menus'>
+            
+            <!-- <div id='area_sub_menus'>
                 <div class='item_menu_lateral'>
                     <div class='icone_menu icone_fisica_selecionado selecionado'></div>
                     <div class='nome_menu_esq'>Física</div>
@@ -148,11 +147,11 @@
                 <div class='item_menu_lateral'>
                     <div class='icone_menu icone_biologia'></div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- RESTANTE DO CONTEUDO -->
+            <div id='grafico' style="width='600px' height='600px'"></div>
         </div>
 	</div>
-<div id="grafico"></div>
 </body>
 </html>

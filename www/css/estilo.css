@@ -391,3 +391,28 @@ body, html {
   margin-left: -45px;
   z-index: 999;
 }
+
+.balaodialogo {
+    position: absolute;
+    left: 62%;
+    background-color: rgba(164, 204, 225, 0.8);
+    border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    padding: 30px 10px;
+    /* line-height: 120px;  vertically center */
+    color: #000;
+    text-align: center;
+}
+
+.balaodialogo:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-top-color: rgba(164, 204, 225, 0.8);
+    top: 100%;
+    left: 80%;
+    margin-left: -15px; /* ajustar pela altura do balão */
+}

@@ -8,7 +8,7 @@ var hr = new XMLHttpRequest();
 	    if(hr.readyState == 4 && hr.status == 200){
 		    var return_data = hr.responseText;
             return_data = $.parseJSON(return_data);
-			$("#fraseTeacher").html(return_data[0].content);
+			$("#fraseTeacher").html("<div class='balaodialogo'> " + return_data[0].content + "</div>");
             $("#fraseTeacher").append("<br><img src='imagens/professor/"+return_data[0].reacao+".png' style='position:relative; float:right; margin-top:100px; height:75%;width:auto;'/>")
             //gambiarra para contornar problema indescritivel com javascript
 

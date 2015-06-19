@@ -111,16 +111,15 @@ function ajaxCadastraQuestao() //função para cadastro da questão
 {
 	 httpRequestCreate("GET","php/cadastroQuestoes.php");
 	var questao_texto=$("#questao_texto").val();
-	var questao_corpo=$("textarea").val();
-	var alternativa=$("alternativas").is(":checked").val();
+	var alternativa=$("#alternativa").val();
 	var nivel=$("#nivel").val();
 	var materia=$("#materia").val();
-	var vars="questao_texto="+questao_texto+"&questao_corpo="+questao_corpo+"&alternativa="+alternativa+"&nivel="+nivel+"&materia="+materia;
+	var vars="questao_texto="+questao_texto+"&alternativa="+alternativa+"&nivel="+nivel+"&materia="+materia;
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			$("#status").html(return_data);
+			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
 		   // alert("Cadastro Concluido");
 	    }
     }
