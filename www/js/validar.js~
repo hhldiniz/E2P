@@ -1,8 +1,4 @@
 $(document).ready(function(){ 
-     var alternativa_correta=("input[name=alternativa]:checked").val();
-     if(!alternativa_correta)
-	{
-		alert("Selecione uma alternativa");
 	}
      $("html").attr("lang","pt"); //define a linguagem trabalhada no html
      $("head").append("<script src='jquery.validate.min.js'></script>"); //plugin adicionado posteriormente, para polpar trabalho, está sendo adicionado via código

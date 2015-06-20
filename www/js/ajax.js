@@ -113,7 +113,7 @@ function ajaxCadastraQuestao() //função para cadastro da questão
 	 httpRequestCreate("GET","php/cadastroQuestoes.php");
 	var questao_titulo=$("#questao_titulo").val();
 	var questao_texto=$("#questao_texto").val();
-	var alternativa=$("#alternativa").val();
+	var alternativa=$("alternativa").val();
 	var nivel=$("#nivel").val();
 	var materia=$("#materia").val();
 	var vars="questao_titulo="+questao_titulo+"&questao_texto="+questao_texto+"&alternativa="+alternativa+"&materia="+materia+"&nivel="+nivel;

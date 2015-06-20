@@ -19,10 +19,12 @@ $(document).ready(function(){
 		location.href="http://localhost/E2P/www/ranking.html";
 	});
 	$("#concluir").click(function(){
-		var alternativa_correta=("input[name=alternativa]:checked").val();
-		if(alternativa_correta)
-			ajaxCadastraQuestao();	
-		else
-			alert("Seleciona uma alternativa");
+		$('input:radio').each(function() {
+			if($(this).is(':checked')){
+				ajaxCadastraQuestao();
+			}
+			else
+			alert("Seleciona uma opção");
 	});
-});
+	});
+	});

@@ -1,5 +1,4 @@
 $(document).ready(function(){ 
-	}
      $("html").attr("lang","pt"); //define a linguagem trabalhada no html
      $("head").append("<script src='jquery.validate.min.js'></script>"); //plugin adicionado posteriormente, para polpar trabalho, está sendo adicionado via código
      $("input").attr("spellcheck","true");//habilita spellcheck para input
