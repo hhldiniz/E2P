@@ -24,7 +24,6 @@ function httpRequestCreate(method,url){
             return_data = Number(return_data);
             
 			if(return_data>0){
-		localStorage.setItem("hora_login",$.now());
                 window.location.href="home.html";
             }else{
                 $("#status").html("Usuario e/ou senha incorreta(s)!");

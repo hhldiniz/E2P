@@ -1,0 +1,6 @@
+$(document).ready(function(){
+	if(localStorage.getItem("usuario")==null && $.now()-localStorage.getItem("hora_login")>=1800000)
+	{
+		$(document.window.href).attr("href","bloqueio.html");
+	}
+});
