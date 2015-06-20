@@ -24,7 +24,7 @@ function httpRequestCreate(method,url){
             return_data = Number(return_data);
             
 			if(return_data>0){
-		localStorage.setItem("hora_login",$.now());
+		localStorage.setItem("hora_login",$.now()); //salva no localStorage a hora em que o login foi realizado
                 window.location.href="home.html";
             }else{
                 $("#status").html("Usuario e/ou senha incorreta(s)!");
@@ -120,12 +120,15 @@ function ajaxCadastraQuestao() //função para cadastro da questão
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
-			$("#status").html(return_data); //gambiarra para contornar problema indescritivel com javascript
-		   // alert("Cadastro Concluido");
+			if(Number(return_data)>0){
+        	alert("Questão cadastrada!");
 	    }
+		else
+		console.log("Erro ao cadastrar a questão");
     }
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
     $("#status").html("processing...");	
+}
 }
 

@@ -1,7 +1,6 @@
 <html>
 <body>
 	<?php
-		$questao_titulo=$_GET['questao_titulos'];
 		$questao_texto=$_GET['questao_texto'];
 		$alternativa=$_GET['alternativa'];
 		$materia=$_GET['materia'];
