@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>TESTE LIGHTBOX</title>
+    <link href="css/estilo.css" rel="stylesheet">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+    	function abre() {
+    		$('.lightbox').show();
+    		$('.fundo_preto').show();
+    	}
+
+    	function fecha() {
+    		$('.lightbox').hide();
+    		$('.fundo_preto').hide();
+    	}
+
+    </script>
+</head>
+<body>
+
+	<p>Teste lightbox, clique 
+		<a href = "javascript:void(0)" onclick = "abre()">AQUI</a>
+	</p>
+
+	<!--
+	<div class="lightbox">
+		<img src="imagens/mensagem_nivel.png">
+		<a href = "javascript:void(0)" onclick = "fecha()"><input type='button' class='botao' value='OK'></a>
+	</div>
+	<div class="fundo_preto"></div>
+	-->
+
+	<div class="lightbox">
+		<img id='imgFoguete' src="imagens/foguete_fases/rocket8.png" height='300px'>
+		<img id='imgProfessor' src="imagens/mensagem_foguete.png" >
+		<a href = "javascript:void(0)" onclick = "fecha()"><input type='button' class='botao' value='OK'></a>
+	</div>
+	<div class="fundo_preto"></div>
+
+</body>
+</html>
