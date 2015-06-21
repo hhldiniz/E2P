@@ -20,6 +20,10 @@
   text-align: justify;
 }
 
+#enunciado {
+  min-height: 200px;
+}
+
 #numeroQuestao {
   text-align: center;
   width: 80px;

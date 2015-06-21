@@ -41,7 +41,7 @@ var hr = new XMLHttpRequest();
             
             var esch = "Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
             
-            $("#linha_dados_usuario").append(esch);
+            $("#linha_dados_usuario h3").append(esch);
             
 			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
         }

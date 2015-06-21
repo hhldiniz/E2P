@@ -21,7 +21,6 @@
     <script src='js/comportamentoBotoes.js'></script>
     <script src="js/highcharts.js"></script>
     <script src="js/controleDeGrafico.js"></script>
-    <script src="js/bloqueiaPagina.js"></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">
@@ -31,61 +30,7 @@
             }
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
-   
-       estat();
-   
     </script>
-
-
-    <style>
-        
-        #prg {
-            width: 400px;
-            height: 10px;
-            margin: 50px auto;
-            border-radius: 50px;
-            background: #188FB1;
-            display: block;
-            /* Important Thing */
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border: none;
-        }
-
-        /* All good till now. Now we'll style the background */
-        #prg::-webkit-progress-bar {
-            background: #188FB1;
-            border-radius: 50px;
-           
-            
-        }
-
-        /* Now the value part */
-        #prg::-webkit-progress-value {
-            border-radius: 50px;
-            /*box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);*/
-            background:#6ABE45;
-            
-            /* Looks great, now animating it */
-            background-size: 25px 14px, 100% 100%, 100% 100%;
-            -webkit-animation: move 5s linear 0 infinite;
-        }
-
-        /* Firefox */
-        #prg::-moz-progress-bar { 
-            background: #6ABE45;
-            border-radius: 50px;
-            padding: 1px;
-            
-        }
-
-        /* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
-        @-webkit-keyframes move {
-            0% {background-position: 0px 0px, 0 0, 0 0}
-            100% {background-position: -100px 0px, 0 0, 0 0}
-        }
-        /* Prefix-free was creating issues with the animation */
-    </style>
 
 	<div id='barraSuperior'>
         <a href="#"><img src="imagens/logo.png"></a>
