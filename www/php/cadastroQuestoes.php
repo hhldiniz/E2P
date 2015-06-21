@@ -29,13 +29,13 @@
        
 		if($resultado && $resultado2)
 		{
-            echo($sql2);
-			//echo("1");
+            //echo($sql2);
+			echo("1");
 		}
 		else
 		{
-            echo($sql2);
-			//echo("0");
+            //echo($sql2);
+			echo("0");
 		}
 		mysql_close($conexao);
 	?>
