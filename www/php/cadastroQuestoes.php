@@ -1,5 +1,4 @@
-<html>
-<body>
+
 	<?php
 		$questao_titulo=$_GET['questao_titulo'];
 		$questao_texto=$_GET['questao_texto'];
@@ -20,5 +19,3 @@
 		}
 		mysql_close($conexao);
 	?>
-</body>
-</head>
