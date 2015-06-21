@@ -129,7 +129,7 @@ function ajaxCadastraQuestao() //função para cadastro da questão
 	
 	var nivel=$("#nivel").val();
 	var materia=$("#materia").val();
-	var vars="questao_texto="+questao_texto+"&opcoes="+JSON.stringify(opcoes)+"&materia="+materia+"&nivel="+nivel;
+	var vars="questao_texto="+questao_texto+"&opcoes="+JSON.stringify(opcoes)+"&materia="+materia+"&nivel="+nivel+"";
     // Access the onreadystatechange event for the XMLHttpRequest object
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
