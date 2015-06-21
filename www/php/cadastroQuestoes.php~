@@ -29,13 +29,21 @@
        
 		if($resultado && $resultado2)
 		{
-            echo($sql2);
-			//echo("1");
+            //echo($sql2);
+<<<<<<< HEAD
+=======
+            //echo(mysql_error());
+>>>>>>> cce7f78785cd005356205b0853c4ce299a18cc85
+			echo("1");
 		}
 		else
 		{
-            echo($sql2);
-			//echo("0");
+<<<<<<< HEAD
+            //echo($sql2);
+=======
+           // echo($sql2);
+>>>>>>> cce7f78785cd005356205b0853c4ce299a18cc85
+			echo("0");
 		}
 		mysql_close($conexao);
 	?>

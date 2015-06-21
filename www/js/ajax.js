@@ -134,6 +134,7 @@ function ajaxCadastraQuestao() //função para cadastro da questão
     hr.onreadystatechange = function() {
 	    if(hr.readyState == 4 && hr.status == 200) {
 		    var return_data = hr.responseText;
+            console.log(return_data);
 			if(Number(return_data)>0){
         	alert("Questão cadastrada!");
 	    }
