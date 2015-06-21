@@ -25,26 +25,31 @@ var hr = new XMLHttpRequest();
         var vars = "user="+localStorage.usuario;
     
         xhr.onreadystatechange = function(){
-	    if(xhr.readyState == 4 && xhr.status == 200){
+	    if (xhr.readyState == 4 && xhr.status == 200) {
 		    var return_data = xhr.responseText;
             return_data = $.parseJSON(return_data);
             //$("#prg").progressbar({value: return_data.acertos_geral});
             //$("#prg").val(Number(return_data[0].acertos_geral));
             //$("#prg").max(((Number(return_data[0].nivel)+1)*10)-10);
 
-            if(Number(return_data[0].acertos_geral) >= ((Number(return_data[0].nivel)+1)*15)-15){
+            if (Number(return_data[0].acertos_geral) >= ((Number(return_data[0].nivel)+1)*15)-15){
                 nivelret = levelUp(localStorage.usuario);
-            }else{
-            
-            prg.max = ((Number(return_data[0].nivel)+1)*15)-15;
-            prg.value = Number(return_data[0].acertos_geral);
-            
-            var esch = "Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
-            
-            $("#linha_dados_usuario h3").append(esch);
-            
-			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
-        }
+            }
+            else{
+                
+                prg.max = ((Number(return_data[0].nivel)+1)*15)-15;
+                prg.value = Number(return_data[0].acertos_geral);
+                
+                var esch = "Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
+                
+                $("#linha_dados_usuario h3").append(esch);
+
+                var bi = Math.floor(return_data[0].nivel/5) + 1;
+                $('.ilu_background').css("background-image", 
+                    "url(../www/imagens/foguete_fases/rr" + bi + ".png)");
+                
+    			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+            }
 	    }
     }
     // Send the data to PHP now... and wait for response to update the status div

@@ -99,28 +99,28 @@ var display;
             questoes = return_data;
 
             var html = "<div id='barraSuperior'>"+
-                "<a href='#'><img src='imagens/logo.png'></a>"+
-                "</div>"+
-                "<div id='barraTimer'>"+
-                "<input type='button' class='botao' value='Sair'>"+
-                "<div id='numeroQuestao'></div>"+
-                "<div id='tempo'></div>"+
-                "</div>"+
-                "<div id='resolucao'>"+
-                "<div id='enunciado'>"+
-                "</div>"+
-                "<div id='alternativas'>"+  
-                "</div>"+
-                "<div id='rodapeBotoes'>"+
-                "<input type='button' class='botao' value='Pular'> "+
-                "<input type='button' class='botao' value='Confirmar' id='confirm'>"+
-                "</div>"+
-                "</div>";
-                $("body").html(html);
-                $("#confirm").click(function(event) {
-                    /* Act on the event */
-                    checaQuestao();
-                });
+            "<a href='#'><img src='imagens/logo.png'></a>"+
+            "</div>"+
+            "<div id='barraTimer'>"+
+        "<input type='button' class='botao' onclick='location.reload();' value='Sair'>"+
+        "<div id='numeroQuestao'></div>"+
+        "<div id='tempo'></div>"+
+    "</div>"+
+    "<div id='resolucao'>"+
+        "<div id='enunciado'>"+
+        "</div>"+
+        "<div id='alternativas'>"+  
+        "</div>"+
+        "<div id='rodapeBotoes'>"+
+            "<input type='button' class='botao' value='Pular'> "+
+            "<input type='button' class='botao' value='Confirmar' id='confirm'>"+
+        "</div>"+
+    "</div>";
+    $("body").html(html);
+    $("#confirm").click(function(event) {
+    /* Act on the event */
+    checaQuestao();
+});
 
 			$("#enunciado").html(return_data[0].titulo); //gambiarra para contornar problema indescritivel com javascript
             $("#numeroQuestao").html("1/"+return_data.length);
@@ -213,6 +213,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
             
             var return_data = hr.responseText;
             estatistics();
+            checaNivel();
             checaAchievements();
            // window.location.href = "home.html";
             
@@ -389,7 +390,7 @@ function checaQuestao() {
             console.log(estaAcertos.port);
             console.log(questCont);
 
-          } else if($('input:radio[name=answer]:checked').val()== 0){localStorage.sequences=0;}
+          }else if($('input:radio[name=answer]:checked').val()== 0){localStorage.sequences=0;}
 
           cont++;
 
@@ -431,6 +432,69 @@ function checaQuestao() {
         }
     });
 }
+    function checaNivel(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","php/professor.php",true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        var vars = "user="+localStorage.usuario;
+    
+        xhr.onreadystatechange = function(){
+	    if(xhr.readyState == 4 && xhr.status == 200){
+		    var return_data = xhr.responseText;
+            return_data = $.parseJSON(return_data);
+            //$("#prg").progressbar({value: return_data.acertos_geral});
+            //$("#prg").val(Number(return_data[0].acertos_geral));
+            //$("#prg").max(((Number(return_data[0].nivel)+1)*10)-10);
+
+            if(Number(return_data[0].acertos_geral) >= ((Number(return_data[0].nivel)+1)*15)-15){
+               levelUpP(localStorage.usuario);
+            }else{
+            
+          ///  prg.max = ((Number(return_data[0].nivel)+1)*15)-15;
+           // prg.value = Number(return_data[0].acertos_geral);
+            
+            var esch = "Nivel "+return_data[0].nivel+" - "+return_data[0].acertos_geral+" / "+(((Number(return_data[0].nivel)+1)*15)-15);
+            
+            $("#linha_dados_usuario").append(esch);
+            
+			//$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+        }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    xhr.send(vars); // Actually execute the request
+    
+    }
+    
+    function levelUpP(user){
+        
+        
+        lvl = new XMLHttpRequest(); 
+
+        lvl.open("POST","php/professor.php",true);
+        lvl.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        var vars = "usuario="+user;
+    
+        lvl.onreadystatechange = function(){
+        if(lvl.readyState == 4 && lvl.status == 200){
+            if(Number(lvl.responseText)>0){
+            alert("Muito bem!");}
+            //var return_data = lvl.responseText;
+            //return_data = $.parseJSON(return_data);
+            //console.log(return_data[0].nivel);
+            
+            //$("#linha_dados_usuario").append("Nivel "+return_data[0].nivel);
+            
+            //$("#linha_dados_usuario").append(esch);
+            
+            //$("#fraseTeacher").html(return_data[0].content); //gambiarra para contornar problema indescritivel com javascript
+        }
+        }
+
+         lvl.send(vars);
+    }
 
 $("#confirm").click(function(event) {
     /* Act on the event */
@@ -448,7 +512,7 @@ function restart() {
         console.log(this.duration);
         console.log(this.duration - this.time);
         console.log(((this.duration - this.time)*100)/this.duration);
-        if(((this.duration - this.time)*100)/this.duration>=10 && ((this.duration - this.time)*100)/this.duration<95){
+        if(((this.duration - this.time)*100)/this.duration>=90 && ((this.duration - this.time)*100)/this.duration<95){
             $("#tempo").css("color","#CC6600");
         }
         if(((this.duration - this.time)*100)/this.duration >=95){

@@ -118,6 +118,7 @@ html, body{
 	float: right;
 	position: relative;
 	display: inline-block;
+	margin-top:50px;
 	/* border: 1px solid #00f; */
 	width: 7%;
 	height: 100%;
@@ -218,8 +219,21 @@ html, body{
 	background-position: center;
 }
 
+.insignia_estrela_conquistada {
+	border-color: #6bbc43;
+	background-image: url('../imagens/icones/estrela_100_3.png');
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: center;
+}
+
 .insignia_chapeu {
 	background-image: url('../imagens/icones/beca_100_1.png');
+}
+
+.insignia_chapeu_conquistada {
+	border-color: #6bbc43;
+	background-image: url('../imagens/icones/beca_100_3.png');
 }
 
 .descricao_insignia {

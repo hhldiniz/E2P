@@ -1,6 +1,6 @@
 <?php
 	
-	$conexao=mysql_connect("localhost","root","");
+	$conexao=mysql_connect("localhost","root","1234");
 	mysql_select_db("e2p");	
 
 	$usuario = $_POST['usuario'];
@@ -39,6 +39,7 @@
     $sql .= ",acertos_fil = acertos_fil + ".$acertosmat->fil."";
     $sql .= ",acertos_fis = acertos_fis + ".$acertosmat->fis."";
     $sql .= ",acertos_bio = acertos_bio + ".$acertosmat->bio."";
+    $sql .= ",jogos_realizados = jogos_realizados + 1";
 
     $sql .= " WHERE user='".$usuario."'";
 

@@ -1,8 +1,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
         <title>Impulso - Insignias</title>
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/estilos_home.css" rel="stylesheet">
@@ -21,6 +19,8 @@
     <script src="js/validar.js"></script>
     <script src="js/ajax.js"></script>
     <script src='js/comportamentoBotoes.js'></script>
+    <script src="js/bloqueiaPagina.js"></script>
+    <script src='js/achievements.js'></script>
 </head>
 <body>
     <script id="xdkJSonDeviceReady_">
@@ -30,6 +30,7 @@
             }
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
+        checaConquistas();
     </script>
 
 	<div id='barraSuperior'>
@@ -66,66 +67,123 @@
     </div>
 
 	<div id='ilustracao'>
-        <center><p id="fraseTeacher"></p></center>
         <div id='conteudo'>
             <div id='area_sub_menus'>
                 <div class='item_menu_lateral'>
-                    <div class='icone_menu estrela_selecionado selecionado'></div>
-                    <div class='nome_menu_esq'>Medalhas</div>
+                    <div id='sub_estrela' class='icone_menu estrela_selecionado selecionado'></div>
+                    <div class='nome_menu_esq'>Conquistas</div>
                 </div>
 
                 <div class='item_menu_lateral'>
-                    <div class='icone_menu chapeu'></div>
+                    <div id='sub_chapeu' class='icone_menu chapeu'></div>
                 </div>
             </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
+            <div id='ins_estrelas'>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Parafuso</div>
+                    <div id='parafuso' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>Primeira sequência terminada.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Engrenagens</div>
+                    <div id='engrenagens' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>10 sequências terminadas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Motor</div>
+                    <div id='motor' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>30 sequências terminadas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Propulsor</div>
+                    <div id='propulsor' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>50 sequências terminadas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Vega</div>
+                    <div id='vega' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>25 respostas<br>corretas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Capella</div>
+                    <div id='capella' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>40 respostas<br>corretas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Aldebaran</div>
+                    <div id='aldebaran' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>80 respostas<br>corretas.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Regulus</div>
+                    <div id='regulus' class='simbolo_insignia insignia_estrela'></div>
+                    <div class='descricao_insignia'>100 respostas<br>corretas.</div>
+                </div>
+
             </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_chapeu'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
+            <div id='ins_chapeu' style='display: none;'>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
+                <div class='insignia'>
+                    <div class='nome_insignia'>Matemático</div>
+                    <div id='matematico' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Matemática.</div>
+                </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
+                <div class='insignia'>
+                    <div class='nome_insignia'>Historiador</div>
+                    <div id='historiador' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de História.</div>
+                </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
+                <div class='insignia'>
+                    <div class='nome_insignia'>Geógrafo</div>
+                    <div id='geografo' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Geografia.</div>
+                </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
-            </div>
+                <div class='insignia'>
+                    <div class='nome_insignia'>Linguísta</div>
+                    <div id='linguista' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Português.</div>
+                </div>
 
-            <div class='insignia'>
-                <div class='nome_insignia'>Nome Insignia</div>
-                <div class='simbolo_insignia insignia_estrela'></div>
-                <div class='descricao_insignia'>Descrição do desafio a ser feito.</div>
+                <div class='insignia'>
+                    <div class='nome_insignia'>Físico</div>
+                    <div id='fisico' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Física.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Biologo</div>
+                    <div id='biologo' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Biologia.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Químico </div>
+                    <div id='quimico' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 50 perguntas de Química.</div>
+                </div>
+
+                <div class='insignia'>
+                    <div class='nome_insignia'>Cientista</div>
+                    <div id='cientista' class='simbolo_insignia insignia_chapeu'></div>
+                    <div class='descricao_insignia'>Responder 400 perguntas.</div>
+                </div>
             </div>
+            
+
         </div>                
 	</div>
 

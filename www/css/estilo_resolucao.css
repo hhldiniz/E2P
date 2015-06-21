@@ -24,6 +24,10 @@
   min-height: 200px;
 }
 
+#alternativas {
+  min-height: 180px;
+}
+
 #numeroQuestao {
   text-align: center;
   width: 80px;
