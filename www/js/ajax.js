@@ -110,7 +110,7 @@ function ajax_cadastro() //função ajax para cadastro do usuário
 
 function ajaxCadastraQuestao() //função para cadastro da questão
 {
-	 httpRequestCreate("GET","php/cadastroQuestoes.php");
+	 httpRequestCreate("POST","php/cadastroQuestoes.php");
 	var questao_texto=$("#questao_texto").val();
     
     var opcoes = [];
@@ -137,12 +137,12 @@ function ajaxCadastraQuestao() //função para cadastro da questão
 			if(Number(return_data)>0){
         	alert("Questão cadastrada!");
 	    }
-		else
-		console.log("Erro ao cadastrar a questão");
-    }
+		else{
+		console.log("Erro ao cadastrar a questão");}
+    }};
     // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
     $("#status").html("processing...");	
-}
+
 }
 

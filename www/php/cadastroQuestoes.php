@@ -1,14 +1,27 @@
 
 	<?php
-		$questao_titulo=$_GET['questao_titulo'];
-		$questao_texto=$_GET['questao_texto'];
-		$alternativa=$_GET['alternativa'];
-		$materia=$_GET['materia'];
-		$nivel=$_GET['nivel'];
+		
+		$questao_texto=$_POST['questao_texto'];
+		$opcoes = $_POST['opcoes'];
+		$materia=$_POST['materia'];
+		$nivel=$_POST['nivel'];
+
+        $opcoes = json_decode($opcoes);
+
 		$conexao=mysql_connect("localhost","root","");
 		mysql_select_db("e2p");
-		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_titulo."','".$nivel."','".$materia."'");
-		$resultado2=mysql_query("INSERT INTO opcoes VALUES"."'".$questao_texto."','".$alternativa."','LAST_INSERT_ID()'");
+        
+        $sql2 = "INSERT INTO opcoes(content, right_answer, question_id)
+        VALUES ";
+
+        foreach ($opcoes as &$value) {
+            $sql2 .= "( '".$value->content."', '".$value->right_answer."', LAST_INSERT_ID() ),";
+        }
+            $sql2 .="()";
+                
+
+		$resultado=mysql_query("INSERT INTO questoes VALUES"."'".$questao_texto."','".$nivel."','".$materia."'");
+		$resultado2=mysql_query($sql2);
 		if($resultado && $resultado2)
 		{
 			echo("1");
