@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
 	$("#sair").click(function(){
-		localStorage.setItem("usuario", null);
-		location.href="index.html";
+		if($(location).attr("href")=="http://localhost/E2P/www/home.html"){
+			localStorage.setItem("usuario", null);
+			location.href="index.html";
+		}
 	});
 	$("#foguete").click(function(){
 		location.href="home.html";
