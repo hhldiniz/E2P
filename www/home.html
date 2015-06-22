@@ -32,7 +32,9 @@
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
     </script>
 	
-	<script>function iniciaPartida()
+	<script>
+        checaConquistas();
+        function iniciaPartida()
 		{
 			location.href="http://localhost/E2P/www/html/partida.html";
 		}

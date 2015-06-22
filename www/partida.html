@@ -18,6 +18,9 @@
         @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
         /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
     </style>
+        
+        <link href="js/simply-toast.min.css" rel="stylesheet">
+        
     <script src="cordova.js" id="xdkJScordova_"></script>
     <script src="intelxdk.js"></script>
     <script src="xhr.js"></script>
@@ -31,6 +34,9 @@
     <script src="js/quest.js"></script>
     <script src='js/comportamentoBotoes.js'></script>
     <script src="js/bloqueiaPagina.js"></script>
+    
+        <script src="js/simply-toast.min.js"></script>
+        
     <script id="xdkJSonDeviceReady_">
         function onDeviceReady() {                                          // ignored by "Standard HTML5 web app"
             if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova hide splashscreen detected, use it

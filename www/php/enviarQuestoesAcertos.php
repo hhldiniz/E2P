@@ -1,6 +1,6 @@
 <?php
 	
-	$conexao=mysql_connect("localhost","root","1234");
+	$conexao=mysql_connect("localhost","root","");
 	mysql_select_db("e2p");	
 
 	$usuario = $_POST['usuario'];
