@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `questoes` (
 --
 
 INSERT INTO `questoes` (`id`, `titulo`, `idNivel`, `id_mate`) VALUES
-(1, 'Quanto ? 2 + 2?', 1, 1),
+(1, 'Quanto é  2 + 2?', 1, 1),
 (2, 'X + 2 = 4. Qual o valor de X? ', 3, 1),
 (3, '5+5 = ?', 2, 1),
 (4, 'Como Tiradentes foi morto?', 1, 3),
