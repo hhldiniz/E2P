@@ -77,6 +77,7 @@ function checaConquistas() {
         if (total >= 400) {
 			$("#cientista").removeClass("insignia_chapeu");
 			$("#cientista").addClass("insignia_chapeu_conquistada");
+            $("#scidesc").html("Responder 400 perguntas.")
         }
         if (return_data[0].acertos_mat >= 50) {
 			$("#matematico").removeClass("insignia_chapeu");
@@ -97,6 +98,7 @@ function checaConquistas() {
         if (return_data[0].acertos_quim >= 50) {
 			$("#quimico").removeClass("insignia_chapeu");
 			$("#quimico").addClass("insignia_chapeu_conquistada");
+            $("#quimicodesc").html("Responder 50 perguntas de Química.")
         }
         if (return_data[0].acertos_fis >= 50) {
 			$("#fisico").removeClass("insignia_chapeu");
@@ -105,6 +107,7 @@ function checaConquistas() {
         if (return_data[0].acertos_bio >= 50) {
 			$("#biologo").removeClass("insignia_chapeu");
 			$("#biologo").addClass("insignia_chapeu_conquistada");
+
         }
             
         }else if(page === "partida.html"){
@@ -146,7 +149,7 @@ function checaConquistas() {
 
 
         if (total >= 400 && localStorage.cience == null) {
-            $.simplyToast("Titulo de Cientista Conquistado!","success");
+            $.simplyToast("Yeah, Science! <br>Titulo de Cientista Conquistado!","success");
             localStorage.cience = 1;
         }
         if (return_data[0].acertos_mat >= 50 && localStorage.math == null) {
@@ -167,7 +170,7 @@ function checaConquistas() {
             localStorage.port = 1;
         }
         if (return_data[0].acertos_quim >= 50 && localStorage.quim == null) {
-			$.simplyToast("Titulo de Quimico Conquistado!","success");
+			$.simplyToast("Say My Name <br>Titulo de Quimico Conquistado!","success");
             localStorage.quim = 1;
         }
         if (return_data[0].acertos_fis >= 50 && localStorage.fis == null) {
