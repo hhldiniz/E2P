@@ -131,7 +131,7 @@ function checaConquistas() {
 			$.simplyToast("Vega Conquistada!","success");
             localStorage.vega = 1;
         }
-        if (total >= 40 localStorage.capella == null) {
+        if (total >= 40 && localStorage.capella == null) {
             $.simplyToast("Capella Conquistado!","success");
             localStorage.capella = 1;
         }
@@ -196,7 +196,7 @@ function checaConquistas() {
         if (total >= 25 && localStorage.vega == null) {
             localStorage.vega = 1;
         }
-        if (total >= 40 localStorage.capella == null) {
+        if (total >= 40 && localStorage.capella == null) {
             localStorage.capella = 1;
         }
         if (total >= 80 && localStorage.aldebaran == null) {
@@ -216,7 +216,7 @@ function checaConquistas() {
         if (return_data[0].acertos_geo >= 50 && localStorage.geo == null) {
             localStorage.geo = 1;
         }
-        if (return_data[0].acertos_hist >= 50 && localStorage.hist == null) 
+        if (return_data[0].acertos_hist >= 50 && localStorage.hist == null) {
             localStorage.hist = 1;
         }
            
