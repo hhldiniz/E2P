@@ -114,7 +114,7 @@ var display;
         "<div id='alternativas'>"+  
         "</div>"+
         "<div id='rodapeBotoes'>"+
-            "<input type='button' class='botao' value='Pular'> "+
+            "<input type='button' class='botao' value='Pular' style='display: none !important;'> "+
             "<input type='button' class='botao' value='Confirmar' id='confirm'>"+
         "</div>"+
     "</div>";
@@ -469,6 +469,10 @@ function checaQuestao() {
     xhr.send(vars); // Actually execute the request
     
     }
+
+   
+
+        
     
     function levelUpP(user){
         
@@ -483,7 +487,11 @@ function checaQuestao() {
         lvl.onreadystatechange = function(){
         if(lvl.readyState == 4 && lvl.status == 200){
             if(Number(lvl.responseText)>0){
-            alert("Muito bem!");}
+            //alert("Muito bem!");}
+            $("body").append("<div class='lightbox'><img id='imgFoguete' src='imagens/foguete_fases/rocket8.png' height='300px'><img id='imgProfessor' src='imagens/mensagem_foguete.png' ><a href = 'javascript:void(0)'' onclick = 'fecha()'><input type='button' class='botao' value='OK'></a></div><div class='fundo_preto'></div>");
+            
+            $('.lightbox').show();
+            $('.fundo_preto').show();
             //var return_data = lvl.responseText;
             //return_data = $.parseJSON(return_data);
             //console.log(return_data[0].nivel);
