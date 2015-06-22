@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `frases` (
 --
 
 INSERT INTO `frases` (`id`, `content`, `reacao`) VALUES
-(1, 'Ol?, aprendiz! Vamos construir o nosso foguete?', 1),
+(1, 'Oi, aprendiz! Vamos construir o nosso foguete?', 1),
 (2, 'Você é um ótimo aprendiz.', 2),
 (3, 'Sabia que a NASA já tem 100 anos?', 3),
 (4, 'Obrigada por estar me ajudando, aprendiz!', 1),
