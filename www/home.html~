@@ -32,14 +32,6 @@
         }
         document.addEventListener("deviceready", onDeviceReady, false) ;    // ignored by "Standard HTML5 web app"
     </script>
-	
-	<script>
-        checaConquistas();
-        function iniciaPartida()
-		{
-			location.href="http://localhost/E2P/www/html/partida.html";
-		}
-	</script>
 
 	<div id='barraSuperior'>
         <a href="#"><img src="imagens/logo.png"></a>
