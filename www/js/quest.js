@@ -27,6 +27,8 @@ var display;
 	
 	function ajaxSelectQuest(){
 
+        window.onbeforeunload = function(){return "Todo o progresso dessa partida sera perdido ao sair antes de seu fim.";}
+
 
     var materias = [];
     materias = $('input:checkbox:checked.subjects').map(function () {
@@ -215,6 +217,7 @@ function enviarQuestoesAcertos(esta,estaacertos,numquest,acertos)
             estatistics();
             checaNivel();
             checaConquistas();
+            window.onbeforeunload = function(){};
            // window.location.href = "home.html";
             
 			//console.log(return_data); //gambiarra para contornar problema indescritivel com javascript
