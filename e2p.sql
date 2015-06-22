@@ -107,16 +107,16 @@ CREATE TABLE IF NOT EXISTS `materias` (
 --
 
 INSERT INTO `materias` (`id`, `nome`) VALUES
-(1, 'Matem?tica'),
+(1, 'Matemática'),
 (2, 'Geografia'),
-(3, 'Hist?ria'),
-(4, 'Portugu'),
-(5, 'Qu?mica'),
-(6, 'Ingl'),
+(3, 'História'),
+(4, 'Português'),
+(5, 'Química'),
+(6, 'Inglês'),
 (7, 'Espanhol'),
 (8, 'Sociologia'),
 (9, 'Filosofia'),
-(11, 'F?sica'),
+(11, 'Física'),
 (12, 'Biologia');
 
 -- --------------------------------------------------------
@@ -135,9 +135,9 @@ CREATE TABLE IF NOT EXISTS `nivel` (
 --
 
 INSERT INTO `nivel` (`idNivel`, `nivel`) VALUES
-(1, 'F?cil'),
-(2, 'M?dio'),
-(3, 'Dif?cil');
+(1, 'Fácil'),
+(2, 'Médio'),
+(3, 'Difícil');
 
 -- --------------------------------------------------------
 
@@ -171,9 +171,9 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (12, '11', 0, 3),
 (13, 'Enforcado', 1, 4),
 (14, 'Com um tiro no cocurutu', 0, 4),
-(15, 'Negaram ?gua pra ele', 0, 4),
+(15, 'Negaram água pra ele', 0, 4),
 (16, 'Ele se cansou de viver', 0, 4),
-(17, 'Cear', 0, 5),
+(17, 'Ceará', 0, 5),
 (18, 'Maranh', 0, 5),
 (19, 'Pernambuco', 0, 5),
 (20, 'Bahia', 0, 5),
@@ -181,7 +181,7 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (22, 'Enorme', 0, 6),
 (23, 'Razoavelmente Importante', 0, 6),
 (24, 'Importante', 0, 6),
-(25, 'N?o t?o Importante', 0, 6),
+(25, 'Não tão Importante', 0, 6),
 (26, 'Irrelevante', 1, 6),
 (29, '1', 1, 7),
 (30, '2', 0, 7),
@@ -199,7 +199,7 @@ INSERT INTO `opcoes` (`id`, `content`, `right_answer`, `question_id`) VALUES
 (42, 'Composto', 0, 10),
 (43, 'Com posto', 1, 10),
 (44, 'Simples', 0, 10),
-(45, 'N?o sei', 0, 10),
+(45, 'Não sei', 0, 10),
 (46, 'Pergunta la no Posto Ipiranga', 0, 10);
 
 -- --------------------------------------------------------
@@ -224,12 +224,12 @@ INSERT INTO `questoes` (`id`, `titulo`, `idNivel`, `id_mate`) VALUES
 (2, 'X + 2 = 4. Qual o valor de X? ', 3, 1),
 (3, '5+5 = ?', 2, 1),
 (4, 'Como Tiradentes foi morto?', 1, 3),
-(5, 'Qual desses estados n?o faz parte do nordeste brasileiro?', 2, 2),
-(6, 'Qual o grau de relev?ncia de ora??o subordinada para a sua vida?', 1, 4),
-(7, 'Qual o n?mero at?mico do Hidrog?nio?', 2, 5),
-(8, 'Qual o n?mero at?mico do H?lio?', 2, 5),
+(5, 'Qual desses estados não faz parte do nordeste brasileiro?', 2, 2),
+(6, 'Qual o grau de relevância de oração subordinada para a sua vida?', 1, 4),
+(7, 'Qual o número atômico do Hidrogênio?', 2, 5),
+(8, 'Qual o número atômico do Hélio?', 2, 5),
 (9, 'Quem descobriu o Brasil foi Pedro Alvares Ca...', 1, 3),
-(10, 'Na frase: "Joazinho tem um posto" Jo?ozinho ? um sujeito de que tipo?', 3, 4);
+(10, 'Na frase: "Joazinho tem um posto" Joãozinho é um sujeito de que tipo?', 3, 4);
 
 -- --------------------------------------------------------
 
