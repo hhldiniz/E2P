@@ -505,7 +505,7 @@ function checaQuestao() {
         }
 
          lvl.send(vars);
-    }
+    }}
 
 $("#confirm").click(function(event) {
     /* Act on the event */
