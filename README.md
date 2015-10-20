@@ -21,6 +21,7 @@ COMO INSTALAR
 	Pronto, basta acessar o endereço de "index.php" no seu servidor para começar a usar.
 
 OUTRAS CONSIDERAÇÕES
+
 O código composto por nós é totalmente aberto e poderá ser modificado e distribuído, apenas pedimos que seja citado a autoria, no entando existem códigos de terceiros como bibliotecas e códigos gerados pelo Intel XDK. Nós não temos vínculo algum sobre eles.
 
 Copyright © 2012-2015, Intel Corporation. All rights reserved.
